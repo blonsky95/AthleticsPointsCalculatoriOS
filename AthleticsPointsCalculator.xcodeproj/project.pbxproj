@@ -1,0 +1,352 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */; };
+		D0B2F6C025FBD1CE001F1CAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BF25FBD1CE001F1CAD /* ContentView.swift */; };
+		D0B2F6C225FBD1CF001F1CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B2F6C125FBD1CF001F1CAD /* Assets.xcassets */; };
+		D0B2F6C525FBD1CF001F1CAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B2F6C425FBD1CF001F1CAD /* Preview Assets.xcassets */; };
+		D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6C625FBD1CF001F1CAD /* Persistence.swift */; };
+		D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6C825FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D0B2F6BA25FBD1CE001F1CAD /* AthleticsPointsCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsPointsCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsCalculatorApp.swift; sourceTree = "<group>"; };
+		D0B2F6BF25FBD1CE001F1CAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D0B2F6C125FBD1CF001F1CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0B2F6C425FBD1CF001F1CAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D0B2F6C625FBD1CF001F1CAD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D0B2F6C925FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AthleticsPointsCalculator.xcdatamodel; sourceTree = "<group>"; };
+		D0B2F6CB25FBD1CF001F1CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0B2F6B725FBD1CE001F1CAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0B2F6B125FBD1CE001F1CAD = {
+			isa = PBXGroup;
+			children = (
+				D0B2F6BC25FBD1CE001F1CAD /* AthleticsPointsCalculator */,
+				D0B2F6BB25FBD1CE001F1CAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0B2F6BB25FBD1CE001F1CAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0B2F6BA25FBD1CE001F1CAD /* AthleticsPointsCalculator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0B2F6BC25FBD1CE001F1CAD /* AthleticsPointsCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */,
+				D0B2F6BF25FBD1CE001F1CAD /* ContentView.swift */,
+				D0B2F6C125FBD1CF001F1CAD /* Assets.xcassets */,
+				D0B2F6C625FBD1CF001F1CAD /* Persistence.swift */,
+				D0B2F6CB25FBD1CF001F1CAD /* Info.plist */,
+				D0B2F6C825FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld */,
+				D0B2F6C325FBD1CF001F1CAD /* Preview Content */,
+			);
+			path = AthleticsPointsCalculator;
+			sourceTree = "<group>";
+		};
+		D0B2F6C325FBD1CF001F1CAD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D0B2F6C425FBD1CF001F1CAD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0B2F6B925FBD1CE001F1CAD /* AthleticsPointsCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0B2F6CE25FBD1CF001F1CAD /* Build configuration list for PBXNativeTarget "AthleticsPointsCalculator" */;
+			buildPhases = (
+				D0B2F6B625FBD1CE001F1CAD /* Sources */,
+				D0B2F6B725FBD1CE001F1CAD /* Frameworks */,
+				D0B2F6B825FBD1CE001F1CAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AthleticsPointsCalculator;
+			productName = AthleticsPointsCalculator;
+			productReference = D0B2F6BA25FBD1CE001F1CAD /* AthleticsPointsCalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0B2F6B225FBD1CE001F1CAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					D0B2F6B925FBD1CE001F1CAD = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = D0B2F6B525FBD1CE001F1CAD /* Build configuration list for PBXProject "AthleticsPointsCalculator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0B2F6B125FBD1CE001F1CAD;
+			productRefGroup = D0B2F6BB25FBD1CE001F1CAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0B2F6B925FBD1CE001F1CAD /* AthleticsPointsCalculator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0B2F6B825FBD1CE001F1CAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B2F6C525FBD1CF001F1CAD /* Preview Assets.xcassets in Resources */,
+				D0B2F6C225FBD1CF001F1CAD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0B2F6B625FBD1CE001F1CAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */,
+				D0B2F6C025FBD1CE001F1CAD /* ContentView.swift in Sources */,
+				D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */,
+				D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D0B2F6CC25FBD1CF001F1CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D0B2F6CD25FBD1CF001F1CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0B2F6CF25FBD1CF001F1CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AthleticsPointsCalculator/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AthleticsPointsCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TatoeApps.AthleticsPointsCalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D0B2F6D025FBD1CF001F1CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AthleticsPointsCalculator/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AthleticsPointsCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TatoeApps.AthleticsPointsCalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0B2F6B525FBD1CE001F1CAD /* Build configuration list for PBXProject "AthleticsPointsCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0B2F6CC25FBD1CF001F1CAD /* Debug */,
+				D0B2F6CD25FBD1CF001F1CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0B2F6CE25FBD1CF001F1CAD /* Build configuration list for PBXNativeTarget "AthleticsPointsCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0B2F6CF25FBD1CF001F1CAD /* Debug */,
+				D0B2F6D025FBD1CF001F1CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0B2F6C825FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0B2F6C925FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodel */,
+			);
+			currentVersion = D0B2F6C925FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodel */;
+			path = AthleticsPointsCalculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D0B2F6B225FBD1CE001F1CAD /* Project object */;
+}
