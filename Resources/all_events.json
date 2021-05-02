@@ -1,0 +1,1887 @@
+[
+	{
+        "sName": "100m",
+		"sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "100m_m_ce",
+		"sCoefficients": {
+            "a":25.4347,
+            "b":18.00,
+            "c":1.81
+        }
+	},
+    {
+        "sName": "60m",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "60m_m_ce",
+        "sCoefficients": {
+            "a":58.0150,
+            "b":11.50,
+            "c":1.81
+        }
+    },
+    {
+        "sName": "Long jump",
+        "sType": "type_jump",
+        "sCategory": "category_combined_events",
+        "sKey": "long_jump_m_ce",
+        "sCoefficients": {
+            "a":0.14354,
+            "b":220.00,
+            "c":1.4
+        }
+    },
+    {
+        "sName": "Shot put",
+        "sType": "type_throw",
+        "sCategory": "category_combined_events",
+        "sKey": "shot_put_m_ce",
+        "sCoefficients": {
+            "a":51.39,
+            "b":1.5,
+            "c":1.05
+        }
+    },
+	{
+        "sName": "High jump",
+        "sType": "type_jump",
+        "sCategory": "category_combined_events",
+        "sKey": "high_jump_m_ce",
+        "sCoefficients": {
+            "a":0.8465,
+            "b":75.00,
+            "c":1.42
+        }
+	},
+
+    {
+        "sName": "400m",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "400m_m_ce",
+        "sCoefficients": {
+            "a":1.53775,
+            "b":82.00,
+            "c":1.81
+        }
+    },
+    {
+        "sName": "110mh",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "110mh_m_ce",
+        "sCoefficients": {
+            "a":5.74352,
+            "b":28.50,
+            "c":1.92
+        }
+    },
+    {
+        "sName": "60mh",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "60mh_m_ce",
+        "sCoefficients": {
+            "a":20.5173,
+            "b":15.50,
+            "c":1.92
+        }
+    },
+    {
+        "sName": "Discus",
+        "sType": "type_throw",
+        "sCategory": "category_combined_events",
+        "sKey": "discus_m_ce",
+        "sCoefficients": {
+            "a":12.91,
+            "b":4.00,
+            "c":1.10
+        }
+    },
+    {
+        "sName": "Pole vault",
+        "sType": "type_jump",
+        "sCategory": "category_combined_events",
+        "sKey": "pole_vault_m_ce",
+        "sCoefficients": {
+            "a":0.2797,
+            "b":100.00,
+            "c":1.35
+        }
+    },
+    {
+        "sName": "Javelin",
+        "sType": "type_throw",
+        "sCategory": "category_combined_events",
+        "sKey": "javelin_m_ce",
+        "sCoefficients": {
+            "a":10.14,
+            "b":7.00,
+            "c":1.08
+        }
+    },
+    {
+        "sName": "1500m",
+        "sType": "type_run_long",
+        "sCategory": "category_combined_events",
+        "sKey": "1500m_m_ce",
+        "sCoefficients": {
+            "a":0.03768,
+            "b":480.00,
+            "c":1.85
+        }
+    },
+    {
+        "sName": "1000m",
+        "sType": "type_run_long",
+        "sCategory": "category_combined_events",
+        "sKey": "1000m_m_ce",
+        "sCoefficients": {
+            "a":0.08713,
+            "b":305.50,
+            "c":1.85
+        }
+    },
+    
+    
+    
+    {
+        "sName": "100mh",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "100mh_f_ce",
+        "sCoefficients": {
+            "a":9.23076,
+            "b":26.70,
+            "c":1.835
+        }
+    },
+    {
+        "sName": "60mh",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "60mh_f_ce",
+        "sCoefficients": {
+            "a":20.0479,
+            "b":17.00,
+            "c":1.835
+        }
+    },
+    {
+        "sName": "200m",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "200m_f_ce",
+        "sCoefficients": {
+            "a":4.99087,
+            "b":42.50,
+            "c":1.81
+        }
+    },
+    {
+        "sName": "100m",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "100m_f_ce",
+        "sCoefficients": {
+            "a":17.8570,
+            "b":21.0,
+            "c":1.81
+        }
+    },
+    {
+        "sName": "400m",
+        "sType": "type_run",
+        "sCategory": "category_combined_events",
+        "sKey": "400m_f_ce",
+        "sCoefficients": {
+            "a":1.34285,
+            "b":91.7,
+            "c":1.81
+        }
+    },
+    {
+        "sName": "800m",
+        "sType": "type_run_long",
+        "sCategory": "category_combined_events",
+        "sKey": "800m_f_ce",
+        "sCoefficients": {
+            "a":0.11193,
+            "b":254.00,
+            "c":1.88
+        }
+    },
+    {
+        "sName": "1500m",
+        "sType": "type_run_long",
+        "sCategory": "category_combined_events",
+        "sKey": "1500m_f_ce",
+        "sCoefficients": {
+            "a":0.02883,
+            "b":535,
+            "c":1.88
+        }
+    },
+    {
+        "sName": "High jump",
+        "sType": "type_jump",
+        "sCategory": "category_combined_events",
+        "sKey": "high_jump_f_ce",
+        "sCoefficients": {
+            "a":1.84523,
+            "b":75.00,
+            "c":1.348
+        }
+    },
+    {
+        "sName": "Long jump",
+        "sType": "type_jump",
+        "sCategory": "category_combined_events",
+        "sKey": "long_jump_f_ce",
+        "sCoefficients": {
+            "a":0.188807,
+            "b":210.00,
+            "c":1.41
+        }
+    },
+    {
+        "sName": "Pole vault",
+        "sType": "type_jump",
+        "sCategory": "category_combined_events",
+        "sKey": "pole_vault_f_ce",
+        "sCoefficients": {
+            "a":0.44125,
+            "b":100,
+            "c":1.35
+        }
+    },
+    {
+        "sName": "Shot put",
+        "sType": "type_throw",
+        "sCategory": "category_combined_events",
+        "sKey": "shot_put_f_ce",
+        "sCoefficients": {
+            "a":56.0211,
+            "b":1.50,
+            "c":1.05
+        }
+    },
+    {
+        "sName": "Discus",
+        "sType": "type_throw",
+        "sCategory": "category_combined_events",
+        "sKey": "discus_f_ce",
+        "sCoefficients": {
+            "a":12.3311,
+            "b":3.00,
+            "c":1.10
+        }
+    },
+    {
+        "sName": "Javelin",
+        "sType": "type_throw",
+        "sCategory": "category_combined_events",
+        "sKey": "javelin_f_ce",
+        "sCoefficients": {
+            "a":15.9803,
+            "b":3.80,
+            "c":1.04
+        }
+    },
+    {
+        "sName": "100m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "100m_m_o",
+        "sCoefficients": {
+            "a":24.6422116633,
+            "b":-16.9975315583,
+            "c":-0.2186620480
+        }
+    },
+    {
+        "sName": "100m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "100m_f_o",
+        "sCoefficients": {
+            "a":9.9274264508,
+            "b":-21.9933700028,
+            "c":0.0421329658
+        }
+    },
+    {
+        "sName": "200m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "200m_m_o",
+        "sCoefficients": {
+            "a":5.0833296257,
+            "b":-35.4911115974,
+            "c":-0.0957410215
+        }
+    },
+    {
+        "sName": "200m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "200m_f_o",
+        "sCoefficients": {
+            "a":2.2422237149,
+            "b":-45.4938200765,
+            "c":0.0245765276
+        }
+    },
+    {
+        "sName": "300m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "300m_m_o",
+        "sCoefficients": {
+            "a":1.8296570247,
+            "b":-57.1976881434,
+            "c":-0.0553585925
+        }
+    },
+    {
+        "sName": "300m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "300m_f_o",
+        "sCoefficients": {
+            "a":0.6999743364,
+            "b":-76.9959087143,
+            "c":-0.0139944400
+        }
+    },
+    {
+        "sName": "400m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "400m_m_o",
+        "sCoefficients": {
+            "a":1.0210130426,
+            "b":-78.9946930564,
+            "c":0.0029880052
+        }
+    },
+    {
+        "sName": "400m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "400m_f_o",
+        "sCoefficients": {
+            "a":0.3350059758,
+            "b":-109.9942273774,
+            "c":0.0076554298
+        }
+    },
+    {
+        "sName": "110mh",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "110mh_m_o",
+        "sCoefficients": {
+            "a":7.6652061276,
+            "b":-25.7930225928,
+            "c":0.0141087786
+        }
+    },
+    {
+        "sName": "100mh",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "100mh_f_o",
+        "sCoefficients": {
+            "a":3.9822963262,
+            "b":-29.9904801411,
+            "c":0.1130387851
+        }
+    },
+    {
+        "sName": "400mh",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "400mh_m_o",
+        "sCoefficients": {
+            "a":0.5459888468,
+            "b":-95.4953371509,
+            "c":0.0002166679
+        }
+    },
+    {
+        "sName": "400mh",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "400mh_f_o",
+        "sCoefficients": {
+            "a":0.2085649572,
+            "b":-129.9952469068,
+            "c":-0.0011574468
+        }
+    },
+    {
+        "sName": "High jump",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_female",
+        "sKey": "high_jump_f_o",
+        "sCoefficients": {
+            "a":39.5579087445,
+            "b":10.5082093421,
+            "c":-4969.5880642855
+        }
+    },
+    {
+        "sName": "High jump",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_male",
+        "sKey": "high_jump_m_o",
+        "sCoefficients": {
+            "a":32.1457081634,
+            "b":11.5936889433,
+            "c":-5026.0808417004
+        }
+    },
+    {
+        "sName": "Long jump",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_male",
+        "sKey": "long_jump_m_o",
+        "sCoefficients": {
+            "a":1.9310928730,
+            "b":48.3486190515,
+            "c":-4993.8077931235
+        }
+    },
+    {
+        "sName": "Long jump",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_female",
+        "sKey": "long_jump_f_o",
+        "sCoefficients": {
+            "a":1.9581140326,
+            "b":49.4597044183,
+            "c":-5024.0505434215
+        }
+    },
+    {
+        "sName": "Triple jump",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_male",
+        "sKey": "triple_jump_m_o",
+        "sCoefficients": {
+            "a":0.4603666024,
+            "b":98.8014630138,
+            "c":-5008.9686647032
+        }
+    },
+    {
+        "sName": "Triple jump",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_female",
+        "sKey": "triple_jump_f_o",
+        "sCoefficients": {
+            "a":0.4296645887,
+            "b":105.1320544518,
+            "c":-4980.6423815636
+        }
+    },
+    {
+        "sName": "Pole vault",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_male",
+        "sKey": "pole_vault_m_o",
+        "sCoefficients": {
+            "a":3.0457199209,
+            "b":39.3358603090,
+            "c":-4993.2138282251
+        }
+    },
+    {
+        "sName": "Pole vault",
+        "sType": "type_jump",
+        "sCategory": "category_outdoor_female",
+        "sKey": "pole_vault_f_o",
+        "sCoefficients": {
+            "a":3.9325797501,
+            "b":35.0265857026,
+            "c":-5029.8531935972
+        }
+    },
+    {
+        "sName": "Discus throw",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_male",
+        "sKey": "discus_m_o",
+        "sCoefficients": {
+            "a":0.0040063129,
+            "b":2232.9834114813,
+            "c":-20003.5249226571
+        }
+    },
+    {
+        "sName": "Discus throw",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_female",
+        "sKey": "discus_f_o",
+        "sCoefficients": {
+            "a":0.0040284238,
+            "b":2226.8877644471,
+            "c":-19996.2817097077
+        }
+    },
+    {
+        "sName": "Hammer throw",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_male",
+        "sKey": "hammer_m_o",
+        "sCoefficients": {
+            "a":0.0028034429,
+            "b":2669.7566381795,
+            "c":-20002.8716570753
+        }
+    },
+    {
+        "sName": "Hammer throw",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_female",
+        "sKey": "hammer_f_o",
+        "sCoefficients": {
+            "a":0.0030967240,
+            "b":2539.8077202523,
+            "c":-19998.4991354651
+        }
+    },
+    {
+        "sName": "Javelin throw",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_male",
+        "sKey": "javelin_m_o",
+        "sCoefficients": {
+            "a":0.0024031525,
+            "b":2879.7978639657,
+            "c":-19950.9683606244
+        }
+    },
+    {
+        "sName": "Javelin throw",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_female",
+        "sKey": "javelin_f_o",
+        "sCoefficients": {
+            "a":0.0040722745,
+            "b":2215.2996127575,
+            "c":-20003.7430818798
+        }
+    },
+    {
+        "sName": "Shot put",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_male",
+        "sKey": "shot_put_m_o",
+        "sCoefficients": {
+            "a":0.0423461436,
+            "b":684.8281542324,
+            "c":-19915.7245727669
+        }
+    },
+    {
+        "sName": "Shot put",
+        "sType": "type_throw",
+        "sCategory": "category_outdoor_female",
+        "sKey": "shot_put_f_o",
+        "sCoefficients": {
+            "a":0.0462143876,
+            "b":657.3172794694,
+            "c":-19993.5978247992
+        }
+    },
+    {
+        "sName": "Decathlon",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "decathlon_m_o",
+        "sCoefficients": {
+            "a":0.0000009772,
+            "b":71186.6785041732,
+            "c":-5001.0472144005
+        }
+    },
+    {
+        "sName": "Heptathlon",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "heptathlon_f_o",
+        "sCoefficients": {
+            "a":0.0000015806,
+            "b":56004.0768596358,
+            "c":-5001.3485654597
+        }
+    },
+    {
+        "sName": "600m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "600m_m_o",
+        "sCoefficients": {
+            "a":0.3669867740,
+            "b":-130.9961594799,
+            "c":-0.0103075994
+        }
+    },
+    {
+        "sName": "600m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "600m_f_o",
+        "sCoefficients": {
+            "a":0.1191983841,
+            "b":-183.9955892216,
+            "c":-0.0026515132
+        }
+    },
+    {
+        "sName": "800m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "800m_m_o",
+        "sCoefficients": {
+            "a":0.1980049254,
+            "b":-181.9938575678,
+            "c":0.0091543669
+        }
+    },
+    {
+        "sName": "800m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "800m_f_o",
+        "sCoefficients": {
+            "a":0.0687998934,
+            "b":-249.9950232947,
+            "c":-0.0000169472
+        }
+    },
+    {
+        "sName": "1000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "1000m_m_o",
+        "sCoefficients": {
+            "a":0.1074010815,
+            "b":-329.9958136040,
+            "c":-0.0021547584
+        }
+    },
+    {
+        "sName": "1000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "1000m_f_o",
+        "sCoefficients": {
+            "a":0.0381997085,
+            "b":-239.9941856026,
+            "c":0.0042507048
+        }
+    },
+    {
+        "sName": "1500m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "1500m_m_o",
+        "sCoefficients": {
+            "a":0.0406599253,
+            "b":-384.9950051367,
+            "c":0.0012055910
+        }
+    },
+    {
+        "sName": "1500m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "1500m_f_o",
+        "sCoefficients": {
+            "a":0.0133999963,
+            "b":-539.9949703133,
+            "c":-0.0005396117
+        }
+    },
+    {
+        "sName": "1 Mile",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "1mile_m_o",
+        "sCoefficients": {
+            "a":0.0350996776,
+            "b":-414.9960661793,
+            "c":-0.0028258109
+        }
+    },
+    {
+        "sName": "1 Mile",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "1mile_f_o",
+        "sCoefficients": {
+            "a":0.0116499986,
+            "b":-579.9949693123,
+            "c":0.0004597245
+        }
+    },
+    {
+        "sName": "2000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "2000m_m_o",
+        "sCoefficients": {
+            "a":0.3669867740,
+            "b":-130.9961594799,
+            "c":-0.0103075994
+        }
+    },
+    {
+        "sName": "2000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "2000m_f_o",
+        "sCoefficients": {
+            "a":0.0067660105,
+            "b":-749.9948524357,
+            "c":0.0001847193
+        }
+    },
+    {
+        "sName": "3000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "3000m_m_o",
+        "sCoefficients": {
+            "a":0.0081500499,
+            "b":-839.9938439226,
+            "c":0.0015204438
+        }
+    },
+    {
+        "sName": "3000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "3000m_f_o",
+        "sCoefficients": {
+            "a":0.0025389975,
+            "b":-1199.9953765729,
+            "c":-0.0002368852
+        }
+    },
+    {
+        "sName": "2 Miles",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "2miles_m_o",
+        "sCoefficients": {
+            "a":0.0070299885,
+            "b":-904.7954323334,
+            "c":-0.0009453377
+        }
+    },
+    {
+        "sName": "2 Miles",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "2miles_f_o",
+        "sCoefficients": {
+            "a":0.0021569983,
+            "b":-1296.2954038511,
+            "c":-0.0002368758
+        }
+    },
+    {
+        "sName": "5000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "5000m_m_o",
+        "sCoefficients": {
+            "a":0.0027779979,
+            "b":-1439.9953256617,
+            "c":-0.0004296371
+        }
+    },
+    {
+        "sName": "5000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "5000m_f_o",
+        "sCoefficients": {
+            "a":0.0008079992,
+            "b":-2099.9956378883,
+            "c":-0.0001983631
+        }
+    },
+    {
+        "sName": "2000m Steeplechase",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "2000mSC_m_o",
+        "sCoefficients": {
+            "a":0.0102299858,
+            "b":-659.9952837440,
+            "c":-0.0004264088
+        }
+    },
+    {
+        "sName": "2000m Steeplechase",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "2000mSC_f_o",
+        "sCoefficients": {
+            "a":0.0045000012,
+            "b":-879.9946744771,
+            "c":0.0008898666
+        }
+    },
+    {
+        "sName": "3000m Steeplechase",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "3000mSC_m_o",
+        "sCoefficients": {
+            "a":0.0043159973,
+            "b":-1019.9952251094,
+            "c":-0.0005178463
+        }
+    },
+    {
+        "sName": "3000m Steeplechase",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "3000mSC_f_o",
+        "sCoefficients": {
+            "a":0.0013229981,
+            "b":-1509.9954525199,
+            "c":-0.0000262420
+        }
+    },
+    {
+        "sName": "10000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "10000m_m_o",
+        "sCoefficients": {
+            "a":0.0005239994,
+            "b":-3149.9962170853,
+            "c":-0.0004979093
+        }
+    },
+    {
+        "sName": "10000m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "10000m_f_o",
+        "sCoefficients": {
+            "a":0.0001711705,
+            "b":-4500.3728183251,
+            "c":-0.1365493768
+        }
+    },
+    {
+        "sName": "4x100m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_male",
+        "sKey": "4x100m_m_o",
+        "sCoefficients": {
+            "a":1.2360320754,
+            "b":-69.4946755547,
+            "c":0.0020228151
+        }
+    },
+    {
+        "sName": "4x100m",
+        "sType": "type_run",
+        "sCategory": "category_outdoor_female",
+        "sKey": "4x100m_f_o",
+        "sCoefficients": {
+            "a":0.3895003606,
+            "b":-97.9948488911,
+            "c":0.0029041676
+        }
+    },
+    {
+        "sName": "4x200m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "4x200m_m_o",
+        "sCoefficients": {
+            "a":0.2976775548,
+            "b":-143.9939035213,
+            "c":0.0118168894
+        }
+    },
+    {
+        "sName": "4x200m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "4x200m_f_o",
+        "sCoefficients": {
+            "a":0.0794985466,
+            "b":-211.9961734118,
+            "c":-0.0049477681
+        }
+    },
+    {
+        "sName": "4x400m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "4x400m_m_o",
+        "sCoefficients": {
+            "a":0.0502588314,
+            "b":-333.9973041754,
+            "c":-0.0080115351
+        }
+    },
+    {
+        "sName": "4x400m",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "4x400m_f_o",
+        "sCoefficients": {
+            "a":0.0156200769,
+            "b":-479.9939979174,
+            "c":0.0031084665
+        }
+    },
+    {
+        "sName": "Road - 10 Miles",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_10miles_m_o",
+        "sCoefficients": {
+            "a":0.0001852499,
+            "b":-5249.1013647510,
+            "c":0.1014745309
+        }
+    },
+    {
+        "sName": "Road - 10 Miles",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_10miles_f_o",
+        "sCoefficients": {
+            "a":0.0000630001,
+            "b":-7437.4758774148,
+            "c":0.0080292585
+        }
+    },
+    {
+        "sName": "Road - 10km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_10km_m_o",
+        "sCoefficients": {
+            "a":0.0005287550,
+            "b":-3149.1524016199,
+            "c":0.0690327319
+        }
+    },
+    {
+        "sName": "Road - 10km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_10km_f_o",
+        "sCoefficients": {
+            "a":0.0001742155,
+            "b":-4499.3728557918,
+            "c":0.0189492422
+        }
+    },
+    {
+        "sName": "Road - 15km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_15km_m_o",
+        "sCoefficients": {
+            "a":0.0002161981,
+            "b":-4867.5076944338,
+            "c":-0.0026187446
+        }
+    },
+    {
+        "sName": "Road - 15km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_15km_f_o",
+        "sCoefficients": {
+            "a":0.0000732017,
+            "b":-6904.4306434582,
+            "c":0.0130446762
+        }
+    },
+    {
+        "sName": "Road - 20km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_20km_m_o",
+        "sCoefficients": {
+            "a":0.0001147009,
+            "b":-6628.4786813353,
+            "c":0.0058310275
+        }
+    },
+    {
+        "sName": "Road - 20km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_20km_f_o",
+        "sCoefficients": {
+            "a":0.0000396007,
+            "b":-9356.4394963166,
+            "c":0.0048254690
+        }
+    },
+    {
+        "sName": "Road - 25km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_25km_m_o",
+        "sCoefficients": {
+            "a":0.0000676515,
+            "b":-8535.4393562416,
+            "c":0.0146077104
+        }
+    },
+    {
+        "sName": "Road - 25km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_25km_f_o",
+        "sCoefficients": {
+            "a":0.0000228009,
+            "b":-12143.3511225215,
+            "c":0.0103960906
+        }
+    },
+    {
+        "sName": "Road - 30km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_30km_m_o",
+        "sCoefficients": {
+            "a":0.0000435300,
+            "b":-10530.5042235755,
+            "c":-0.0010360804
+        }
+    },
+    {
+        "sName": "Road - 30km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_30km_f_o",
+        "sCoefficients": {
+            "a":0.0000142603,
+            "b":-15122.3881022298,
+            "c":0.0055215143
+        }
+    },
+    {
+        "sName": "Road - 100km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_100km_m_o",
+        "sCoefficients": {
+            "a":0.0000017650,
+            "b":-48599.6069691841,
+            "c":-0.0015614538
+        }
+    },
+    {
+        "sName": "Road - 100km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_100km_f_o",
+        "sCoefficients": {
+            "a":0.0000008740,
+            "b":-61199.5508531756,
+            "c":-0.0005792629
+        }
+    },
+    {
+        "sName": "Road - Half Marathon",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_half_marathon_m_o",
+        "sCoefficients": {
+            "a":0.0001020050,
+            "b":-7019.4133397892,
+            "c":0.0119952047
+        }
+    },
+    {
+        "sName": "Road - Half Marathon",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_half_marathon_f_o",
+        "sCoefficients": {
+            "a":0.0000352993,
+            "b":-9899.5699844392,
+            "c":-0.0079093982
+        }
+    },
+    {
+        "sName": "Road - Marathon",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "road_marathon_m_o",
+        "sCoefficients": {
+            "a":0.0000191003,
+            "b":-15599.4039272134,
+            "c":0.0084789663
+        }
+    },
+    {
+        "sName": "Road - Marathon",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "road_marathon_f_o",
+        "sCoefficients": {
+            "a":0.0000059501,
+            "b":-22799.3431644815,
+            "c":0.0052008190
+        }
+    },
+    {
+        "sName": "Racewalk - 3km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "race_3km_m_o",
+        "sCoefficients": {
+            "a":0.0012098241,
+            "b":-1649.4765816626,
+            "c":-0.0505185382
+        }
+    },
+    {
+        "sName": "Racewalk - 3km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "race_3km_f_o",
+        "sCoefficients": {
+            "a":0.0008815855,
+            "b":-1870.3738882049,
+            "c":0.0003505436
+        }
+    },
+    {
+        "sName": "Racewalk - 5km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "race_5km_m_o",
+        "sCoefficients": {
+            "a":0.0004362569,
+            "b":-2759.0822412767,
+            "c":0.1020221477
+        }
+    },
+    {
+        "sName": "Racewalk - 5km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "race_5km_f_o",
+        "sCoefficients": {
+            "a":0.0003247214,
+            "b":-3139.1595926748,
+            "c":0.0774715361
+        }
+    },
+    {
+        "sName": "Racewalk - 10km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "race_10km_m_o",
+        "sCoefficients": {
+            "a":0.0001117981,
+            "b":-5579.5315898026,
+            "c":-0.0080979259
+        }
+    },
+    {
+        "sName": "Racewalk - 10km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "race_10km_f_o",
+        "sCoefficients": {
+            "a":0.0000779012,
+            "b":-6436.4586699003,
+            "c":0.0060104500
+        }
+    },
+    {
+        "sName": "Racewalk - 20km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "race_20km_m_o",
+        "sCoefficients": {
+            "a":0.0000273504,
+            "b":-11399.4559313645,
+            "c":0.0012286251
+        }
+    },
+    {
+        "sName": "Racewalk - 20km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "race_20km_f_o",
+        "sCoefficients": {
+            "a":0.0000186999,
+            "b":-13199.5111582929,
+            "c":0.0001676005
+        }
+    },
+    {
+        "sName": "Racewalk - 30km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "race_30km_m_o",
+        "sCoefficients": {
+            "a":0.0000089299,
+            "b":-19109.6015775776,
+            "c":-0.0054860378
+        }
+    },
+    {
+        "sName": "Racewalk - 30km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "race_30km_f_o",
+        "sCoefficients": {
+            "a":0.0000068999,
+            "b":-21544.6466392712,
+            "c":-0.0051495959
+        }
+    },
+    {
+        "sName": "Racewalk - 35km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "race_35km_m_o",
+        "sCoefficients": {
+            "a":0.0000057601,
+            "b":-23399.3873516061,
+            "c":0.0029317504
+        }
+    },
+    {
+        "sName": "Racewalk - 50km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_male",
+        "sKey": "race_50km_m_o",
+        "sCoefficients": {
+            "a":0.0000021240,
+            "b":-37199.5521047347,
+            "c":-0.0008918298
+        }
+    },
+    {
+        "sName": "Racewalk - 50km",
+        "sType": "type_run_long",
+        "sCategory": "category_outdoor_female",
+        "sKey": "race_50km_f_o",
+        "sCoefficients": {
+            "a":0.0000019600,
+            "b":-39951.5338662223,
+            "c":-0.0002048037
+        }
+    },
+    {
+        "sName": "50m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "50m_m_i",
+        "sCoefficients": {
+            "a":95.8223538630,
+            "b":-9.1994010874,
+            "c":-0.3765978316
+        }
+    },
+    {
+        "sName": "50m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "50m_f_i",
+        "sCoefficients": {
+            "a":33.0462434523,
+            "b":-12.0979307449,
+            "c":-0.2321096149
+        }
+    },
+    {
+        "sName": "55m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "55m_m_i",
+        "sCoefficients": {
+            "a":78.9227608846,
+            "b":-9.9991682963,
+            "c":-0.3262593216
+        }
+    },
+    {
+        "sName": "55m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "55m_f_i",
+        "sCoefficients": {
+            "a":27.6922288869,
+            "b":-13.1481380284,
+            "c":-0.3043705117
+        }
+    },
+    {
+        "sName": "60m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "60m_m_i",
+        "sCoefficients": {
+            "a":68.6203220047,
+            "b":-10.6992800164,
+            "c":-0.3594275681
+        }
+    },
+    {
+        "sName": "60m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "60m_f_i",
+        "sCoefficients": {
+            "a":24.9117754427,
+            "b":-13.9976515376,
+            "c":-0.2293776923
+        }
+    },
+    {
+        "sName": "50mh",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "50mh_m_i",
+        "sCoefficients": {
+            "a":34.2123772242,
+            "b":-12.3484992509,
+            "c":-0.2978589247
+        }
+    },
+    {
+        "sName": "50mh",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "50mh_f_i",
+        "sCoefficients": {
+            "a":16.2126653261,
+            "b":-15.2953835346,
+            "c":-0.1053761359
+        }
+    },
+    {
+        "sName": "55mh",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "55mh_m_i",
+        "sCoefficients": {
+            "a":30.0853077082,
+            "b":-13.3476676416,
+            "c":-0.2329919571
+        }
+    },
+    {
+        "sName": "55mh",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "55mh_f_i",
+        "sCoefficients": {
+            "a":13.1982215478,
+            "b":-16.7954274775,
+            "c":-0.0911772754
+        }
+    },
+    {
+        "sName": "60mh",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "60mh_m_i",
+        "sCoefficients": {
+            "a":23.9163242706,
+            "b":-14.5966339421,
+            "c":-0.1644943777
+        }
+    },
+    {
+        "sName": "60mh",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "60mh_f_i",
+        "sCoefficients": {
+            "a":11.1682818890,
+            "b":-18.1940019446,
+            "c":0.0085061498
+        }
+    },
+    {
+        "sName": "200m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "200m_m_i",
+        "sCoefficients": {
+            "a":5.0432159856,
+            "b":-35.9910107213,
+            "c":0.1193936923
+        }
+    },
+    {
+        "sName": "200m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "200m_f_i",
+        "sCoefficients": {
+            "a":1.9616411646,
+            "b":-47.4976950867,
+            "c":-0.0697455752
+        }
+    },
+    {
+        "sName": "300m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "300m_m_i",
+        "sCoefficients": {
+            "a":1.8029166507,
+            "b":-57.9959412461,
+            "c":-0.0339878087
+        }
+    },
+    {
+        "sName": "300m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "300m_f_i",
+        "sCoefficients": {
+            "a":0.6595165231,
+            "b":-78.9940494903,
+            "c":0.0176083216
+        }
+    },
+    {
+        "sName": "400m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "400m_m_i",
+        "sCoefficients": {
+            "a":0.9810343085,
+            "b":-80.5943092492,
+            "c":0.0100805172
+        }
+    },
+    {
+        "sName": "400m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "400m_f_i",
+        "sCoefficients": {
+            "a":0.3223966170,
+            "b":-111.9954899416,
+            "c":-0.0058333313
+        }
+    },
+    {
+        "sName": "500m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "500m_m_i",
+        "sCoefficients": {
+            "a":0.5649640314,
+            "b":-105.9967162205,
+            "c":-0.0223133096
+        }
+    },
+    {
+        "sName": "500m",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "500m_f_i",
+        "sCoefficients": {
+            "a":0.1713990152,
+            "b":-150.4950203151,
+            "c":0.0051908612
+        }
+    },
+    {
+        "sName": "600m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "600m_m_i",
+        "sCoefficients": {
+            "a":0.3899861153,
+            "b":-130.9961383961,
+            "c":-0.0107176039
+        }
+    },
+    {
+        "sName": "600m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "600m_f_i",
+        "sCoefficients": {
+            "a":0.1063013220,
+            "b":-190.3440098081,
+            "c":0.0091340263
+        }
+    },
+    {
+        "sName": "800m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "800m_m_i",
+        "sCoefficients": {
+            "a":0.1973925611,
+            "b":-183.9969956062,
+            "c":-0.0163487860
+        }
+    },
+    {
+        "sName": "800m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "800m_f_i",
+        "sCoefficients": {
+            "a":0.0572001165,
+            "b":-263.9946646628,
+            "c":0.0030507986
+        }
+    },
+    {
+        "sName": "1000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "1000m_m_i",
+        "sCoefficients": {
+            "a":0.1138977865,
+            "b":-239.9960148998,
+            "c":-0.0046409292
+        }
+    },
+    {
+        "sName": "1000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "1000m_f_i",
+        "sCoefficients": {
+            "a":0.0347303143,
+            "b":-340.3940084944,
+            "c":0.0038176306
+        }
+    },
+    {
+        "sName": "1500m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "1500m_m_i",
+        "sCoefficients": {
+            "a":0.0419999885,
+            "b":-385.9950544882,
+            "c":-0.0003541283
+        }
+    },
+    {
+        "sName": "1500m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "1500m_f_i",
+        "sCoefficients": {
+            "a":0.0136499412,
+            "b":-539.9956644344,
+            "c":-0.0008961974
+        }
+    },
+    {
+        "sName": "1 Mile",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "1mile_m_i",
+        "sCoefficients": {
+            "a":0.0369000074,
+            "b":-414.9952787475,
+            "c":-0.0011489453
+        }
+    },
+    {
+        "sName": "1 Mile",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "1mile_f_i",
+        "sCoefficients": {
+            "a":0.0115400273,
+            "b":-585.4943375501,
+            "c":0.0016038837
+        }
+    },
+    {
+        "sName": "2000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "2000m_m_i",
+        "sCoefficients": {
+            "a":0.0226000035,
+            "b":-527.9948971024,
+            "c":0.0000435776
+        }
+    },
+    {
+        "sName": "2000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "2000m_f_i",
+        "sCoefficients": {
+            "a":0.0068499998,
+            "b":-752.1949210708,
+            "c":0.0002786803
+        }
+    },
+    {
+        "sName": "3000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "3000m_m_i",
+        "sCoefficients": {
+            "a":0.0083219192,
+            "b":-839.9970746667,
+            "c":-0.0027639444
+        }
+    },
+    {
+        "sName": "3000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "3000m_f_i",
+        "sCoefficients": {
+            "a":0.0025900009,
+            "b":-1199.9946258953,
+            "c":0.0005730322
+        }
+    },
+    {
+        "sName": "2 Miles",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "2miles_m_i",
+        "sCoefficients": {
+            "a":0.0072099692,
+            "b":-906.9958053163,
+            "c":-0.0012099440
+        }
+    },
+    {
+        "sName": "2 Miles",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "2miles_f_i",
+        "sCoefficients": {
+            "a":0.0022019898,
+            "b":-1296.2971509252,
+            "c":-0.0015550154
+        }
+    },
+    {
+        "sName": "5000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "5000m_m_i",
+        "sCoefficients": {
+            "a":0.0029000031,
+            "b":-1439.9944442896,
+            "c":0.0004079214
+        }
+    },
+    {
+        "sName": "5000m",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "5000m_f_i",
+        "sCoefficients": {
+            "a":0.0008250002,
+            "b":-2099.9945836524,
+            "c":0.0004364654
+        }
+    },
+    {
+        "sName": "4x200",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "4x200_m_i",
+        "sCoefficients": {
+            "a":0.3119844823,
+            "b":-143.9971416694,
+            "c":-0.0252237437
+        }
+    },
+    {
+        "sName": "4x200",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "4x200_f_i",
+        "sCoefficients": {
+            "a":0.0825999218,
+            "b":-211.9949807338,
+            "c":0.0007540780
+        }
+    },
+    {
+        "sName": "4x400",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_male",
+        "sKey": "4x400_m_i",
+        "sCoefficients": {
+            "a":0.0489005767,
+            "b":-339.9937188583,
+            "c":0.0054240683
+        }
+    },
+    {
+        "sName": "4x400",
+        "sType": "type_run_long",
+        "sCategory": "category_indoor_female",
+        "sKey": "4x400_f_i",
+        "sCoefficients": {
+            "a":0.0155000012,
+            "b":-483.9954080687,
+            "c":-0.0021634214
+        }
+    },
+    {
+        "sName": "High jump",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_male",
+        "sKey": "high_jump_m_i",
+        "sCoefficients": {
+            "a":32.1457081634,
+            "b":11.5936889433,
+            "c":-5026.0808417004
+        }
+    },
+    {
+        "sName": "High jump",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_female",
+        "sKey": "high_jump_f_i",
+        "sCoefficients": {
+            "a":39.5579087445,
+            "b":10.5082093421,
+            "c":-4969.5880642855
+        }
+    },
+    {
+        "sName": "Long jump",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_male",
+        "sKey": "long_jump_m_i",
+        "sCoefficients": {
+            "a":1.9310928730,
+            "b":48.3486190515,
+            "c":-4993.8077931235
+        }
+    },
+    {
+        "sName": "Long jump",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_female",
+        "sKey": "long_jump_f_i",
+        "sCoefficients": {
+            "a":1.9581140326,
+            "b":49.4597044183,
+            "c":-5024.0505434215
+        }
+    },
+    {
+        "sName": "Triple jump",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_male",
+        "sKey": "triple_jump_m_i",
+        "sCoefficients": {
+            "a":0.4603666024,
+            "b":98.8014630138,
+            "c":-5008.9686647032
+        }
+    },
+    {
+        "sName": "Triple jump",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_female",
+        "sKey": "triple_jump_f_i",
+        "sCoefficients": {
+            "a":0.4296645887,
+            "b":105.1320544518,
+            "c":-4980.6423815636
+        }
+    },
+    {
+        "sName": "Pole vault",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_male",
+        "sKey": "pole_vault_m_i",
+        "sCoefficients": {
+            "a":3.0457199209,
+            "b":39.3358603090,
+            "c":-4993.2138282251
+        }
+    },
+    {
+        "sName": "Pole vault",
+        "sType": "type_jump",
+        "sCategory": "category_indoor_female",
+        "sKey": "pole_vault_f_i",
+        "sCoefficients": {
+            "a":3.9325797501,
+            "b":35.0265857026,
+            "c":-5029.8531935972
+        }
+    },
+    {
+        "sName": "Shot put",
+        "sType": "type_throw",
+        "sCategory": "category_indoor_male",
+        "sKey": "shot_put_m_i",
+        "sCoefficients": {
+            "a":0.0423461436,
+            "b":684.8281542324,
+            "c":-19915.7245727669
+        }
+    },
+    {
+        "sName": "Shot put",
+        "sType": "type_throw",
+        "sCategory": "category_indoor_female",
+        "sKey": "shot_put_f_i",
+        "sCoefficients": {
+            "a":0.0462143876,
+            "b":657.3172794694,
+            "c":-19993.5978247992
+        }
+    },
+    {
+        "sName": "Heptathlon",
+        "sType": "type_run",
+        "sCategory": "category_indoor_male",
+        "sKey": "heptathlon_m_i",
+        "sCoefficients": {
+            "a":0.0000017511,
+            "b":53203.5391079802,
+            "c":-5002.8876894102
+        }
+    },
+    {
+        "sName": "Pentathlon",
+        "sType": "type_run",
+        "sCategory": "category_indoor_female",
+        "sKey": "pentathlon_f_i",
+        "sCoefficients": {
+            "a":0.0000029452,
+            "b":41021.7737084897,
+            "c":-4998.5983727330
+        }
+    }
+]

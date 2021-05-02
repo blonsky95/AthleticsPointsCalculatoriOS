@@ -7,23 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D002AD7F2629E2D700472723 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD7E2629E2D700472723 /* ContentView.swift */; };
+		D002AD822629E61000472723 /* SavedPerformancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD812629E61000472723 /* SavedPerformancesView.swift */; };
+		D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */; };
+		D002AD8E2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */; };
+		D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */; };
+		D05377DF263EF06B00FDEAF3 /* String-NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */; };
+		D06C6CCB25FE908D00A0F292 /* AthleticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C6CCA25FE908D00A0F292 /* AthleticsEvent.swift */; };
+		D06C6CCF25FEA60000A0F292 /* all_events.json in Resources */ = {isa = PBXBuildFile; fileRef = D06C6CCE25FEA60000A0F292 /* all_events.json */; };
+		D06C6CD225FEA71000A0F292 /* EventsDataObtainerAndHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C6CD125FEA71000A0F292 /* EventsDataObtainerAndHelper.swift */; };
+		D06C6CD525FEB69A00A0F292 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C6CD425FEB69A00A0F292 /* Bundle-Decodable.swift */; };
+		D09063E825FFD5E100D666BE /* SingleEventScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */; };
+		D095E1DA26011971008E05F4 /* DynamicPerformanceCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */; };
+		D0963955260522950026DFA7 /* CustomEventPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0963954260522950026DFA7 /* CustomEventPicker.swift */; };
 		D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */; };
-		D0B2F6C025FBD1CE001F1CAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BF25FBD1CE001F1CAD /* ContentView.swift */; };
+		D0B2F6C025FBD1CE001F1CAD /* EventSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */; };
 		D0B2F6C225FBD1CF001F1CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B2F6C125FBD1CF001F1CAD /* Assets.xcassets */; };
 		D0B2F6C525FBD1CF001F1CAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B2F6C425FBD1CF001F1CAD /* Preview Assets.xcassets */; };
 		D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6C625FBD1CF001F1CAD /* Persistence.swift */; };
 		D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6C825FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld */; };
+		D0B2F6D425FBD7BD001F1CAD /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6D325FBD7BD001F1CAD /* CalculatorView.swift */; };
+		D0B2F6D725FD1B8B001F1CAD /* AthleticsPointsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6D625FD1B8B001F1CAD /* AthleticsPointsEvent.swift */; };
+		D0B2F6DD25FD8319001F1CAD /* EventPointsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D002AD7E2629E2D700472723 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D002AD812629E61000472723 /* SavedPerformancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPerformancesView.swift; sourceTree = "<group>"; };
+		D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSavedPerformance+CoreDataClass.swift"; path = "DataModel/UserSavedPerformance+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSavedPerformance+CoreDataProperties.swift"; path = "DataModel/UserSavedPerformance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsEventPerformance.swift; sourceTree = "<group>"; };
+		D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-NumberFormatter.swift"; sourceTree = "<group>"; };
+		D06C6CCA25FE908D00A0F292 /* AthleticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsEvent.swift; sourceTree = "<group>"; };
+		D06C6CCE25FEA60000A0F292 /* all_events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_events.json; sourceTree = "<group>"; };
+		D06C6CD125FEA71000A0F292 /* EventsDataObtainerAndHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataObtainerAndHelper.swift; sourceTree = "<group>"; };
+		D06C6CD425FEB69A00A0F292 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventScoreView.swift; sourceTree = "<group>"; };
+		D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPerformanceCollector.swift; sourceTree = "<group>"; };
+		D0963954260522950026DFA7 /* CustomEventPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEventPicker.swift; sourceTree = "<group>"; };
 		D0B2F6BA25FBD1CE001F1CAD /* AthleticsPointsCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsPointsCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsCalculatorApp.swift; sourceTree = "<group>"; };
-		D0B2F6BF25FBD1CE001F1CAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSelectorView.swift; sourceTree = "<group>"; };
 		D0B2F6C125FBD1CF001F1CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0B2F6C425FBD1CF001F1CAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D0B2F6C625FBD1CF001F1CAD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D0B2F6C925FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AthleticsPointsCalculator.xcdatamodel; sourceTree = "<group>"; };
 		D0B2F6CB25FBD1CF001F1CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0B2F6D325FBD7BD001F1CAD /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		D0B2F6D625FD1B8B001F1CAD /* AthleticsPointsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsEvent.swift; sourceTree = "<group>"; };
+		D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPointsHolder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,9 +69,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D095E1D8260118BE008E05F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0B2F6D325FBD7BD001F1CAD /* CalculatorView.swift */,
+				D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */,
+				D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */,
+				D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */,
+				D0963954260522950026DFA7 /* CustomEventPicker.swift */,
+				D002AD812629E61000472723 /* SavedPerformancesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D095E1DD26011AA8008E05F4 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				D06C6CCA25FE908D00A0F292 /* AthleticsEvent.swift */,
+				D0B2F6D625FD1B8B001F1CAD /* AthleticsPointsEvent.swift */,
+				D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */,
+				D06C6CD125FEA71000A0F292 /* EventsDataObtainerAndHelper.swift */,
+				D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		D095E1DE26011AE0008E05F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D06C6CD425FEB69A00A0F292 /* Bundle-Decodable.swift */,
+				D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D095E1DF26011AEF008E05F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D06C6CCE25FEA60000A0F292 /* all_events.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D0B2F6B125FBD1CE001F1CAD = {
 			isa = PBXGroup;
 			children = (
+				D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */,
+				D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */,
+				D0EB4B8626128AF700285E2F /* CoreDataEntities */,
+				D095E1DF26011AEF008E05F4 /* Resources */,
+				D095E1DE26011AE0008E05F4 /* Extensions */,
+				D095E1DD26011AA8008E05F4 /* DataModel */,
+				D095E1D8260118BE008E05F4 /* Views */,
 				D0B2F6BC25FBD1CE001F1CAD /* AthleticsPointsCalculator */,
 				D0B2F6BB25FBD1CE001F1CAD /* Products */,
 			);
@@ -57,12 +138,12 @@
 			isa = PBXGroup;
 			children = (
 				D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */,
-				D0B2F6BF25FBD1CE001F1CAD /* ContentView.swift */,
 				D0B2F6C125FBD1CF001F1CAD /* Assets.xcassets */,
 				D0B2F6C625FBD1CF001F1CAD /* Persistence.swift */,
 				D0B2F6CB25FBD1CF001F1CAD /* Info.plist */,
 				D0B2F6C825FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld */,
 				D0B2F6C325FBD1CF001F1CAD /* Preview Content */,
+				D002AD7E2629E2D700472723 /* ContentView.swift */,
 			);
 			path = AthleticsPointsCalculator;
 			sourceTree = "<group>";
@@ -73,6 +154,13 @@
 				D0B2F6C425FBD1CF001F1CAD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D0EB4B8626128AF700285E2F /* CoreDataEntities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataEntities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D06C6CCF25FEA60000A0F292 /* all_events.json in Resources */,
 				D0B2F6C525FBD1CF001F1CAD /* Preview Assets.xcassets in Resources */,
 				D0B2F6C225FBD1CF001F1CAD /* Assets.xcassets in Resources */,
 			);
@@ -144,10 +233,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09063E825FFD5E100D666BE /* SingleEventScoreView.swift in Sources */,
+				D06C6CD225FEA71000A0F292 /* EventsDataObtainerAndHelper.swift in Sources */,
+				D095E1DA26011971008E05F4 /* DynamicPerformanceCollector.swift in Sources */,
 				D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */,
-				D0B2F6C025FBD1CE001F1CAD /* ContentView.swift in Sources */,
+				D0B2F6D425FBD7BD001F1CAD /* CalculatorView.swift in Sources */,
+				D0B2F6D725FD1B8B001F1CAD /* AthleticsPointsEvent.swift in Sources */,
+				D0B2F6C025FBD1CE001F1CAD /* EventSelectorView.swift in Sources */,
+				D06C6CD525FEB69A00A0F292 /* Bundle-Decodable.swift in Sources */,
+				D0963955260522950026DFA7 /* CustomEventPicker.swift in Sources */,
+				D002AD8E2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift in Sources */,
+				D002AD822629E61000472723 /* SavedPerformancesView.swift in Sources */,
+				D06C6CCB25FE908D00A0F292 /* AthleticsEvent.swift in Sources */,
+				D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */,
+				D002AD7F2629E2D700472723 /* ContentView.swift in Sources */,
+				D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */,
 				D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */,
 				D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */,
+				D0B2F6DD25FD8319001F1CAD /* EventPointsHolder.swift in Sources */,
+				D05377DF263EF06B00FDEAF3 /* String-NumberFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +379,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AthleticsPointsCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = Z3XGJ5KQZM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AthleticsPointsCalculator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -286,6 +392,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TatoeApps.AthleticsPointsCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -296,8 +403,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AthleticsPointsCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = Z3XGJ5KQZM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AthleticsPointsCalculator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -307,6 +416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TatoeApps.AthleticsPointsCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
