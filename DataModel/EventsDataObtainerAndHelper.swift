@@ -38,7 +38,7 @@ class EventsDataObtainerAndHelper:ObservableObject{
             case AthleticsEvent.categoryIndoorFemale:
                 femaleIndoorSingleEvents.append(event)
             default:
-                var x = "hello"
+                var _ = "hello"
 //                print("Must be combined events")
             }
 

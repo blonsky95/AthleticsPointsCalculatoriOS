@@ -29,6 +29,10 @@ class AthleticsPointsEventPerformance:AthleticsPointsEvent  {
         }
     }
     
+    init () {
+        super.init(name: "Initialized", events: [AthleticsEvent](), days: 0)
+    }
+    
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) yoooo the errorr is bla bla has not been implemented")
     }

@@ -29,6 +29,9 @@
 		D0B2F6D425FBD7BD001F1CAD /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6D325FBD7BD001F1CAD /* CalculatorView.swift */; };
 		D0B2F6D725FD1B8B001F1CAD /* AthleticsPointsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6D625FD1B8B001F1CAD /* AthleticsPointsEvent.swift */; };
 		D0B2F6DD25FD8319001F1CAD /* EventPointsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */; };
+		D0BB10DE2641EB3B00E9480C /* EditMode-custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BB10DD2641EB3B00E9480C /* EditMode-custom.swift */; };
+		D0D01762264442110071431D /* View-Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D01761264442110071431D /* View-Hidden.swift */; };
+		D0D017642645A46D0071431D /* ComparePerformancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D017632645A46D0071431D /* ComparePerformancesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		D0B2F6D325FBD7BD001F1CAD /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		D0B2F6D625FD1B8B001F1CAD /* AthleticsPointsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsEvent.swift; sourceTree = "<group>"; };
 		D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPointsHolder.swift; sourceTree = "<group>"; };
+		D0BB10DD2641EB3B00E9480C /* EditMode-custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode-custom.swift"; sourceTree = "<group>"; };
+		D0D01761264442110071431D /* View-Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-Hidden.swift"; sourceTree = "<group>"; };
+		D0D017632645A46D0071431D /* ComparePerformancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePerformancesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 				D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */,
 				D0963954260522950026DFA7 /* CustomEventPicker.swift */,
 				D002AD812629E61000472723 /* SavedPerformancesView.swift */,
+				D0D017632645A46D0071431D /* ComparePerformancesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +106,8 @@
 			children = (
 				D06C6CD425FEB69A00A0F292 /* Bundle-Decodable.swift */,
 				D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */,
+				D0BB10DD2641EB3B00E9480C /* EditMode-custom.swift */,
+				D0D01761264442110071431D /* View-Hidden.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,17 +243,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09063E825FFD5E100D666BE /* SingleEventScoreView.swift in Sources */,
+				D0D017642645A46D0071431D /* ComparePerformancesView.swift in Sources */,
 				D06C6CD225FEA71000A0F292 /* EventsDataObtainerAndHelper.swift in Sources */,
 				D095E1DA26011971008E05F4 /* DynamicPerformanceCollector.swift in Sources */,
 				D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */,
 				D0B2F6D425FBD7BD001F1CAD /* CalculatorView.swift in Sources */,
 				D0B2F6D725FD1B8B001F1CAD /* AthleticsPointsEvent.swift in Sources */,
 				D0B2F6C025FBD1CE001F1CAD /* EventSelectorView.swift in Sources */,
+				D0BB10DE2641EB3B00E9480C /* EditMode-custom.swift in Sources */,
 				D06C6CD525FEB69A00A0F292 /* Bundle-Decodable.swift in Sources */,
 				D0963955260522950026DFA7 /* CustomEventPicker.swift in Sources */,
 				D002AD8E2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift in Sources */,
 				D002AD822629E61000472723 /* SavedPerformancesView.swift in Sources */,
 				D06C6CCB25FE908D00A0F292 /* AthleticsEvent.swift in Sources */,
+				D0D01762264442110071431D /* View-Hidden.swift in Sources */,
 				D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */,
 				D002AD7F2629E2D700472723 /* ContentView.swift in Sources */,
 				D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */,

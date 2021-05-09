@@ -27,7 +27,9 @@ extension UserSavedPerformance {
     
     
     public var wrappedPerformanceID: String {
+//        id.uuidString
         id?.uuidString ?? "Unknown id"
+
     }
     
     public var wrappedPerformanceEventName: String {
