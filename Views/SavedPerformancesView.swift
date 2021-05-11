@@ -21,11 +21,10 @@ struct SavedPerformancesView: View {
     @State private var comparePerf1 = AthleticsPointsEventPerformance()
     @State private var comparePerf2 = AthleticsPointsEventPerformance()
     
-    @State var selection = Set<UUID?>(){
+    @State var selection =  Set<UUID>(){
 //        This will be called before actually setting/modifying the variable
 //        So, you have access to newValue which has the new value for "selection"
         willSet {
-//            print("willSet called")
 //            let newCount = newValue.count
         }
 
@@ -36,9 +35,11 @@ struct SavedPerformancesView: View {
         }
     }
     
+//    @State var selectionStack = Stack() //This will be used to keep selection in order that they are pressed
+    @State var selectedItemsArray=[UUID]()
+    
     @State var editMode: EditMode = .inactive {
         didSet {
-//            print("editmode didSet called")
             shouldCancelHide=(editMode==EditMode.inactive)
         }
     }
@@ -70,8 +71,10 @@ struct SavedPerformancesView: View {
 
                 }
                 .onChange(of: selection) { newValue in
+                    updateOrderArray(selectionArray: newValue)
                     withAnimation{
                         updateButtonText(count: newValue.count)
+                        print("selection: \(newValue)")
                     }
                 }
                 
@@ -83,7 +86,6 @@ struct SavedPerformancesView: View {
                         }
                     }) {
                         Text(compareButtonText)
-                            
                             .padding()
                             .foregroundColor(.white)
                     }
@@ -101,30 +103,45 @@ struct SavedPerformancesView: View {
                             Text("Cancel")
                                 .padding()
                                 .foregroundColor(.white)
-                            
                         }
                         .background(Capsule()
                                         .fill(Color.red))
-                        
                     }
-                    
-                    
                 }
                 .sheet(isPresented: $showingSheet) {
                     ComparePerformancesView(athleticPointsEventPerformance1: $comparePerf1, athleticPointsEventPerformance2: $comparePerf2)
                 }
-                
             }
-            
-//            .toolbar {
-//                            EditButton()
-//                        }
-            
             .navigationTitle("Saved Performances")
             .environment(\.editMode, self.$editMode) //#2
         }
-
  }
+    
+    func updateOrderArray(selectionArray: Set<UUID>) {
+//        print  ("TEST TIME START - \(selectedItemsArray)")
+        if selectionArray.count>selectedItemsArray.count {
+            print  ("TEST TIME - will append")
+
+            for uuid in selectionArray {
+                if !selectedItemsArray.contains(uuid) {
+                    selectedItemsArray.append(uuid)
+                    break
+                }
+            }
+        }
+        if selectionArray.count<selectedItemsArray.count {
+            print  ("TEST TIME - will remove")
+
+            for uuid in selectedItemsArray {
+                if !selectionArray.contains(uuid) {
+                    selectedItemsArray.remove(at: selectedItemsArray.firstIndex(of: uuid)!)
+                    break
+                }
+            }
+        }
+        print  ("TEST TIME END - \(selectedItemsArray)")
+
+    }
     
     func toggleEditMode() {
         self.editMode.toggle()
@@ -139,18 +156,20 @@ struct SavedPerformancesView: View {
                 
                 //reset compare array
                 comparePerformancesArray=[AthleticsPointsEventPerformance]()
-                for perf in userSavedPerformances {
-                    if selection.contains(perf.id) {
-                        comparePerformancesArray.append(AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: perf))
-                    }
+
+                for uuid in selectedItemsArray {
+                        if let performance = userSavedPerformances.first(where: {$0.id == uuid}) {
+                            comparePerformancesArray.append(AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance))
+                        }
                 }
-                print("Saved perf View - compareArray size: \(comparePerformancesArray.count)")
+
                 comparePerf1=comparePerformancesArray[0]
                 comparePerf2=comparePerformancesArray[1]
-                
+
                 if (comparePerf1.sEventsArray.count==comparePerf2.sEventsArray.count) {
                     showingSheet.toggle()
                 } else {
+                    //todo show toast
                     print ("Event arrays are not the same size - cant compare")
                 }
                 
@@ -198,13 +217,6 @@ struct SavedPerformancesView_Previews: PreviewProvider {
     }
 }
 
-struct Item: Identifiable {
-    let id = UUID()
-    let title: String
-
-    static var i = 0
-    init() {
-        self.title = "\(Item.i)"
-        Item.i += 1
-    }
+class myTrackerArray {
+    
 }

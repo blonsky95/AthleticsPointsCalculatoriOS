@@ -71,8 +71,8 @@ struct ComparePerformancesView: View {
                         Text("\(athleticPointsEventPerformance2.totalPoints )")
                             .padding(.trailing)
                     }.onAppear{
-                        print("Compare perf View - total points - perf 1: \(athleticPointsEventPerformance1.totalPoints)")
-                        print("Compare perf View - perf 2: \(athleticPointsEventPerformance2.totalPoints)")
+//                        print("Compare perf View - total points - perf 1: \(athleticPointsEventPerformance1.totalPoints)")
+//                        print("Compare perf View - perf 2: \(athleticPointsEventPerformance2.totalPoints)")
                     }
                     
                 }
@@ -100,13 +100,13 @@ struct PointsDifferenceView:View {
         Text("\(pointsDifference)")
             .foregroundColor(textColor)
             .onAppear{
-                print("Points difference view on appear points 1: \(points1) points 2: \(points2)")
-                if points1-points2>=0{
+//                print("Points difference view on appear points 1: \(points1) points 2: \(points2)")
+                if points2-points1>=0{
                     textColor=Color.blue
-                    pointsDifference="+\(points1-points2)"
+                    pointsDifference="+\(points2-points1)"
                 } else {
                     textColor=Color.red
-                    pointsDifference="-\(abs(points1-points2))"
+                    pointsDifference="-\(abs(points2-points1))"
 
                 }
             }

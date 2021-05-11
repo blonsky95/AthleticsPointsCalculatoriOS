@@ -16,7 +16,7 @@ extension UserSavedPerformance {
         return NSFetchRequest<UserSavedPerformance>(entityName: "UserSavedPerformance")
     }
 
-    @NSManaged public var id: UUID?
+    @NSManaged public var id: UUID
     @NSManaged public var performanceEventName: String?
     @NSManaged public var performanceEventsArray: String?
     @NSManaged public var performanceNumberDays: Int16
@@ -27,8 +27,8 @@ extension UserSavedPerformance {
     
     
     public var wrappedPerformanceID: String {
-//        id.uuidString
-        id?.uuidString ?? "Unknown id"
+        id.uuidString
+//        id?.uuidString ?? "Unknown id"
 
     }
     
