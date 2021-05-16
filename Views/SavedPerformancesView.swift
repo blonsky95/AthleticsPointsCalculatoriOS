@@ -14,8 +14,14 @@ struct SavedPerformancesView: View {
     @Environment(\.managedObjectContext) var moc
     
     @State private var showingSheet = false
+    @State private var showingAlert = false
+    @State private var alertText = "dude"
 
-    @FetchRequest(entity: UserSavedPerformance.entity(), sortDescriptors: []) var userSavedPerformances: FetchedResults<UserSavedPerformance>
+
+    @FetchRequest(entity: UserSavedPerformance.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath: \UserSavedPerformance.date, ascending: false),
+        NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
+    ]) var userSavedPerformances: FetchedResults<UserSavedPerformance>
     
     @State private var comparePerformancesArray=[AthleticsPointsEventPerformance]()
     @State private var comparePerf1 = AthleticsPointsEventPerformance()
@@ -56,12 +62,20 @@ struct SavedPerformancesView: View {
                     ForEach(userSavedPerformances) { performance in
                         NavigationLink(destination: CalculatorView(athleticPointsEvent: userSavedPerformanceToAthlPointsEvPerf(performance), userSavedPerformance: performance, isASavedPerformance: true).environmentObject(eventsDataObtainerAndHelper)) {
                             HStack{
-                                VStack{
+                                VStack(alignment: .leading){
                                     Text(performance.performanceTitle ?? "Unknown")
                                     Text(performance.performanceEventName ?? "Unknown")
+                                    Text(String(performance.getEventsArraySizeCount()))
+                                        .foregroundColor(Color.gray)
+                                        .font(.system(size: 16))
+                                    
                                 }
                                 Spacer()
                                 Text(String(performance.performanceTotalPoints))
+                            }
+                            .onAppear{
+                                print("date for this perf: \(performance.wrappedDate)")
+
                             }
                             
                         }
@@ -111,6 +125,9 @@ struct SavedPerformancesView: View {
                 .sheet(isPresented: $showingSheet) {
                     ComparePerformancesView(athleticPointsEventPerformance1: $comparePerf1, athleticPointsEventPerformance2: $comparePerf2)
                 }
+                .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Ups!"), message: Text(alertText), dismissButton: .default(Text("Got it!")))
+                        }
             }
             .navigationTitle("Saved Performances")
             .environment(\.editMode, self.$editMode) //#2
@@ -118,10 +135,7 @@ struct SavedPerformancesView: View {
  }
     
     func updateOrderArray(selectionArray: Set<UUID>) {
-//        print  ("TEST TIME START - \(selectedItemsArray)")
         if selectionArray.count>selectedItemsArray.count {
-            print  ("TEST TIME - will append")
-
             for uuid in selectionArray {
                 if !selectedItemsArray.contains(uuid) {
                     selectedItemsArray.append(uuid)
@@ -130,8 +144,6 @@ struct SavedPerformancesView: View {
             }
         }
         if selectionArray.count<selectedItemsArray.count {
-            print  ("TEST TIME - will remove")
-
             for uuid in selectedItemsArray {
                 if !selectionArray.contains(uuid) {
                     selectedItemsArray.remove(at: selectedItemsArray.firstIndex(of: uuid)!)
@@ -139,8 +151,6 @@ struct SavedPerformancesView: View {
                 }
             }
         }
-        print  ("TEST TIME END - \(selectedItemsArray)")
-
     }
     
     func toggleEditMode() {
@@ -169,12 +179,13 @@ struct SavedPerformancesView: View {
                 if (comparePerf1.sEventsArray.count==comparePerf2.sEventsArray.count) {
                     showingSheet.toggle()
                 } else {
-                    //todo show toast
-                    print ("Event arrays are not the same size - cant compare")
+                    alertText = "you can only compare same number of events performances. E.g. You can´t compare a decathlon with 10 performances against a 100m"
+                    showingAlert = true
                 }
                 
             } else {
-                print("Nothing will happen")
+                alertText = compareButtonText
+                showingAlert = true
             }
         }
     }

@@ -133,8 +133,6 @@ struct CalculatorView: View {
         fillUserSavedPerformance.performanceNumberDays = Int16(athleticPointsEvent.sNumberDays)
         
         //the array of AthleticsEvent should be encodable because AthleticsEvent implements it
-//            print("Size of events array: \(athleticPointsEvent.sEventsArray.count)")
-
         let jsonData = try! JSONEncoder().encode(athleticPointsEvent.sEventsArray)
         fillUserSavedPerformance.performanceEventsArray = String(data: jsonData, encoding: .utf8)!
         
@@ -147,19 +145,10 @@ struct CalculatorView: View {
     }
     
     func saveToCoreData(_ userSavedPerformance: UserSavedPerformance) {
-
+        userSavedPerformance.date=Date() //updates date so shows up at top, applies to new and updated perfs
         print("Saving/updating a new performance: \(userSavedPerformance)")
-
         try? self.moc.save()
     }
-//
-//    func updateToCoreData(_ userSavedPerformance: UserSavedPerformance) {
-//
-//        print("Updating a new performance: \(userSavedPerformance)")
-////        moc.performAndWait {
-//            try? self.moc.save()
-////        }
-//    }
     
     
     //this basically checks if what is being sent to single score view needs to have a value, aka is saved performance
@@ -177,7 +166,6 @@ struct CalculatorView: View {
         if isASavedPerformance {
             if let titleString = userSavedPerformance?.wrappedPerformanceTitle {
                 titleOfSavedPerformance = titleString
-//                print("performance title loaded")
             } else {
                 print("error with perf title")
             }

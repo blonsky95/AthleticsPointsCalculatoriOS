@@ -17,6 +17,7 @@ extension UserSavedPerformance {
     }
 
     @NSManaged public var id: UUID
+    @NSManaged public var date: Date?
     @NSManaged public var performanceEventName: String?
     @NSManaged public var performanceEventsArray: String?
     @NSManaged public var performanceNumberDays: Int16
@@ -30,6 +31,18 @@ extension UserSavedPerformance {
         id.uuidString
 //        id?.uuidString ?? "Unknown id"
 
+    }
+    
+    public var wrappedDate: Date {
+        if date == nil {
+            var components = DateComponents()
+            components.year = 1995
+            components.month = 3
+            components.day = 4
+            components.hour = 7
+            date = Calendar.current.date(from: components)
+        }
+        return date!
     }
     
     public var wrappedPerformanceEventName: String {
@@ -46,6 +59,23 @@ extension UserSavedPerformance {
     
     public var wrappedPerformanceEventsArray: String {
         performanceEventsArray ?? "Unknown perf events array"
+    }
+    
+    public func getEventsArraySizeCount() -> Int {
+        
+        var athleticsEventsArray = [AthleticsEvent]()
+
+        if let jsonData1 = self.wrappedPerformanceEventsArray.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                athleticsEventsArray = try decoder.decode([AthleticsEvent].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        return athleticsEventsArray.count
     }
 
 
