@@ -27,28 +27,29 @@ struct SavedPerformancesView: View {
     @State private var comparePerf1 = AthleticsPointsEventPerformance()
     @State private var comparePerf2 = AthleticsPointsEventPerformance()
     
-    @State var selection =  Set<UUID>(){
-//        This will be called before actually setting/modifying the variable
-//        So, you have access to newValue which has the new value for "selection"
-        willSet {
-//            let newCount = newValue.count
-        }
-
-        //This will be called when user touches "Cancel" button, as it resets selection
-        didSet {
-//           I use this to update the text, this gets called when selection is reset
-            updateButtonText(count: 0) //0 is size of selection when reset
-        }
-    }
+////        This will be called before actually setting/modifying the variable
+////        So, you have access to newValue which has the new value for "selection"
+//        willSet {
+////            let newCount = newValue.count
+//        }
+//
+//        //This will be called when user touches "Cancel" button, as it resets selection
+//        didSet {
+////           I use this to update the text, this gets called when selection is reset
+//            updateButtonText(count: 0) //0 is size of selection when reset
+//        }
+//    }
     
-//    @State var selectionStack = Stack() //This will be used to keep selection in order that they are pressed
     @State var selectedItemsArray=[UUID]()
-    
+    @State var selection =  Set<UUID>()
+
     @State var editMode: EditMode = .inactive {
         didSet {
             shouldCancelHide=(editMode==EditMode.inactive)
         }
     }
+    
+    @State var searchText = ""
 
     @State var compareButtonText = "Compare"
     @State var shouldCancelHide = true
@@ -58,39 +59,42 @@ struct SavedPerformancesView: View {
         NavigationView{
             
             VStack{
-                List(selection: $selection) {
-                    ForEach(userSavedPerformances) { performance in
-                        NavigationLink(destination: CalculatorView(athleticPointsEvent: userSavedPerformanceToAthlPointsEvPerf(performance), userSavedPerformance: performance, isASavedPerformance: true).environmentObject(eventsDataObtainerAndHelper)) {
-                            HStack{
-                                VStack(alignment: .leading){
-                                    Text(performance.performanceTitle ?? "Unknown")
-                                    Text(performance.performanceEventName ?? "Unknown")
-                                    Text(String(performance.getEventsArraySizeCount()))
-                                        .foregroundColor(Color.gray)
-                                        .font(.system(size: 16))
-                                    
-                                }
-                                Spacer()
-                                Text(String(performance.performanceTotalPoints))
-                            }
-                            .onAppear{
-                                print("date for this perf: \(performance.wrappedDate)")
-
-                            }
-                            
-                        }
-                        
-                    }
-                    .onDelete(perform: delete)
-
-                }
-                .onChange(of: selection) { newValue in
-                    updateOrderArray(selectionArray: newValue)
+                SearchBar(text: $searchText)
+                    .padding(.top)
+//                List(selection: $selection) {
+//                    ForEach(userSavedPerformances) { performance in
+//                        NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance, isASavedPerformance: true).environmentObject(eventsDataObtainerAndHelper)) {
+//                            HStack{
+//                                VStack(alignment: .leading){
+//                                    Text(performance.performanceTitle ?? "Unknown")
+//                                    Text(performance.performanceEventName ?? "Unknown")
+//                                    Text(String(performance.getEventsArraySizeCount()))
+//                                        .foregroundColor(Color.gray)
+//                                        .font(.system(size: 16))
+//
+//                                }
+//                                Spacer()
+//                                Text(String(performance.performanceTotalPoints))
+//                            }
+//                        }
+//                    }
+//                    .onDelete(perform: delete)
+//                }
+                FilteredPerformances(filter: searchText, selectedItemsArray: $selectedItemsArray, selectionUUIDArray: $selection)
+                    .environmentObject(eventsDataObtainerAndHelper)
+                .onChange(of: selectedItemsArray) { newValue in
                     withAnimation{
                         updateButtonText(count: newValue.count)
                         print("selection: \(newValue)")
                     }
                 }
+//                .onChange(of: selection) { newValue in
+//                        updateOrderArray(selectionArray: newValue)
+//                        withAnimation{
+//                            updateButtonText(count: newValue.count)
+//                            print("selection: \(newValue)")
+//                        }
+//                }
                 
                 HStack {
                     
@@ -156,13 +160,17 @@ struct SavedPerformancesView: View {
     func toggleEditMode() {
         self.editMode.toggle()
         self.selection = Set<UUID>()
+        
+//        self.selectedItemsArray = [UUID]()
+//        print("selected Items Array set to 0")
+
     }
     
     func compareButtonPressed() {
         if editMode==EditMode.inactive {
             toggleEditMode()
         } else {
-            if selection.count==2 {
+            if selectedItemsArray.count==2 {
                 
                 //reset compare array
                 comparePerformancesArray=[AthleticsPointsEventPerformance]()
@@ -217,17 +225,10 @@ struct SavedPerformancesView: View {
             print("Error deleting items")
         }
     }
-    
-    func userSavedPerformanceToAthlPointsEvPerf(_ userSavedPerformance : UserSavedPerformance) -> AthleticsPointsEventPerformance {
-        return AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: userSavedPerformance)
-    }}
 
-struct SavedPerformancesView_Previews: PreviewProvider {
-    static var previews: some View {
-        SavedPerformancesView()
+    struct SavedPerformancesView_Previews: PreviewProvider {
+        static var previews: some View {
+            SavedPerformancesView()
+        }
     }
-}
-
-class myTrackerArray {
-    
 }
