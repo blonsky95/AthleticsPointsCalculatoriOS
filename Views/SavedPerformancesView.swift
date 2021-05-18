@@ -17,31 +17,19 @@ struct SavedPerformancesView: View {
     @State private var showingAlert = false
     @State private var alertText = "dude"
 
-
+    //This fetch request contains all the usp, 
     @FetchRequest(entity: UserSavedPerformance.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \UserSavedPerformance.date, ascending: false),
         NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
     ]) var userSavedPerformances: FetchedResults<UserSavedPerformance>
     
+    @State var filterPredicate: NSCompoundPredicate? = nil
+    
     @State private var comparePerformancesArray=[AthleticsPointsEventPerformance]()
     @State private var comparePerf1 = AthleticsPointsEventPerformance()
     @State private var comparePerf2 = AthleticsPointsEventPerformance()
-    
-////        This will be called before actually setting/modifying the variable
-////        So, you have access to newValue which has the new value for "selection"
-//        willSet {
-////            let newCount = newValue.count
-//        }
-//
-//        //This will be called when user touches "Cancel" button, as it resets selection
-//        didSet {
-////           I use this to update the text, this gets called when selection is reset
-//            updateButtonText(count: 0) //0 is size of selection when reset
-//        }
-//    }
-    
+
     @State var selectedItemsArray=[UUID]()
-    @State var selection =  Set<UUID>()
 
     @State var editMode: EditMode = .inactive {
         didSet {
@@ -61,26 +49,20 @@ struct SavedPerformancesView: View {
             VStack{
                 SearchBar(text: $searchText)
                     .padding(.top)
-//                List(selection: $selection) {
-//                    ForEach(userSavedPerformances) { performance in
-//                        NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance, isASavedPerformance: true).environmentObject(eventsDataObtainerAndHelper)) {
-//                            HStack{
-//                                VStack(alignment: .leading){
-//                                    Text(performance.performanceTitle ?? "Unknown")
-//                                    Text(performance.performanceEventName ?? "Unknown")
-//                                    Text(String(performance.getEventsArraySizeCount()))
-//                                        .foregroundColor(Color.gray)
-//                                        .font(.system(size: 16))
-//
-//                                }
-//                                Spacer()
-//                                Text(String(performance.performanceTotalPoints))
-//                            }
-//                        }
-//                    }
-//                    .onDelete(perform: delete)
-//                }
-                FilteredPerformances(filter: searchText, selectedItemsArray: $selectedItemsArray, selectionUUIDArray: $selection)
+                    .onChange(of: searchText) { newValue in
+                        if (newValue.isEmpty) {
+                            filterPredicate = nil
+                        } else {
+                            let titleFilter = NSPredicate(format: "performanceTitle CONTAINS[c] %@", newValue)
+                            let eventFilter = NSPredicate(format: "performanceEventName CONTAINS[c] %@", newValue)
+                            let pointsFilter = NSPredicate(format: "performanceTotalPoints BEGINSWITH %@", newValue)
+
+                            filterPredicate=NSCompoundPredicate(orPredicateWithSubpredicates: [titleFilter, eventFilter, pointsFilter])
+                            
+                        }
+                }
+
+                FilteredPerformances(predicate: filterPredicate, selectedItemsArray: $selectedItemsArray)
                     .environmentObject(eventsDataObtainerAndHelper)
                 .onChange(of: selectedItemsArray) { newValue in
                     withAnimation{
@@ -88,13 +70,6 @@ struct SavedPerformancesView: View {
                         print("selection: \(newValue)")
                     }
                 }
-//                .onChange(of: selection) { newValue in
-//                        updateOrderArray(selectionArray: newValue)
-//                        withAnimation{
-//                            updateButtonText(count: newValue.count)
-//                            print("selection: \(newValue)")
-//                        }
-//                }
                 
                 HStack {
                     
@@ -159,11 +134,8 @@ struct SavedPerformancesView: View {
     
     func toggleEditMode() {
         self.editMode.toggle()
-        self.selection = Set<UUID>()
-        
-//        self.selectedItemsArray = [UUID]()
-//        print("selected Items Array set to 0")
-
+        self.selectedItemsArray = [UUID]()
+        updateButtonText(count: selectedItemsArray.count)
     }
     
     func compareButtonPressed() {
@@ -198,6 +170,7 @@ struct SavedPerformancesView: View {
         }
     }
     func updateButtonText(count: Int) {
+        print("update button text called: \(count)")
         if editMode==EditMode.active {
             switch count {
             case 0:

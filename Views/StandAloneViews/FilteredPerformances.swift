@@ -7,44 +7,52 @@
 
 import SwiftUI
 
+
+//This class takes a nullable predicate and a binding [UUID], from there, it's in charge of querying
+//depending on the predicate, presenting information, its a link to CalculatorView, and it also informs
+//of which UUIDs are selected when in editmode.
+
+//The question is, does it need a predicate and a FetchRequest? or would it be better off just receving the
+//the whole [UserSavedPerf] and having it filter it like a Collection? so no more CoreData dynamic fetch request?
 struct FilteredPerformances: View {
     
-    var fetchRequest: FetchRequest<UserSavedPerformance>
-    @Binding var selectedItemsArray:[UUID] 
-//        willSet {
-//            print ("will set called for selected items array AAA")
-//            if newValue.count==0 {
-//                //Reset selection
-//                selection = Set<UUID>()
-//            }
-//
-//        }
     
+    var fetchRequest: FetchRequest<UserSavedPerformance> //no error because it is initialized in the init block - even if not a param
+    
+    //This view could actually work receiving the whole FetchedResults, and filtering instead of dynamically filtering the FetchRequest. The code is commented out but it is straight forward.
+    
+    //    var fullSetOfPerformances: FetchedResults<UserSavedPerformance>
+    //    @Binding var searchhText:String
 
-    @Binding var selection:Set<UUID>
+    @Binding var selectedItemsArray:[UUID]
     @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
     @Environment(\.managedObjectContext) var moc
     
-    init(filter: String, selectedItemsArray:Binding<[UUID]>, selectionUUIDArray:Binding<Set<UUID>>) {
+    @State var selection = Set<UUID>()
+    
+    init(predicate: NSPredicate?, selectedItemsArray:Binding<[UUID]>) {
+        
+//        , fullSet: FetchedResults<UserSavedPerformance>, text: Binding<String>
+        
         fetchRequest = FetchRequest<UserSavedPerformance>(entity: UserSavedPerformance.entity(), sortDescriptors: [
             NSSortDescriptor(keyPath: \UserSavedPerformance.date, ascending: false),
             NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
-        ])
-//        , predicate: NSPredicate(format: "performanceTitle CONTAINS[c] %@", filter)
+        ], predicate: predicate)
+        
         
         self._selectedItemsArray=selectedItemsArray
-        self._selection=selectionUUIDArray
+        
+//        self.fullSetOfPerformances = fullSet
+//        self._searchhText = text
 
     }
     
 
+//    var filteredPerformances:[UserSavedPerformance] {
+//            return fullSetOfPerformances.filter { $0.wrappedPerformanceTitle.contains(searchhText) }
+//    }
 
     var body: some View {
-        
-//        List(fetchRequest.wrappedValue, id: \.self) { singer in
-//                Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
-//            }
-        
         List(selection: $selection) {
             ForEach(fetchRequest.wrappedValue) { performance in
                 NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance, isASavedPerformance: true).environmentObject(eventsDataObtainerAndHelper)) {
@@ -65,12 +73,7 @@ struct FilteredPerformances: View {
             .onDelete(perform: delete)
         }
         .onChange(of: selection) { newValue in
-            
             updateOrderArray(selectionArray: newValue)
-//            withAnimation{
-//                updateButtonText(count: newValue.count)
-//                print("selection: \(newValue)")
-//            }
         }
         
         

@@ -25,8 +25,7 @@ struct SingleEventScoreView:View {
             Text(athleticsEvent.sName)
             DynamicPerformanceCollector(athleticsEvent: athleticsEvent, eventPerformance: $eventPerformance)
                 .onChange(of: eventPerformance) { newValue in
-                    //newValue is never used
-//                    eventPoints=eventsDataObtainerAndHelper.getPoints(event: athleticsEvent, performance: (newValue as NSString).doubleValue)
+
                     eventPoints=eventsDataObtainerAndHelper.getPoints(event: athleticsEvent, performance: eventPerformance.doubleValue)
 
                     eventPointsHolder.pointsIntArray[eventIndex]=eventPoints
