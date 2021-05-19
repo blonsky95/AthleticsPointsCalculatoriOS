@@ -79,6 +79,7 @@ struct CalculatorView: View {
         .onAppear{
             eventPointsHolder.setNumberEvents(numberOfEvents: athleticPointsEvent.sEventsArray.count)
             loadPerformanceName()
+            print("coefficients: \(athleticPointsEvent.sEventsArray[0].sCoefficients)")
         }
         .alert(isPresented: $showingAlert) {
                     Alert(

@@ -46,6 +46,80 @@ class EventsDataObtainerAndHelper:ObservableObject{
         }
     }
     
+    enum CombinedEventsKeys {
+        case menOutdoorDecathlon
+        case menIndoorHeptathlon
+        case womenOutdoorHeptathlon
+        case womenOutdoorDecathlon
+        case womenIndoorPentathlon
+    }
+    
+    func getCombinedEventsAthleticsPointEvent(eventKey: CombinedEventsKeys) -> AthleticsPointsEvent {
+        switch eventKey {
+        case .menOutdoorDecathlon:
+            return AthleticsPointsEvent(name: "Decathlon", events:
+                                            [self.athleticsEventsSearcher["100m_m_ce"]!,
+                                             self.athleticsEventsSearcher["long_jump_m_ce"]!,
+                                             self.athleticsEventsSearcher["shot_put_m_ce"]!,
+                                             self.athleticsEventsSearcher["high_jump_m_ce"]!,
+                                             self.athleticsEventsSearcher["400m_m_ce"]!,
+                                             self.athleticsEventsSearcher["110mh_m_ce"]!,
+                                             self.athleticsEventsSearcher["discus_m_ce"]!,
+                                             self.athleticsEventsSearcher["pole_vault_m_ce"]!,
+                                             self.athleticsEventsSearcher["javelin_m_ce"]!,
+                                             self.athleticsEventsSearcher["1500m_m_ce"]!],
+                                        days:2)
+            
+        case .menIndoorHeptathlon:
+            return AthleticsPointsEvent(name: "Indoor Heptathlon", events:
+                                            [self.athleticsEventsSearcher["60m_m_ce"]!,
+                                             self.athleticsEventsSearcher["long_jump_m_ce"]!,
+                                             self.athleticsEventsSearcher["shot_put_m_ce"]!,
+                                             self.athleticsEventsSearcher["high_jump_m_ce"]!,
+                                             self.athleticsEventsSearcher["60mh_m_ce"]!,
+                                             self.athleticsEventsSearcher["pole_vault_m_ce"]!,
+                                             self.athleticsEventsSearcher["1000m_m_ce"]!],
+                                        days:2)
+
+        case .womenOutdoorHeptathlon:
+            return AthleticsPointsEvent(name: "Heptathlon", events:
+                                            [self.athleticsEventsSearcher["100mh_f_ce"]!,
+                                             self.athleticsEventsSearcher["high_jump_f_ce"]!,
+                                             self.athleticsEventsSearcher["shot_put_f_ce"]!,
+                                             self.athleticsEventsSearcher["200m_f_ce"]!,
+                                             self.athleticsEventsSearcher["long_jump_f_ce"]!,
+                                             self.athleticsEventsSearcher["javelin_f_ce"]!,
+                                             self.athleticsEventsSearcher["800m_f_ce"]!],
+                                        days:2)
+
+        case .womenOutdoorDecathlon:
+            return AthleticsPointsEvent(name: "Women Decathlon", events:
+                                            [self.athleticsEventsSearcher["100m_f_ce"]!,
+                                             self.athleticsEventsSearcher["long_jump_f_ce"]!,
+                                             self.athleticsEventsSearcher["shot_put_f_ce"]!,
+                                             self.athleticsEventsSearcher["high_jump_f_ce"]!,
+                                             self.athleticsEventsSearcher["400m_f_ce"]!,
+                                             self.athleticsEventsSearcher["100mh_f_ce"]!,
+                                             self.athleticsEventsSearcher["discus_f_ce"]!,
+                                             self.athleticsEventsSearcher["pole_vault_f_ce"]!,
+                                             self.athleticsEventsSearcher["javelin_f_ce"]!,
+                                             self.athleticsEventsSearcher["1500m_f_ce"]!],
+                                        days:2)
+
+        case .womenIndoorPentathlon:
+            return AthleticsPointsEvent(name: "Indoor Pentathlon", events:
+                                            [self.athleticsEventsSearcher["60mh_f_ce"]!,
+                                             self.athleticsEventsSearcher["high_jump_f_ce"]!,
+                                             self.athleticsEventsSearcher["shot_put_f_ce"]!,
+                                             self.athleticsEventsSearcher["long_jump_f_ce"]!,
+                                             self.athleticsEventsSearcher["800m_f_ce"]!],
+                                        days:1)
+
+        }
+    }
+    
+    
+    
     func getPoints(event:AthleticsEvent, performance:Double) -> Int {
         
         if performance<=0 {

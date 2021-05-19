@@ -84,9 +84,10 @@
 			children = (
 				D0D8C6C42652DC4800A62A67 /* StandAloneViews */,
 				D0B2F6D325FBD7BD001F1CAD /* CalculatorView.swift */,
+				D002AD7E2629E2D700472723 /* ContentView.swift */,
+				D0D017632645A46D0071431D /* ComparePerformancesView.swift */,
 				D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */,
 				D002AD812629E61000472723 /* SavedPerformancesView.swift */,
-				D0D017632645A46D0071431D /* ComparePerformancesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,7 +155,6 @@
 				D0B2F6CB25FBD1CF001F1CAD /* Info.plist */,
 				D0B2F6C825FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld */,
 				D0B2F6C325FBD1CF001F1CAD /* Preview Content */,
-				D002AD7E2629E2D700472723 /* ContentView.swift */,
 			);
 			path = AthleticsPointsCalculator;
 			sourceTree = "<group>";
@@ -170,11 +170,11 @@
 		D0D8C6C42652DC4800A62A67 /* StandAloneViews */ = {
 			isa = PBXGroup;
 			children = (
-				D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */,
-				D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */,
 				D0963954260522950026DFA7 /* CustomEventPicker.swift */,
-				D0D8C6C52652DC8700A62A67 /* SearchBar.swift */,
+				D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */,
 				D0D8C6C72652E9F700A62A67 /* FilteredPerformances.swift */,
+				D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */,
+				D0D8C6C52652DC8700A62A67 /* SearchBar.swift */,
 			);
 			path = StandAloneViews;
 			sourceTree = "<group>";

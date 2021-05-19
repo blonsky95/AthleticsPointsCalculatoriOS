@@ -20,7 +20,7 @@ struct DynamicPerformanceCollector:View {
         
         
         if athleticsEvent.sType==AthleticsEvent.typeRunLong {
-            print ("NEW VALUE FOR RUN LONG PERFORMANCE: \(eventPerformance)")
+//            print ("NEW VALUE FOR RUN LONG PERFORMANCE: \(eventPerformance)")
 
             let dynamicTextField = AnyView(HStack {
                 TextField("0.0", text: $minutes)
