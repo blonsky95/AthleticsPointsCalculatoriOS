@@ -15,9 +15,9 @@ struct SavedPerformancesView: View {
     
     @State private var showingSheet = false
     @State private var showingAlert = false
-    @State private var alertText = "dude"
+    @State private var alertText = "Hey"
 
-    //This fetch request contains all the usp, 
+    //This fetch request contains all the usps
     @FetchRequest(entity: UserSavedPerformance.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \UserSavedPerformance.date, ascending: false),
         NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
@@ -25,22 +25,27 @@ struct SavedPerformancesView: View {
     
     @State var filterPredicate: NSCompoundPredicate? = nil
     
-    @State private var comparePerformancesArray=[AthleticsPointsEventPerformance]()
     @State private var comparePerf1 = AthleticsPointsEventPerformance()
     @State private var comparePerf2 = AthleticsPointsEventPerformance()
 
     @State var selectedItemsArray=[UUID]()
+    @State var editModeSelectionSetForList=Set<UUID>()
 
+    @State var searchText = ""
+    @State var compareButtonText = "Compare"
+    
+    @State var shouldCancelButtonHide = true
+    
     @State var editMode: EditMode = .inactive {
+        willSet {
+            selectedItemsArray = [UUID]()
+            editModeSelectionSetForList = Set<UUID>()
+        }
         didSet {
-            shouldCancelHide=(editMode==EditMode.inactive)
+            updateCompareButtonText(count: selectedItemsArray.count)
+            shouldCancelButtonHide=(editMode==EditMode.inactive)
         }
     }
-    
-    @State var searchText = ""
-
-    @State var compareButtonText = "Compare"
-    @State var shouldCancelHide = true
 
     var body: some View {
         
@@ -58,47 +63,31 @@ struct SavedPerformancesView: View {
                             let pointsFilter = NSPredicate(format: "performanceTotalPoints BEGINSWITH %@", newValue)
 
                             filterPredicate=NSCompoundPredicate(orPredicateWithSubpredicates: [titleFilter, eventFilter, pointsFilter])
-                            
                         }
                 }
 
-                FilteredPerformances(predicate: filterPredicate, selectedItemsArray: $selectedItemsArray)
+                FilteredPerformances(predicate: filterPredicate, selectedItemsArray: $selectedItemsArray, selection: $editModeSelectionSetForList)
                     .environmentObject(eventsDataObtainerAndHelper)
                 .onChange(of: selectedItemsArray) { newValue in
                     withAnimation{
-                        updateButtonText(count: newValue.count)
-                        print("selection: \(newValue)")
+                        updateCompareButtonText(count: newValue.count)
                     }
                 }
                 
                 HStack {
                     
-                    Button(action: {
+                    CompareButtonView(action: {
                         withAnimation{
                             compareButtonPressed()
                         }
-                    }) {
-                        Text(compareButtonText)
-                            .padding()
-                            .foregroundColor(.white)
-                    }
-                    .background(Capsule()
-                                    .fill(Color.blue)
-                                    .frame(minWidth: 100, minHeight: 50))
-                    .padding()
+                    }, buttonText: $compareButtonText)
                     
-                    if !shouldCancelHide {
-                        Button(action: {
+                    if !shouldCancelButtonHide {
+                        CancelButtonView(action: {
                             withAnimation{
-                                toggleEditMode()
+                                self.editMode.toggle()
                             }
-                        }) {
-                            Text("Cancel")
-                                .padding()
-                                .foregroundColor(.white)
-                        }
-                        .background(Capsule()
-                                        .fill(Color.red))
+                        })
                     }
                 }
                 .sheet(isPresented: $showingSheet) {
@@ -112,65 +101,37 @@ struct SavedPerformancesView: View {
             .environment(\.editMode, self.$editMode) //#2
         }
  }
-    
-    func updateOrderArray(selectionArray: Set<UUID>) {
-        if selectionArray.count>selectedItemsArray.count {
-            for uuid in selectionArray {
-                if !selectedItemsArray.contains(uuid) {
-                    selectedItemsArray.append(uuid)
-                    break
-                }
-            }
-        }
-        if selectionArray.count<selectedItemsArray.count {
-            for uuid in selectedItemsArray {
-                if !selectionArray.contains(uuid) {
-                    selectedItemsArray.remove(at: selectedItemsArray.firstIndex(of: uuid)!)
-                    break
-                }
-            }
-        }
-    }
-    
-    func toggleEditMode() {
-        self.editMode.toggle()
-        self.selectedItemsArray = [UUID]()
-        updateButtonText(count: selectedItemsArray.count)
-    }
-    
+
     func compareButtonPressed() {
         if editMode==EditMode.inactive {
-            toggleEditMode()
+            self.editMode.toggle()
         } else {
             if selectedItemsArray.count==2 {
-                
-                //reset compare array
-                comparePerformancesArray=[AthleticsPointsEventPerformance]()
-
-                for uuid in selectedItemsArray {
-                        if let performance = userSavedPerformances.first(where: {$0.id == uuid}) {
-                            comparePerformancesArray.append(AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance))
-                        }
-                }
-
-                comparePerf1=comparePerformancesArray[0]
-                comparePerf2=comparePerformancesArray[1]
-
-                if (comparePerf1.sEventsArray.count==comparePerf2.sEventsArray.count) {
-                    showingSheet.toggle()
-                } else {
-                    alertText = "you can only compare same number of events performances. E.g. You can´t compare a decathlon with 10 performances against a 100m"
-                    showingAlert = true
-                }
-                
+                proceedWithComparing()
             } else {
                 alertText = compareButtonText
                 showingAlert = true
             }
         }
     }
-    func updateButtonText(count: Int) {
-        print("update button text called: \(count)")
+    
+    func proceedWithComparing() {
+        if let performance = userSavedPerformances.first(where: {$0.id == selectedItemsArray[0]}) {
+            comparePerf1 = AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance)
+        }
+        if let performance = userSavedPerformances.first(where: {$0.id == selectedItemsArray[1]}) {
+            comparePerf2 = AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance)
+        }
+
+        if (comparePerf1.sEventsArray.count==comparePerf2.sEventsArray.count) {
+            showingSheet.toggle()
+        } else {
+            alertText = "you can only compare same number of events performances. E.g. You can´t compare a decathlon with 10 performances against a 100m"
+            showingAlert = true
+        }
+    }
+    
+    func updateCompareButtonText(count: Int) {
         if editMode==EditMode.active {
             switch count {
             case 0:
@@ -184,18 +145,6 @@ struct SavedPerformancesView: View {
             }
         } else {
             compareButtonText="Compare"
-        }
-    }
-    
-    func delete(at offsets: IndexSet) {
-        for index in offsets {
-                let savedPerformance = userSavedPerformances[index]
-                moc.delete(savedPerformance)
-            }
-        do {
-            try moc.save()
-        } catch {
-            print("Error deleting items")
         }
     }
 

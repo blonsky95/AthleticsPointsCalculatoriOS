@@ -12,48 +12,31 @@ import SwiftUI
 //depending on the predicate, presenting information, its a link to CalculatorView, and it also informs
 //of which UUIDs are selected when in editmode.
 
-//The question is, does it need a predicate and a FetchRequest? or would it be better off just receving the
-//the whole [UserSavedPerf] and having it filter it like a Collection? so no more CoreData dynamic fetch request?
-struct FilteredPerformances: View {
-    
-    
-    var fetchRequest: FetchRequest<UserSavedPerformance> //no error because it is initialized in the init block - even if not a param
-    
-    //This view could actually work receiving the whole FetchedResults, and filtering instead of dynamically filtering the FetchRequest. The code is commented out but it is straight forward.
-    
-    //    var fullSetOfPerformances: FetchedResults<UserSavedPerformance>
-    //    @Binding var searchhText:String
+//This view could actually work receiving the whole FetchedResults, and filtering instead of dynamically filtering the FetchRequest. Loook at ticket around 18 May but it is straight forward.
 
-    @Binding var selectedItemsArray:[UUID]
+struct FilteredPerformances: View {
+
+    var fetchRequest: FetchRequest<UserSavedPerformance> //no error because it is initialized in the init block - even if not a param
+
+    @Binding var selectedUUIDsArray:[UUID] //Contains the UUIDs in the right first, second... order
     @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
     @Environment(\.managedObjectContext) var moc
     
-    @State var selection = Set<UUID>()
+    @Binding var listUUIDSelectionSet:Set<UUID> //Keeps track of selected items in SwiftUI List when in EditMode. No order
     
-    init(predicate: NSPredicate?, selectedItemsArray:Binding<[UUID]>) {
-        
-//        , fullSet: FetchedResults<UserSavedPerformance>, text: Binding<String>
-        
+    init(predicate: NSPredicate?, selectedItemsArray:Binding<[UUID]>, selection:Binding<Set<UUID>>) {
+                
         fetchRequest = FetchRequest<UserSavedPerformance>(entity: UserSavedPerformance.entity(), sortDescriptors: [
             NSSortDescriptor(keyPath: \UserSavedPerformance.date, ascending: false),
             NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
         ], predicate: predicate)
         
-        
-        self._selectedItemsArray=selectedItemsArray
-        
-//        self.fullSetOfPerformances = fullSet
-//        self._searchhText = text
-
+        self._selectedUUIDsArray = selectedItemsArray
+        self._listUUIDSelectionSet = selection
     }
-    
-
-//    var filteredPerformances:[UserSavedPerformance] {
-//            return fullSetOfPerformances.filter { $0.wrappedPerformanceTitle.contains(searchhText) }
-//    }
 
     var body: some View {
-        List(selection: $selection) {
+        List(selection: $listUUIDSelectionSet) {
             ForEach(fetchRequest.wrappedValue) { performance in
                 NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance, isASavedPerformance: true).environmentObject(eventsDataObtainerAndHelper)) {
                     HStack{
@@ -72,7 +55,7 @@ struct FilteredPerformances: View {
             }
             .onDelete(perform: delete)
         }
-        .onChange(of: selection) { newValue in
+        .onChange(of: listUUIDSelectionSet) { newValue in
             updateOrderArray(selectionArray: newValue)
         }
         
@@ -92,18 +75,18 @@ struct FilteredPerformances: View {
     }
     
     func updateOrderArray(selectionArray: Set<UUID>) {
-        if selectionArray.count>selectedItemsArray.count {
+        if selectionArray.count>selectedUUIDsArray.count {
             for uuid in selectionArray {
-                if !selectedItemsArray.contains(uuid) {
-                    selectedItemsArray.append(uuid)
+                if !selectedUUIDsArray.contains(uuid) {
+                    selectedUUIDsArray.append(uuid)
                     break
                 }
             }
         }
-        if selectionArray.count<selectedItemsArray.count {
-            for uuid in selectedItemsArray {
+        if selectionArray.count<selectedUUIDsArray.count {
+            for uuid in selectedUUIDsArray {
                 if !selectionArray.contains(uuid) {
-                    selectedItemsArray.remove(at: selectedItemsArray.firstIndex(of: uuid)!)
+                    selectedUUIDsArray.remove(at: selectedUUIDsArray.firstIndex(of: uuid)!)
                     break
                 }
             }

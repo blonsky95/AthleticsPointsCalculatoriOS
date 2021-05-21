@@ -11,6 +11,9 @@
 		D002AD822629E61000472723 /* SavedPerformancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD812629E61000472723 /* SavedPerformancesView.swift */; };
 		D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */; };
 		D002AD8E2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */; };
+		D01970A32657B21100A12412 /* CompareButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01970A22657B21100A12412 /* CompareButtonView.swift */; };
+		D01970A52657B64400A12412 /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01970A42657B64400A12412 /* CancelButtonView.swift */; };
+		D01970A72657CA2A00A12412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */; };
 		D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */; };
 		D05377DF263EF06B00FDEAF3 /* String-NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */; };
 		D06C6CCB25FE908D00A0F292 /* AthleticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C6CCA25FE908D00A0F292 /* AthleticsEvent.swift */; };
@@ -41,6 +44,9 @@
 		D002AD812629E61000472723 /* SavedPerformancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPerformancesView.swift; sourceTree = "<group>"; };
 		D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSavedPerformance+CoreDataClass.swift"; path = "DataModel/UserSavedPerformance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSavedPerformance+CoreDataProperties.swift"; path = "DataModel/UserSavedPerformance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D01970A22657B21100A12412 /* CompareButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButtonView.swift; sourceTree = "<group>"; };
+		D01970A42657B64400A12412 /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
+		D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsEventPerformance.swift; sourceTree = "<group>"; };
 		D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-NumberFormatter.swift"; sourceTree = "<group>"; };
 		D06C6CCA25FE908D00A0F292 /* AthleticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsEvent.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 				D0D017632645A46D0071431D /* ComparePerformancesView.swift */,
 				D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */,
 				D002AD812629E61000472723 /* SavedPerformancesView.swift */,
+				D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +177,8 @@
 		D0D8C6C42652DC4800A62A67 /* StandAloneViews */ = {
 			isa = PBXGroup;
 			children = (
+				D01970A42657B64400A12412 /* CancelButtonView.swift */,
+				D01970A22657B21100A12412 /* CompareButtonView.swift */,
 				D0963954260522950026DFA7 /* CustomEventPicker.swift */,
 				D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */,
 				D0D8C6C72652E9F700A62A67 /* FilteredPerformances.swift */,
@@ -244,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D06C6CCF25FEA60000A0F292 /* all_events.json in Resources */,
+				D01970A72657CA2A00A12412 /* LaunchScreen.storyboard in Resources */,
 				D0B2F6C525FBD1CF001F1CAD /* Preview Assets.xcassets in Resources */,
 				D0B2F6C225FBD1CF001F1CAD /* Assets.xcassets in Resources */,
 			);
@@ -257,10 +267,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09063E825FFD5E100D666BE /* SingleEventScoreView.swift in Sources */,
+				D01970A32657B21100A12412 /* CompareButtonView.swift in Sources */,
 				D0D017642645A46D0071431D /* ComparePerformancesView.swift in Sources */,
 				D06C6CD225FEA71000A0F292 /* EventsDataObtainerAndHelper.swift in Sources */,
 				D095E1DA26011971008E05F4 /* DynamicPerformanceCollector.swift in Sources */,
 				D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */,
+				D01970A52657B64400A12412 /* CancelButtonView.swift in Sources */,
 				D0D8C6C62652DC8700A62A67 /* SearchBar.swift in Sources */,
 				D0B2F6D425FBD7BD001F1CAD /* CalculatorView.swift in Sources */,
 				D0B2F6D725FD1B8B001F1CAD /* AthleticsPointsEvent.swift in Sources */,
