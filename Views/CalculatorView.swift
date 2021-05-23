@@ -11,12 +11,16 @@ struct CalculatorView: View {
     
     //when the following variable is AthleticsPointEventPerformance - so the subclass, it is a saved perf.
     let athleticPointsEvent:AthleticsPointsEvent //if a single event, it will contain an sEvents array of 1 event
-    let userSavedPerformance:UserSavedPerformance? 
-    var isASavedPerformance:Bool = false
+    let userSavedPerformance:UserSavedPerformance?
+
+    var isASavedPerformance:Bool{
+        return userSavedPerformance != nil
+    }
 
     @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
-    
     @Environment(\.managedObjectContext) var moc
+    
+    @Environment(\.presentationMode) var presentationMode
 
     @StateObject private var eventPointsHolder=EventPointsHolder()
     
@@ -26,52 +30,50 @@ struct CalculatorView: View {
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
-                
-            
-            HStack {
-                TextField(titleOfSavedPerformance, text: $titleOfSavedPerformance)
-                    .font(.title)
-                    .padding(.bottom)
-            }
-            HStack {
-                Text(athleticPointsEvent.sEventName)
-                    .font(.title2)
-                    .padding(.bottom)
-                Spacer()
-            }
-            
-            
-            ForEach (0..<athleticPointsEvent.sEventsArray.count) { i in
-                SingleEventScoreView(athleticsEvent: athleticPointsEvent.sEventsArray[i], performance: getPerformance(athleticPointsEvent: athleticPointsEvent, index: i), eventIndex: i, eventPointsHolder: eventPointsHolder).environmentObject(eventsDataObtainerAndHelper)
-            }
-                
-            HStack{
-                Button("Save performance") {
-                    saveButtonPressed()
-                }
-                .padding()
-            }
-            
-            if athleticPointsEvent.sNumberDays>1 {
                 HStack {
-                    Text("Day 1")
-                    Spacer()
-                    Text("\(eventPointsHolder.getDay1Sum())")
+                    TextField(titleOfSavedPerformance, text: $titleOfSavedPerformance)
+                        .font(.title)
+                        .padding(.bottom)
                 }
                 HStack {
-                    Text("Day 2")
-                    Spacer()
-                    Text("\(eventPointsHolder.getDay2Sum())")
-                }
-            }
-            if athleticPointsEvent.sEventsArray.count>1 {
-                HStack {
-                    Text("Total")
+                    Text(athleticPointsEvent.sEventName)
                         .font(.title2)
+                        .padding(.bottom)
                     Spacer()
-                    Text("\(eventPointsHolder.totalSum)")
                 }
-            }
+                
+                
+                ForEach (0..<athleticPointsEvent.sEventsArray.count) { i in
+                    SingleEventScoreView(athleticsEvent: athleticPointsEvent.sEventsArray[i], performance: getPerformance(athleticPointsEvent: athleticPointsEvent, index: i), eventIndex: i, eventPointsHolder: eventPointsHolder).environmentObject(eventsDataObtainerAndHelper)
+                }
+                
+                HStack{
+                    Button("Save performance") {
+                        saveButtonPressed()
+                    }
+                    .padding()
+                }
+                
+                if athleticPointsEvent.sNumberDays>1 {
+                    HStack {
+                        Text("Day 1")
+                        Spacer()
+                        Text("\(eventPointsHolder.getDay1Sum())")
+                    }
+                    HStack {
+                        Text("Day 2")
+                        Spacer()
+                        Text("\(eventPointsHolder.getDay2Sum())")
+                    }
+                }
+                if athleticPointsEvent.sEventsArray.count>1 {
+                    HStack {
+                        Text("Total")
+                            .font(.title2)
+                        Spacer()
+                        Text("\(eventPointsHolder.totalSum)")
+                    }
+                }
             }
         }
         .padding()
@@ -79,25 +81,24 @@ struct CalculatorView: View {
         .onAppear{
             eventPointsHolder.setNumberEvents(numberOfEvents: athleticPointsEvent.sEventsArray.count)
             loadPerformanceName()
-            print("coefficients: \(athleticPointsEvent.sEventsArray[0].sCoefficients)")
         }
-        .alert(isPresented: $showingAlert) {
-                    Alert(
-                        title: Text("Overwrite performance?"),
-                        message: Text("Overwrite existing performance, or create a new performance?"),
-                        primaryButton: .default(Text("Overwrite")) {
-                            print("Overwrite...")
-                            updateUserSavedPerformance()
-                        },
-                        secondaryButton: .default(Text("New")) {
-                            print("New...")
-                            saveNewUserSavedPerformance()
-                        }
-                    )
-                }
-        
+        .alert(isPresented: $showingAlert, content: getAlert)
     }
     
+    func getAlert() -> Alert {
+        return Alert(
+            title: Text("Overwrite performance?"),
+            message: Text("Overwrite existing performance, or create a new performance?"),
+            primaryButton: .default(Text("Overwrite")) {
+                print("Overwrite...")
+                updateUserSavedPerformance()
+            },
+            secondaryButton: .default(Text("New")) {
+                print("New...")
+                saveNewUserSavedPerformance()
+            }
+        )
+    }
     
     func saveButtonPressed() {
         if isASavedPerformance {
@@ -120,6 +121,7 @@ struct CalculatorView: View {
         fillUserSavedPerformanceData(newUserSavedPerformance)
         
         saveToCoreData(newUserSavedPerformance)
+        presentationMode.wrappedValue.dismiss()
     }
     
     func updateUserSavedPerformance() {
@@ -127,6 +129,7 @@ struct CalculatorView: View {
             fillUserSavedPerformanceData(userSavPerf)
             saveToCoreData(userSavPerf)
         }
+        presentationMode.wrappedValue.dismiss()
     }
     
     func fillUserSavedPerformanceData(_ fillUserSavedPerformance: UserSavedPerformance){
@@ -196,7 +199,7 @@ struct CalculatorView_Previews: PreviewProvider {
                                          eventsDataObtainerAndHelper.athleticsEventsSearcher["1500m_m"]!],
                                     days:2)
         
-        CalculatorView(athleticPointsEvent: decathlon, userSavedPerformance: nil, isASavedPerformance: false)
+        CalculatorView(athleticPointsEvent: decathlon, userSavedPerformance: nil)
     }
 }
 

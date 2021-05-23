@@ -100,6 +100,7 @@ struct SavedPerformancesView: View {
             .navigationTitle("Saved Performances")
             .environment(\.editMode, self.$editMode) //#2
         }
+        .navigationViewStyle(StackNavigationViewStyle())
  }
 
     func compareButtonPressed() {

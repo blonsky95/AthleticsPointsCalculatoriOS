@@ -112,6 +112,7 @@ struct EventSelectorView: View {
             }
             .navigationTitle("Event Selector")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

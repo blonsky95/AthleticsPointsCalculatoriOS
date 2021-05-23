@@ -38,7 +38,7 @@ struct FilteredPerformances: View {
     var body: some View {
         List(selection: $listUUIDSelectionSet) {
             ForEach(fetchRequest.wrappedValue) { performance in
-                NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance, isASavedPerformance: true).environmentObject(eventsDataObtainerAndHelper)) {
+                NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance).environmentObject(eventsDataObtainerAndHelper)) {
                     HStack{
                         VStack(alignment: .leading){
                             Text(performance.performanceTitle ?? "Unknown")
