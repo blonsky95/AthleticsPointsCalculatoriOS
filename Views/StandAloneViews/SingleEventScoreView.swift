@@ -13,23 +13,18 @@ struct SingleEventScoreView:View {
     let performance:Double //performance, 0.0 if not a saved performance
     let eventIndex:Int //which event of the events array is it
     
-    @ObservedObject var eventPointsHolder:EventPointsHolder
-    
     @State private var eventPerformance:String = ""
     @State private var eventPoints = 0
 
-    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
-    
-    var body: some View {
+    @EnvironmentObject var mainViewModel : MainViewModel
+
+        var body: some View {
         HStack {
             Text(athleticsEvent.sName)
             DynamicPerformanceCollector(athleticsEvent: athleticsEvent, eventPerformance: $eventPerformance)
                 .onChange(of: eventPerformance) { newValue in
-
-                    eventPoints=eventsDataObtainerAndHelper.getPoints(event: athleticsEvent, performance: eventPerformance.doubleValue)
-
-                    eventPointsHolder.pointsIntArray[eventIndex]=eventPoints
-                    eventPointsHolder.performancesStringArray[eventIndex]=eventPerformance.doubleValue
+                    eventPoints=mainViewModel.getPointsForEvent(event: athleticsEvent, perf: eventPerformance.doubleValue)
+                    mainViewModel.updateEventPointsHolder(eventIndex: eventIndex, eventPoints: eventPoints, eventPerf: eventPerformance)
                 }
             Spacer()
             Text("\(eventPoints)")

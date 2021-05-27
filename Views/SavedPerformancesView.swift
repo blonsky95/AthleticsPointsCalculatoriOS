@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SavedPerformancesView: View {
     
-    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
+//    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
+    @EnvironmentObject var mainViewModel : MainViewModel
 
     @Environment(\.managedObjectContext) var moc
     
@@ -67,7 +68,7 @@ struct SavedPerformancesView: View {
                 }
 
                 FilteredPerformances(predicate: filterPredicate, selectedItemsArray: $selectedItemsArray, selection: $editModeSelectionSetForList)
-                    .environmentObject(eventsDataObtainerAndHelper)
+//                    .environmentObject(eventsDataObtainerAndHelper)
                 .onChange(of: selectedItemsArray) { newValue in
                     withAnimation{
                         updateCompareButtonText(count: newValue.count)

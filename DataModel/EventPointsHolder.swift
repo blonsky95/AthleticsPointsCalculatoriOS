@@ -5,35 +5,18 @@
 //  Created by Mar Garcia on 14/3/21.
 //
 
-import Foundation
+import SwiftUI
 
-class EventPointsHolder:ObservableObject {
+struct EventPointsHolder {
     
-    var numberOfEvents:Int
-    
-    @Published var pointsIntArray = [Int]()
-    @Published var performancesStringArray = [Double]()
+    var numberOfEvents = 0
+    var pointsIntArray = [Int]()
+    var performancesStringArray = [Double]()
 
-
-    init() {
-        numberOfEvents=0
-    }
-    
-    func setNumberEvents(numberOfEvents:Int) {
-        self.numberOfEvents=numberOfEvents
-
-        let count = 0...numberOfEvents-1
-        for _ in count {
-            pointsIntArray.append(0)
-            performancesStringArray.append(0.0)
-        }
-    }
-}
-
-extension EventPointsHolder {
+    //The initialization/value filling of the above variables is done in mainviewmodel
     
     var totalSum :Int {
-        getDay1Sum()+getDay2Sum()
+        return getDay1Sum()+getDay2Sum()
     }
     
     func getDay1Sum() -> Int {
@@ -61,5 +44,4 @@ extension EventPointsHolder {
         }
         return day2Sum
     }
-    
 }

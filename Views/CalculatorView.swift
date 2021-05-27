@@ -9,23 +9,23 @@ import SwiftUI
 
 struct CalculatorView: View {
     
-    //when the following variable is AthleticsPointEventPerformance - so the subclass, it is a saved perf.
-    let athleticPointsEvent:AthleticsPointsEvent //if a single event, it will contain an sEvents array of 1 event
+    let athleticPointsEvent:AthleticsPointsEvent
     let userSavedPerformance:UserSavedPerformance?
+    
+    @EnvironmentObject var mainViewModel : MainViewModel
 
-    var isASavedPerformance:Bool{
-        return userSavedPerformance != nil
-    }
+    @Environment(\.currentTab) var tab
 
-    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
     @Environment(\.managedObjectContext) var moc
     
     @Environment(\.presentationMode) var presentationMode
-
-    @StateObject private var eventPointsHolder=EventPointsHolder()
     
     @State private var titleOfSavedPerformance = "Untitled"
     @State private var showingAlert = false
+    
+    var isASavedPerformance:Bool{
+        return userSavedPerformance != nil
+    }
 
     var body: some View {
         VStack {
@@ -41,10 +41,15 @@ struct CalculatorView: View {
                         .padding(.bottom)
                     Spacer()
                 }
+                .onAppear {
+//                    print("performance clicked: \(String(describing: userSavedPerformance?.performancesArray))")
+                }
                 
                 
                 ForEach (0..<athleticPointsEvent.sEventsArray.count) { i in
-                    SingleEventScoreView(athleticsEvent: athleticPointsEvent.sEventsArray[i], performance: getPerformance(athleticPointsEvent: athleticPointsEvent, index: i), eventIndex: i, eventPointsHolder: eventPointsHolder).environmentObject(eventsDataObtainerAndHelper)
+                    SingleEventScoreView(athleticsEvent: athleticPointsEvent.sEventsArray[i],
+                                         performance: getPerformance(athleticPointsEvent: athleticPointsEvent, index: i),
+                                         eventIndex: i)
                 }
                 
                 HStack{
@@ -58,12 +63,12 @@ struct CalculatorView: View {
                     HStack {
                         Text("Day 1")
                         Spacer()
-                        Text("\(eventPointsHolder.getDay1Sum())")
+                        Text("\(mainViewModel.eventPointsHolder.getDay1Sum())")
                     }
                     HStack {
                         Text("Day 2")
                         Spacer()
-                        Text("\(eventPointsHolder.getDay2Sum())")
+                        Text("\(mainViewModel.eventPointsHolder.getDay2Sum())")
                     }
                 }
                 if athleticPointsEvent.sEventsArray.count>1 {
@@ -71,7 +76,7 @@ struct CalculatorView: View {
                         Text("Total")
                             .font(.title2)
                         Spacer()
-                        Text("\(eventPointsHolder.totalSum)")
+                        Text("\(mainViewModel.eventPointsHolder.totalSum)")
                     }
                 }
             }
@@ -79,7 +84,7 @@ struct CalculatorView: View {
         .padding()
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .onAppear{
-            eventPointsHolder.setNumberEvents(numberOfEvents: athleticPointsEvent.sEventsArray.count)
+            mainViewModel.resetEventPointsHolder(numberOfEventsOfPerformance: athleticPointsEvent.sEventsArray.count)
             loadPerformanceName()
         }
         .alert(isPresented: $showingAlert, content: getAlert)
@@ -121,15 +126,33 @@ struct CalculatorView: View {
         fillUserSavedPerformanceData(newUserSavedPerformance)
         
         saveToCoreData(newUserSavedPerformance)
-        presentationMode.wrappedValue.dismiss()
+        
+        handleViewDismissal()
     }
     
     func updateUserSavedPerformance() {
         if let userSavPerf=userSavedPerformance {
+            print("performance before filling: \(String(describing: userSavPerf.performancesArray))")
             fillUserSavedPerformanceData(userSavPerf)
+            print("performance after filling: \(String(describing: userSavPerf.performancesArray))")
             saveToCoreData(userSavPerf)
         }
-        presentationMode.wrappedValue.dismiss()
+        handleViewDismissal()
+    }
+    
+    func handleViewDismissal() {
+        //If comes from calculator view - take to saved
+        //If comes from saved - dismiss the navigation screen
+        
+        
+        //TODO i want a swift transition
+        if isASavedPerformance {
+            presentationMode.wrappedValue.dismiss()
+        } else {
+            presentationMode.wrappedValue.dismiss()
+            self.tab.wrappedValue = .savedPerformances
+            //The create tab is still on the calculatorview! Unless I dismiss
+        }
     }
     
     func fillUserSavedPerformanceData(_ fillUserSavedPerformance: UserSavedPerformance){
@@ -141,16 +164,16 @@ struct CalculatorView: View {
         fillUserSavedPerformance.performanceEventsArray = String(data: jsonData, encoding: .utf8)!
         
         fillUserSavedPerformance.performanceTitle = titleOfSavedPerformance
-        fillUserSavedPerformance.performanceTotalPoints = Int16(eventPointsHolder.totalSum)
+        fillUserSavedPerformance.performanceTotalPoints = Int16(mainViewModel.eventPointsHolder.totalSum)
         
-        let jsonData2 = try! JSONEncoder().encode(eventPointsHolder.performancesStringArray)
+        let jsonData2 = try! JSONEncoder().encode(mainViewModel.eventPointsHolder.performancesStringArray)
         fillUserSavedPerformance.performancesArray = String(data: jsonData2, encoding: .utf8)!
         // this should be an array of doubles collected from textfields of points
     }
     
     func saveToCoreData(_ userSavedPerformance: UserSavedPerformance) {
         userSavedPerformance.date=Date() //updates date so shows up at top, applies to new and updated perfs
-        print("Saving/updating a new performance: \(userSavedPerformance)")
+        print("Saving/updating a new performance, perf array: \(String(describing: userSavedPerformance.performancesArray))")
         try? self.moc.save()
     }
     
@@ -176,10 +199,6 @@ struct CalculatorView: View {
         }
     }
 }
-
-
-
-
 
 struct CalculatorView_Previews: PreviewProvider {
 

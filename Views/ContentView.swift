@@ -9,22 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let eventsDataObtainerAndHelper = EventsDataObtainerAndHelper()
+    enum TabOptions {
+            case eventSelector
+            case savedPerformances
+        }
+    
+    @State private var selectedTab: TabOptions = .eventSelector
 
+    let eventsDataObtainerAndHelper = EventsDataObtainerAndHelper()
+    
     var body: some View {
-        TabView {
-            EventSelectorView().environmentObject(eventsDataObtainerAndHelper)
+        TabView (selection: $selectedTab){
+            EventSelectorView()
+                //.environmentObject(eventsDataObtainerAndHelper)
                 .tabItem {
                     Image(systemName: "plus.circle")
                     Text("New")
                 }
-            SavedPerformancesView().environmentObject(eventsDataObtainerAndHelper)
+                .tag(TabOptions.eventSelector)
+                .environment(\.currentTab, $selectedTab)
+
+
+            SavedPerformancesView()
+//                .environmentObject(eventsDataObtainerAndHelper)
                 .tabItem {
                     Image(systemName: "bookmark")
                     Text("Saved")
                 }
+                .tag(TabOptions.savedPerformances)
+
         }
-        
+        .animation(.easeInOut) // 2
+        .transition(.slide) // 3
     }
 }
 

@@ -19,7 +19,10 @@ struct FilteredPerformances: View {
     var fetchRequest: FetchRequest<UserSavedPerformance> //no error because it is initialized in the init block - even if not a param
 
     @Binding var selectedUUIDsArray:[UUID] //Contains the UUIDs in the right first, second... order
-    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
+    
+//    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
+    @EnvironmentObject var mainViewModel : MainViewModel
+
     @Environment(\.managedObjectContext) var moc
     
     @Binding var listUUIDSelectionSet:Set<UUID> //Keeps track of selected items in SwiftUI List when in EditMode. No order
@@ -38,19 +41,21 @@ struct FilteredPerformances: View {
     var body: some View {
         List(selection: $listUUIDSelectionSet) {
             ForEach(fetchRequest.wrappedValue) { performance in
-                NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance).environmentObject(eventsDataObtainerAndHelper)) {
+                NavigationLink(destination: CalculatorView(athleticPointsEvent: AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance), userSavedPerformance: performance)) {
                     HStack{
                         VStack(alignment: .leading){
                             Text(performance.performanceTitle ?? "Unknown")
                             Text(performance.performanceEventName ?? "Unknown")
-                            Text(String(performance.getEventsArraySizeCount()))
+                            Text(performance.getReadablePerformances())
                                 .foregroundColor(Color.gray)
-                                .font(.system(size: 16))
+                                .font(.system(size: 14))
+                                .padding(.trailing)
                             
                         }
                         Spacer()
                         Text(String(performance.performanceTotalPoints))
                     }
+                    
                 }
             }
             .onDelete(perform: delete)

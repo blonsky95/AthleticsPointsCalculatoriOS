@@ -77,6 +77,29 @@ extension UserSavedPerformance {
         
         return athleticsEventsArray.count
     }
+    
+    public func getReadablePerformances() -> String {
+        
+        var perfsArray = [Double]()
+
+        if let jsonData1 = self.wrappedPerformancesArray.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                perfsArray = try decoder.decode([Double].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        var perfString = ""
+        for perf in perfsArray {
+            perfString.append("\(String(perf)) ")
+        }
+        return perfString.trimSpace()
+    }
+    
+    
 
 
 }
