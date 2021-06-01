@@ -9,13 +9,15 @@ import SwiftUI
 
 @main
 struct AthleticsPointsCalculatorApp: App {
-    let persistenceController = PersistenceController.shared
+    
+//    let persistenceController = PersistenceController.shared
+
     @StateObject var mainViewModel:MainViewModel = MainViewModel()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(mainViewModel)
         }
     }

@@ -6,14 +6,104 @@
 //
 
 import Foundation
+import CoreData
 
 class MainViewModel: ObservableObject {
     
     var eventsDataObtainerAndHelper:EventsDataObtainerAndHelper
+    let container: NSPersistentContainer
     
     init() {
         eventsDataObtainerAndHelper = EventsDataObtainerAndHelper()
+        container = NSPersistentContainer(name: "AthleticsPointsCalculator")
+        container.loadPersistentStores{( description, error) in
+            if let pError = error {
+                print("Error loading container: \(pError)")
+            } else {
+                print("Container loaded succesfully")
+                self.fetchPerformances()
+            }
+        }
     }
+    
+    
+    //-----//-----////-----//-----////-----//-----////-----//-----//
+    //Saved Performances View
+    
+    var currentSearchText:String = ""
+    
+    func updateQuery(searchText: String) {
+            currentSearchText=searchText
+            fetchPerformances(searchText: currentSearchText)
+    }
+    
+    func getAthleticsPerformanceFromSelection(selectedUUID: UUID) -> AthleticsPointsEventPerformance? {
+        if let performance = userSavedPerfsArray.first(where: {$0.id == selectedUUID}) {
+            return AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance)
+        } else {
+            return nil
+        }
+    }
+
+   
+    
+    
+    //-----//-----////-----//-----////-----//-----////-----//-----//
+    //Core Data stuff
+    
+    @Published var userSavedPerfsArray:[UserSavedPerformance] = []
+    
+    func saveData(){
+        do {
+            try
+            container.viewContext.save()
+            fetchPerformances(searchText: currentSearchText)
+        } catch let error{
+            print ("error saving data: \(error)")
+        }
+        
+    }
+    
+    func deletePerformance(indexSet: IndexSet) {
+        guard let sIndexSet = indexSet.first else {return}
+        let perf = userSavedPerfsArray[sIndexSet]
+        print("will delete \(perf.wrappedPerformanceTitle)")
+        container.viewContext.delete(perf)
+        saveData()
+    }
+    
+    func fetchPerformances(searchText:String? = nil) {
+        print("Fetch performances called")
+
+        let fetchRequest = NSFetchRequest<UserSavedPerformance>(entityName: "UserSavedPerformance")        
+
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \UserSavedPerformance.date, ascending: false),
+            NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
+        ]
+        
+        print("check the boolean \(searchText?.isEmpty ?? true)")
+
+        if searchText != nil && !(searchText?.isEmpty ?? true) {
+            print("predicate added to the fetch request: \(searchText!)")
+            
+            let titleFilter = NSPredicate(format: "performanceTitle CONTAINS[c] %@", searchText!)
+            let eventFilter = NSPredicate(format: "performanceEventName CONTAINS[c] %@", searchText!)
+            let pointsFilter = NSPredicate(format: "performanceTotalPoints BEGINSWITH %@", searchText!)
+            
+            fetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titleFilter, eventFilter, pointsFilter])
+        }
+       
+        do {
+            userSavedPerfsArray = try container.viewContext.fetch(fetchRequest)
+            print("Success fetching perfs, count: \(userSavedPerfsArray.count)")
+
+        } catch let error {
+            print("Error fetching perfs: \(error)")
+        }
+    }
+    
+    
     
     //-----//-----////-----//-----////-----//-----////-----//-----//
     //Event Selector View

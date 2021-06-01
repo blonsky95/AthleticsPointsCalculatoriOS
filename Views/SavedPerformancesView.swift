@@ -12,19 +12,13 @@ struct SavedPerformancesView: View {
 //    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
     @EnvironmentObject var mainViewModel : MainViewModel
 
-    @Environment(\.managedObjectContext) var moc
+//    @Environment(\.managedObjectContext) var moc
     
     @State private var showingSheet = false
     @State private var showingAlert = false
     @State private var alertText = "Hey"
-
-    //This fetch request contains all the usps
-    @FetchRequest(entity: UserSavedPerformance.entity(), sortDescriptors: [
-        NSSortDescriptor(keyPath: \UserSavedPerformance.date, ascending: false),
-        NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
-    ]) var userSavedPerformances: FetchedResults<UserSavedPerformance>
     
-    @State var filterPredicate: NSCompoundPredicate? = nil
+//    @State var listOfPerformancesToDisplay:[UserSavedPerformance] = [UserSavedPerformance]() //think this one
     
     @State private var comparePerf1 = AthleticsPointsEventPerformance()
     @State private var comparePerf2 = AthleticsPointsEventPerformance()
@@ -56,24 +50,16 @@ struct SavedPerformancesView: View {
                 SearchBar(text: $searchText)
                     .padding(.top)
                     .onChange(of: searchText) { newValue in
-                        if (newValue.isEmpty) {
-                            filterPredicate = nil
-                        } else {
-                            let titleFilter = NSPredicate(format: "performanceTitle CONTAINS[c] %@", newValue)
-                            let eventFilter = NSPredicate(format: "performanceEventName CONTAINS[c] %@", newValue)
-                            let pointsFilter = NSPredicate(format: "performanceTotalPoints BEGINSWITH %@", newValue)
+                        mainViewModel.updateQuery(searchText: newValue)
+                }
 
-                            filterPredicate=NSCompoundPredicate(orPredicateWithSubpredicates: [titleFilter, eventFilter, pointsFilter])
+                FilteredPerformances(performancesToDisplay: mainViewModel.userSavedPerfsArray, selectedItemsArray: $selectedItemsArray, selection: $editModeSelectionSetForList)
+                    .environmentObject(mainViewModel)
+                    .onChange(of: selectedItemsArray) { newValue in
+                        withAnimation{
+                            updateCompareButtonText(count: newValue.count)
                         }
-                }
-
-                FilteredPerformances(predicate: filterPredicate, selectedItemsArray: $selectedItemsArray, selection: $editModeSelectionSetForList)
-//                    .environmentObject(eventsDataObtainerAndHelper)
-                .onChange(of: selectedItemsArray) { newValue in
-                    withAnimation{
-                        updateCompareButtonText(count: newValue.count)
                     }
-                }
                 
                 HStack {
                     
@@ -97,6 +83,9 @@ struct SavedPerformancesView: View {
                 .alert(isPresented: $showingAlert) {
                             Alert(title: Text("Ups!"), message: Text(alertText), dismissButton: .default(Text("Got it!")))
                         }
+                .onAppear{
+                    print ("check this:\(mainViewModel.container.name)")
+                }
             }
             .navigationTitle("Saved Performances")
             .environment(\.editMode, self.$editMode) //#2
@@ -118,11 +107,11 @@ struct SavedPerformancesView: View {
     }
     
     func proceedWithComparing() {
-        if let performance = userSavedPerformances.first(where: {$0.id == selectedItemsArray[0]}) {
-            comparePerf1 = AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance)
+        if let performance = mainViewModel.getAthleticsPerformanceFromSelection(selectedUUID: selectedItemsArray[0]) {
+            comparePerf1 = performance
         }
-        if let performance = userSavedPerformances.first(where: {$0.id == selectedItemsArray[1]}) {
-            comparePerf2 = AthleticsPointsEventPerformance.userSavedPerfToAthPointsEventPerf(userSavedPerf: performance)
+        if let performance = mainViewModel.getAthleticsPerformanceFromSelection(selectedUUID: selectedItemsArray[1]) {
+            comparePerf2 = performance
         }
 
         if (comparePerf1.sEventsArray.count==comparePerf2.sEventsArray.count) {
@@ -150,9 +139,9 @@ struct SavedPerformancesView: View {
         }
     }
 
-    struct SavedPerformancesView_Previews: PreviewProvider {
-        static var previews: some View {
-            SavedPerformancesView()
-        }
-    }
+//    struct SavedPerformancesView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            SavedPerformancesView()
+//        }
+//    }
 }
