@@ -64,6 +64,42 @@ class MainViewModel: ObservableObject {
         
     }
     
+    func createPerformance(athleticPointsEvent: AthleticsPointsEvent, titleOfNewPerformance:String) {
+        let newUserSavedPerformance = UserSavedPerformance(context: container.viewContext)
+        newUserSavedPerformance.id = UUID()
+        
+        newUserSavedPerformance.performanceEventName = athleticPointsEvent.sEventName
+        newUserSavedPerformance.performanceNumberDays = Int16(athleticPointsEvent.sNumberDays)
+        
+        //the array of AthleticsEvent should be encodable because AthleticsEvent implements it
+        let jsonData = try! JSONEncoder().encode(athleticPointsEvent.sEventsArray)
+        newUserSavedPerformance.performanceEventsArray = String(data: jsonData, encoding: .utf8)!
+        
+        newUserSavedPerformance.performanceTitle = titleOfNewPerformance
+        newUserSavedPerformance.performanceTotalPoints = Int16(eventPointsHolder.totalSum)
+        
+        let jsonData2 = try! JSONEncoder().encode(eventPointsHolder.performancesStringArray)
+        newUserSavedPerformance.performancesArray = String(data: jsonData2, encoding: .utf8)!
+        
+        newUserSavedPerformance.date=Date()
+        container.viewContext.insert(newUserSavedPerformance)
+        
+        saveData()
+    }
+    
+    func updatePerformance(userSavedPerformance: UserSavedPerformance, titleOfNewPerformance:String) {
+
+        userSavedPerformance.performanceTitle = titleOfNewPerformance
+        userSavedPerformance.performanceTotalPoints = Int16(eventPointsHolder.totalSum)
+        
+        let jsonData2 = try! JSONEncoder().encode(eventPointsHolder.performancesStringArray)
+        userSavedPerformance.performancesArray = String(data: jsonData2, encoding: .utf8)!
+        
+        userSavedPerformance.date=Date()
+        //there is no container function to update, save() does the job
+        saveData()
+    }
+    
     func deletePerformance(indexSet: IndexSet) {
         guard let sIndexSet = indexSet.first else {return}
         let perf = userSavedPerfsArray[sIndexSet]

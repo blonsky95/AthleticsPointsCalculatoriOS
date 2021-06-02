@@ -9,17 +9,13 @@ import SwiftUI
 
 struct SavedPerformancesView: View {
     
-//    @EnvironmentObject var eventsDataObtainerAndHelper: EventsDataObtainerAndHelper
-    @EnvironmentObject var mainViewModel : MainViewModel
 
-//    @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var mainViewModel : MainViewModel
     
     @State private var showingSheet = false
     @State private var showingAlert = false
     @State private var alertText = "Hey"
-    
-//    @State var listOfPerformancesToDisplay:[UserSavedPerformance] = [UserSavedPerformance]() //think this one
-    
+        
     @State private var comparePerf1 = AthleticsPointsEventPerformance()
     @State private var comparePerf2 = AthleticsPointsEventPerformance()
 

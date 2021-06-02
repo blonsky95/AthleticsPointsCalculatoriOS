@@ -15,8 +15,6 @@ struct CalculatorView: View {
     @EnvironmentObject var mainViewModel : MainViewModel
 
     @Environment(\.currentTab) var tab
-
-    @Environment(\.managedObjectContext) var moc
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -41,10 +39,6 @@ struct CalculatorView: View {
                         .padding(.bottom)
                     Spacer()
                 }
-                .onAppear {
-//                    print("performance clicked: \(String(describing: userSavedPerformance?.performancesArray))")
-                }
-                
                 
                 ForEach (0..<athleticPointsEvent.sEventsArray.count) { i in
                     SingleEventScoreView(athleticsEvent: athleticPointsEvent.sEventsArray[i],
@@ -120,22 +114,14 @@ struct CalculatorView: View {
     }
     
     func saveNewUserSavedPerformance() {
-        let newUserSavedPerformance = UserSavedPerformance(context: self.moc)
-        newUserSavedPerformance.id = UUID()
-        
-        fillUserSavedPerformanceData(newUserSavedPerformance)
-        
-        saveToCoreData(newUserSavedPerformance)
-        
+        mainViewModel.createPerformance(athleticPointsEvent: athleticPointsEvent, titleOfNewPerformance: titleOfSavedPerformance)
+
         handleViewDismissal()
     }
     
     func updateUserSavedPerformance() {
         if let userSavPerf=userSavedPerformance {
-            print("performance before filling: \(String(describing: userSavPerf.performancesArray))")
-            fillUserSavedPerformanceData(userSavPerf)
-            print("performance after filling: \(String(describing: userSavPerf.performancesArray))")
-            saveToCoreData(userSavPerf)
+            mainViewModel.updatePerformance(userSavedPerformance: userSavPerf, titleOfNewPerformance: titleOfSavedPerformance)
         }
         handleViewDismissal()
     }
@@ -154,29 +140,7 @@ struct CalculatorView: View {
             //The create tab is still on the calculatorview! Unless I dismiss
         }
     }
-    
-    func fillUserSavedPerformanceData(_ fillUserSavedPerformance: UserSavedPerformance){
-        fillUserSavedPerformance.performanceEventName = athleticPointsEvent.sEventName
-        fillUserSavedPerformance.performanceNumberDays = Int16(athleticPointsEvent.sNumberDays)
-        
-        //the array of AthleticsEvent should be encodable because AthleticsEvent implements it
-        let jsonData = try! JSONEncoder().encode(athleticPointsEvent.sEventsArray)
-        fillUserSavedPerformance.performanceEventsArray = String(data: jsonData, encoding: .utf8)!
-        
-        fillUserSavedPerformance.performanceTitle = titleOfSavedPerformance
-        fillUserSavedPerformance.performanceTotalPoints = Int16(mainViewModel.eventPointsHolder.totalSum)
-        
-        let jsonData2 = try! JSONEncoder().encode(mainViewModel.eventPointsHolder.performancesStringArray)
-        fillUserSavedPerformance.performancesArray = String(data: jsonData2, encoding: .utf8)!
-        // this should be an array of doubles collected from textfields of points
-    }
-    
-    func saveToCoreData(_ userSavedPerformance: UserSavedPerformance) {
-        userSavedPerformance.date=Date() //updates date so shows up at top, applies to new and updated perfs
-        print("Saving/updating a new performance, perf array: \(String(describing: userSavedPerformance.performancesArray))")
-        try? self.moc.save()
-    }
-    
+  
     
     //this basically checks if what is being sent to single score view needs to have a value, aka is saved performance
     // to do so it checks if its a AthleticsPointsEventPerformance class (subclass of AthleticPointsEvents)
