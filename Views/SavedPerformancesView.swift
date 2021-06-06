@@ -80,7 +80,7 @@ struct SavedPerformancesView: View {
                             Alert(title: Text("Ups!"), message: Text(alertText), dismissButton: .default(Text("Got it!")))
                         }
                 .onAppear{
-                    print ("check this:\(mainViewModel.container.name)")
+//                    print ("check this:\(mainViewModel.container.name)")
                 }
             }
             .navigationTitle("Saved Performances")

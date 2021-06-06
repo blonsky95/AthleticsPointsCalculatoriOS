@@ -18,17 +18,23 @@ struct SingleEventScoreView:View {
 
     @EnvironmentObject var mainViewModel : MainViewModel
 
-        var body: some View {
-        HStack {
-            Text(athleticsEvent.sName)
-            DynamicPerformanceCollector(athleticsEvent: athleticsEvent, eventPerformance: $eventPerformance)
-                .onChange(of: eventPerformance) { newValue in
-                    eventPoints=mainViewModel.getPointsForEvent(event: athleticsEvent, perf: eventPerformance.doubleValue)
-                    mainViewModel.updateEventPointsHolder(eventIndex: eventIndex, eventPoints: eventPoints, eventPerf: eventPerformance)
-                }
-            Spacer()
-            Text("\(eventPoints)")
-        }.onAppear(perform: loadData)
+    var body: some View {
+        VStack {
+            HStack {
+                Text(athleticsEvent.sName)
+                Spacer()
+            }
+            HStack {
+                DynamicPerformanceCollector(athleticsEvent: athleticsEvent, eventPerformance: $eventPerformance)
+                    .onChange(of: eventPerformance) { newValue in
+                        eventPoints=mainViewModel.getPointsForEvent(event: athleticsEvent, perf: eventPerformance.doubleValue)
+                        mainViewModel.updateEventPointsHolder(eventIndex: eventIndex, eventPoints: eventPoints, eventPerf: eventPerformance)
+                    }
+                Spacer()
+                Text("\(eventPoints)")
+            }
+        }
+        .onAppear(perform: loadData)
         
     }
     

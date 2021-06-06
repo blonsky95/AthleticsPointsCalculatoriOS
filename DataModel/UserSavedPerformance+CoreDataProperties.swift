@@ -81,6 +81,7 @@ extension UserSavedPerformance {
     public func getReadablePerformances() -> String {
         
         var perfsArray = [Double]()
+        var eventsArray = [AthleticsEvent]()
 
         if let jsonData1 = self.wrappedPerformancesArray.data(using: .utf8)
         {
@@ -92,11 +93,59 @@ extension UserSavedPerformance {
             }
         }
         
+        if let jsonData2 = self.wrappedPerformanceEventsArray.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                eventsArray = try decoder.decode([AthleticsEvent].self, from: jsonData2)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
         var perfString = ""
-        for perf in perfsArray {
-            perfString.append("\(String(perf)) ")
+        for (index, element) in perfsArray.enumerated() {
+            var currentPerfString = String(element)
+            if eventsArray[index].sType==AthleticsEvent.typeRunLong {
+                currentPerfString="\(getMinutesFromSecondsTotal(element))\(getSecondsFromSecondsTotal(element))\(getDecimalsFromSecondsTotal(element))"
+            }
+            perfString.append("\(currentPerfString) ")
         }
         return perfString.trimSpace()
+        
+        
+    }
+    
+    func getMinutesFromSecondsTotal(_ seconds: Double) -> String {
+        if floor(seconds/60)>0 {
+            return "\(Int(floor(seconds/60))):"
+        }
+        return ""
+    }
+    
+    func getSecondsFromSecondsTotal(_ seconds: Double) -> String {
+        let spareSecs = Int(floor(seconds - ((floor(seconds/60))*60)))
+        var string = "\(spareSecs)"
+        if string.count<=1 {
+            string = "0\(string)"
+        }
+        return string
+    }
+    
+    func getDecimalsFromSecondsTotal(_ seconds: Double) -> String {
+        var string = ""
+        let spareSecs = seconds - ((floor(seconds/60))*60)
+        let decimals = String(Int(100 * (spareSecs-floor(spareSecs)))) //number between 0 and 99
+        switch decimals.count {
+        case 1:
+            string = ".0\(decimals)"
+        case 2:
+            string = ".\(decimals)"
+        default:
+            return string
+        }
+        
+        return string
     }
     
     

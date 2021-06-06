@@ -44,6 +44,8 @@ struct CalculatorView: View {
                     SingleEventScoreView(athleticsEvent: athleticPointsEvent.sEventsArray[i],
                                          performance: getPerformance(athleticPointsEvent: athleticPointsEvent, index: i),
                                          eventIndex: i)
+                        .background(Color(UIColor.blue.withAlphaComponent(0.12-(5*CGFloat(i%2))/100)))
+
                 }
                 
                 HStack{

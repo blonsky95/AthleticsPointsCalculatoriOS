@@ -20,7 +20,7 @@ class MainViewModel: ObservableObject {
             if let pError = error {
                 print("Error loading container: \(pError)")
             } else {
-                print("Container loaded succesfully")
+//                print("Container loaded succesfully")
                 self.fetchPerformances()
             }
         }
@@ -109,8 +109,6 @@ class MainViewModel: ObservableObject {
     }
     
     func fetchPerformances(searchText:String? = nil) {
-        print("Fetch performances called")
-
         let fetchRequest = NSFetchRequest<UserSavedPerformance>(entityName: "UserSavedPerformance")        
 
         fetchRequest.sortDescriptors = [
@@ -118,8 +116,6 @@ class MainViewModel: ObservableObject {
             NSSortDescriptor(keyPath: \UserSavedPerformance.performanceTitle, ascending: true)
         ]
         
-        print("check the boolean \(searchText?.isEmpty ?? true)")
-
         if searchText != nil && !(searchText?.isEmpty ?? true) {
             print("predicate added to the fetch request: \(searchText!)")
             
@@ -132,7 +128,7 @@ class MainViewModel: ObservableObject {
        
         do {
             userSavedPerfsArray = try container.viewContext.fetch(fetchRequest)
-            print("Success fetching perfs, count: \(userSavedPerfsArray.count)")
+//            print("Success fetching perfs, count: \(userSavedPerfsArray.count)")
 
         } catch let error {
             print("Error fetching perfs: \(error)")

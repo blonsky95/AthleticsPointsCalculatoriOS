@@ -61,7 +61,8 @@ struct DynamicPerformanceCollector:View {
     func updateMinutesAndSeconds() {
         if !eventPerformance.isEmpty {
             minutes=String(Int(floor(Double(eventPerformance)!/60.0)))
-            seconds=String(Double(eventPerformance)! - Double(minutes)!*60)
+            let secondsNotRounded=Double(eventPerformance)! - Double(minutes)!*60
+            seconds=String(round(100*secondsNotRounded)/100)
         }
     }
 }
