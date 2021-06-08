@@ -80,14 +80,14 @@ extension UserSavedPerformance {
     
     public func getReadablePerformances() -> String {
         
-        var perfsArray = [Double]()
+        var perfsArray = [String]()
         var eventsArray = [AthleticsEvent]()
 
         if let jsonData1 = self.wrappedPerformancesArray.data(using: .utf8)
         {
             let decoder = JSONDecoder()
             do {
-                perfsArray = try decoder.decode([Double].self, from: jsonData1)
+                perfsArray = try decoder.decode([String].self, from: jsonData1)
             } catch {
                 print(error.localizedDescription)
             }
@@ -106,8 +106,9 @@ extension UserSavedPerformance {
         var perfString = ""
         for (index, element) in perfsArray.enumerated() {
             var currentPerfString = String(element)
+            let elementDoubleValue = element.doubleValue
             if eventsArray[index].sType==AthleticsEvent.typeRunLong {
-                currentPerfString="\(getMinutesFromSecondsTotal(element))\(getSecondsFromSecondsTotal(element))\(getDecimalsFromSecondsTotal(element))"
+                currentPerfString="\(getMinutesFromSecondsTotal(elementDoubleValue))\(getSecondsFromSecondsTotal(elementDoubleValue))\(getDecimalsFromSecondsTotal(elementDoubleValue))"
             }
             perfString.append("\(currentPerfString) ")
         }

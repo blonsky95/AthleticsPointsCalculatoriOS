@@ -92,9 +92,12 @@ class MainViewModel: ObservableObject {
         userSavedPerformance.performanceTitle = titleOfNewPerformance
         userSavedPerformance.performanceTotalPoints = Int16(eventPointsHolder.totalSum)
         
+
         let jsonData2 = try! JSONEncoder().encode(eventPointsHolder.performancesStringArray)
         userSavedPerformance.performancesArray = String(data: jsonData2, encoding: .utf8)!
         
+        print("this is the performances array when updated: \(userSavedPerformance.wrappedPerformancesArray)")
+
         userSavedPerformance.date=Date()
         //there is no container function to update, save() does the job
         saveData()
@@ -128,8 +131,6 @@ class MainViewModel: ObservableObject {
        
         do {
             userSavedPerfsArray = try container.viewContext.fetch(fetchRequest)
-//            print("Success fetching perfs, count: \(userSavedPerfsArray.count)")
-
         } catch let error {
             print("Error fetching perfs: \(error)")
         }
@@ -220,13 +221,13 @@ class MainViewModel: ObservableObject {
         let count = 0...numberOfEventsOfPerformance-1
         for _ in count {
             eventPointsHolder.pointsIntArray.append(0)
-            eventPointsHolder.performancesStringArray.append(0.0)
+            eventPointsHolder.performancesStringArray.append("0.0")
         }
     }
     
     func updateEventPointsHolder(eventIndex: Int, eventPoints: Int, eventPerf: String) {
         eventPointsHolder.pointsIntArray[eventIndex] = eventPoints
-        eventPointsHolder.performancesStringArray[eventIndex] = eventPerf.doubleValue
+        eventPointsHolder.performancesStringArray[eventIndex] = eventPerf
     }
 
     

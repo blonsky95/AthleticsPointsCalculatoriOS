@@ -19,13 +19,13 @@ class AthleticsPointsEventPerformance:AthleticsPointsEvent  {
 
     var performanceID = "id_unknown"
     var performanceTitle = "Untitled"
-    var performancesArray=[Double]()
+    var performancesArray=[String]()
     var totalPoints = 0
     
     init(athleticsPointsEvent: AthleticsPointsEvent) {
         super.init(name: athleticsPointsEvent.sEventName, events: athleticsPointsEvent.sEventsArray, days: athleticsPointsEvent.sNumberDays)
         for _ in 0...athleticsPointsEvent.sEventsArray.count {
-            performancesArray.append(0.0)
+            performancesArray.append("0.0")
         }
     }
     
@@ -40,7 +40,7 @@ class AthleticsPointsEventPerformance:AthleticsPointsEvent  {
     static func userSavedPerfToAthPointsEventPerf(userSavedPerf: UserSavedPerformance) -> AthleticsPointsEventPerformance {
         
         var athleticsEventsArray = [AthleticsEvent]()
-        var performancesArray = [Double]()
+        var performancesArray = [String]()
         if let jsonData1 = userSavedPerf.wrappedPerformanceEventsArray.data(using: .utf8), let jsonData2 = userSavedPerf.wrappedPerformancesArray.data(using: .utf8)
 
         {
@@ -48,7 +48,7 @@ class AthleticsPointsEventPerformance:AthleticsPointsEvent  {
 
             do {
                 athleticsEventsArray = try decoder.decode([AthleticsEvent].self, from: jsonData1)
-                performancesArray = try decoder.decode([Double].self, from: jsonData2)
+                performancesArray = try decoder.decode([String].self, from: jsonData2)
             } catch {
                 print(error.localizedDescription)
             }

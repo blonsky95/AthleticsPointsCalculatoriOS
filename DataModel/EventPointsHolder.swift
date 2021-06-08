@@ -11,7 +11,7 @@ struct EventPointsHolder {
     
     var numberOfEvents = 0
     var pointsIntArray = [Int]()
-    var performancesStringArray = [Double]()
+    var performancesStringArray = [String]()
 
     //The initialization/value filling of the above variables is done in mainviewmodel
     

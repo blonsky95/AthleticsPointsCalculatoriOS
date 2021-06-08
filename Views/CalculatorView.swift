@@ -146,8 +146,8 @@ struct CalculatorView: View {
     
     //this basically checks if what is being sent to single score view needs to have a value, aka is saved performance
     // to do so it checks if its a AthleticsPointsEventPerformance class (subclass of AthleticPointsEvents)
-    func getPerformance(athleticPointsEvent : AthleticsPointsEvent, index: Int) -> Double {
-        var performance = 0.0
+    func getPerformance(athleticPointsEvent : AthleticsPointsEvent, index: Int) -> String {
+        var performance = "0.0"
         if let savedPerformance = athleticPointsEvent as? AthleticsPointsEventPerformance {
             performance = savedPerformance.performancesArray[index]
             }

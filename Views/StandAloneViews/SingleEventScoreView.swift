@@ -10,7 +10,7 @@ import SwiftUI
 struct SingleEventScoreView:View {
     
     let athleticsEvent:AthleticsEvent //the event
-    let performance:Double //performance, 0.0 if not a saved performance
+    let performance:String //performance, 0.0 if not a saved performance
     let eventIndex:Int //which event of the events array is it
     
     @State private var eventPerformance:String = ""
@@ -27,6 +27,7 @@ struct SingleEventScoreView:View {
             HStack {
                 DynamicPerformanceCollector(athleticsEvent: athleticsEvent, eventPerformance: $eventPerformance)
                     .onChange(of: eventPerformance) { newValue in
+                        print("There has been a change in eventPerf String: \(newValue) which will become \(newValue.doubleValue) double")
                         eventPoints=mainViewModel.getPointsForEvent(event: athleticsEvent, perf: eventPerformance.doubleValue)
                         mainViewModel.updateEventPointsHolder(eventIndex: eventIndex, eventPoints: eventPoints, eventPerf: eventPerformance)
                     }
@@ -39,7 +40,7 @@ struct SingleEventScoreView:View {
     }
     
     func loadData() {
-        eventPerformance = String(performance)
+        eventPerformance = performance
     }
 
 }
