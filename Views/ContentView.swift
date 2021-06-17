@@ -8,20 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     enum TabOptions {
             case eventSelector
             case savedPerformances
+            case rankingPoints
         }
     
     @State private var selectedTab: TabOptions = .eventSelector
-
-    let eventsDataObtainerAndHelper = EventsDataObtainerAndHelper()
     
     var body: some View {
         TabView (selection: $selectedTab){
             EventSelectorView()
-                //.environmentObject(eventsDataObtainerAndHelper)
                 .tabItem {
                     Image(systemName: "plus.circle")
                     Text("New")
@@ -31,16 +29,20 @@ struct ContentView: View {
 
 
             SavedPerformancesView()
-//                .environmentObject(eventsDataObtainerAndHelper)
                 .tabItem {
                     Image(systemName: "bookmark")
                     Text("Saved")
                 }
                 .tag(TabOptions.savedPerformances)
+            
+            RankingPointsView()
+                .tabItem {
+                    Image(systemName: "wonsign.square")
+                    Text("WA")
+                }
+                .tag(TabOptions.rankingPoints)
 
         }
-        .animation(.easeInOut) // 2
-        .transition(.slide) // 3
     }
 }
 
