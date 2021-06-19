@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct RankingPointsView: View {
+    
+    @EnvironmentObject var mainViewModel : MainViewModel
+    @State var searchText = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationView{
+            
+            VStack{
+                SearchBar(text: $searchText)
+                    .padding(.top)
+                    .onChange(of: searchText) { newValue in
+                        //                        mainViewModel.updateQuery(searchText: newValue)
+                    }
+                Spacer()
+                NavigationLink(destination: WAPointsCalculator()) {
+                    Text("New")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Capsule()
+                                        .fill(Color.blue)
+                                        .frame(minWidth: 100, minHeight: 50))
+                        .padding()
+                }
+                
+            }
+            .navigationTitle("WA Ranking Points")
+            
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

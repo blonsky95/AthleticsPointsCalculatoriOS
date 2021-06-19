@@ -16,12 +16,11 @@ extension Bundle {
         guard let data = try? Data(contentsOf: url) else {
             fatalError("Failed to load \(file) from bundle.")
         }
+        
+        print("data to decode: \(data)")
+        print("class that decodes to: \(T.self)")
 
         let decoder = JSONDecoder()
-        
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "y-MM-dd"
-//        decoder.dateDecodingStrategy = .formatted(formatter)
         
         guard let loaded = try? decoder.decode(T.self, from: data) else {
             fatalError("Failed to decode \(file) from bundle.")

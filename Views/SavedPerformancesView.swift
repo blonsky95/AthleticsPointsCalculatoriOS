@@ -79,9 +79,6 @@ struct SavedPerformancesView: View {
                 .alert(isPresented: $showingAlert) {
                             Alert(title: Text("Ups!"), message: Text(alertText), dismissButton: .default(Text("Got it!")))
                         }
-                .onAppear{
-//                    print ("check this:\(mainViewModel.container.name)")
-                }
             }
             .navigationTitle("Saved Performances")
             .environment(\.editMode, self.$editMode) //#2

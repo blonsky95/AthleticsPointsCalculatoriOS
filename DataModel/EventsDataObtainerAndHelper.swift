@@ -14,6 +14,9 @@ class EventsDataObtainerAndHelper:ObservableObject{
     //contains all the athletics events
     let allAthleticsEvents: [AthleticsEvent]
     
+    //contains all the event groups
+    let allEventGroups: [EventGroup]
+//    var testEventGroup: EventGroup
      //we use array for allSingleEvents because it facilitates using a Picker in ContentView and sending it to CalculatorView
     var maleOutdoorSingleEvents = [AthleticsEvent]()
     var femaleOutdoorSingleEvents = [AthleticsEvent]()
@@ -26,6 +29,7 @@ class EventsDataObtainerAndHelper:ObservableObject{
     
     init() {
         allAthleticsEvents = Bundle.main.decode("all_events.json")
+        allEventGroups = Bundle.main.decode("event_groups.json")
         athleticsEventsSearcher=Dictionary<String, AthleticsEvent>()
         for event in allAthleticsEvents {
             switch event.sCategory {
@@ -44,6 +48,20 @@ class EventsDataObtainerAndHelper:ObservableObject{
 
             athleticsEventsSearcher[event.sKey]=event
         }
+        
+//        testEventGroup = EventGroup()
+//        testEventGroup.sMainEvent=athleticsEventsSearcher["100m_m_o"]!
+//        testEventGroup.sSimilarEvents=[athleticsEventsSearcher["200m_m_o"]!,athleticsEventsSearcher["400m_m_o"]!]
+//
+//        let encoder = JSONEncoder()
+//        let insectData: Data? = try? encoder.encode(testEventGroup)
+//
+//        let encoder2 = JSONEncoder()
+//        if let insectData = try? encoder2.encode(testEventGroup),
+//            let jsonString = String(data: insectData, encoding: .utf8)
+//            {
+//            print(jsonString)
+//        }
     }
     
     enum CombinedEventsKeys {

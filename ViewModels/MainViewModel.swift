@@ -229,6 +229,12 @@ class MainViewModel: ObservableObject {
         eventPointsHolder.pointsIntArray[eventIndex] = eventPoints
         eventPointsHolder.performancesStringArray[eventIndex] = eventPerf
     }
-
     
+    //-----//-----////-----//-----////-----//-----////-----//-----//
+    //Points Calculator view
+    
+    func getEventGroup(index: Int) -> EventGroup {
+        return eventsDataObtainerAndHelper.allEventGroups[index]
+    }
+        
 }

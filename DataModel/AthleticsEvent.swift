@@ -47,6 +47,13 @@ class AthleticsEvent : Codable {
         self.sCoefficients=["a":0,"b":0,"c":0]
     }
     
+    func getIndoorDisplayName() -> String {
+        if self.sCategory==AthleticsEvent.categoryIndoorFemale||self.sCategory==AthleticsEvent.categoryIndoorMale {
+            return self.sName + "(i)"
+        } else {
+            return self.sName
+        }
+    }
     static func getExample() -> AthleticsEvent {
 //        var athleticsEvent = AthleticsEvent()
 //        athleticsEvent.sName="150m"

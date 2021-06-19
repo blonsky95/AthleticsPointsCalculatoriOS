@@ -11,12 +11,17 @@
 		D002AD822629E61000472723 /* SavedPerformancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD812629E61000472723 /* SavedPerformancesView.swift */; };
 		D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */; };
 		D002AD8E2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */; };
+		D0114A84267BB5ED00095399 /* event_groups.json in Resources */ = {isa = PBXBuildFile; fileRef = D0114A83267BB5ED00095399 /* event_groups.json */; };
+		D0114A86267BBC3E00095399 /* EventGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A85267BBC3E00095399 /* EventGroup.swift */; };
+		D0114A88267BC06B00095399 /* CustomEventGroupPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A87267BC06B00095399 /* CustomEventGroupPicker.swift */; };
+		D0114A8A267D1C4400095399 /* DynamicPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A89267D1C4400095399 /* DynamicPointsView.swift */; };
 		D01970A32657B21100A12412 /* CompareButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01970A22657B21100A12412 /* CompareButtonView.swift */; };
 		D01970A52657B64400A12412 /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01970A42657B64400A12412 /* CancelButtonView.swift */; };
 		D01970A72657CA2A00A12412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */; };
 		D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */; };
 		D0412DDE26603B190015B7E4 /* EventsDataObtainerAndHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */; };
 		D04EDC7F267A4ECE00A4CE94 /* RankingPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04EDC7E267A4ECE00A4CE94 /* RankingPointsView.swift */; };
+		D04EDC81267BA24500A4CE94 /* WAPointsCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04EDC80267BA24500A4CE94 /* WAPointsCalculator.swift */; };
 		D05377DF263EF06B00FDEAF3 /* String-NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */; };
 		D05690A4265D687F00CE9A90 /* CurrentTabKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05690A3265D687F00CE9A90 /* CurrentTabKey.swift */; };
 		D05690A6265D690D00CE9A90 /* Environment-TabKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05690A5265D690D00CE9A90 /* Environment-TabKey.swift */; };
@@ -48,12 +53,17 @@
 		D002AD812629E61000472723 /* SavedPerformancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPerformancesView.swift; sourceTree = "<group>"; };
 		D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSavedPerformance+CoreDataClass.swift"; path = "DataModel/UserSavedPerformance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSavedPerformance+CoreDataProperties.swift"; path = "DataModel/UserSavedPerformance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0114A83267BB5ED00095399 /* event_groups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_groups.json; sourceTree = "<group>"; };
+		D0114A85267BBC3E00095399 /* EventGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventGroup.swift; sourceTree = "<group>"; };
+		D0114A87267BC06B00095399 /* CustomEventGroupPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEventGroupPicker.swift; sourceTree = "<group>"; };
+		D0114A89267D1C4400095399 /* DynamicPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPointsView.swift; sourceTree = "<group>"; };
 		D01970A22657B21100A12412 /* CompareButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButtonView.swift; sourceTree = "<group>"; };
 		D01970A42657B64400A12412 /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
 		D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsEventPerformance.swift; sourceTree = "<group>"; };
 		D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataObtainerAndHelper.swift; sourceTree = "<group>"; };
 		D04EDC7E267A4ECE00A4CE94 /* RankingPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingPointsView.swift; sourceTree = "<group>"; };
+		D04EDC80267BA24500A4CE94 /* WAPointsCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAPointsCalculator.swift; sourceTree = "<group>"; };
 		D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-NumberFormatter.swift"; sourceTree = "<group>"; };
 		D05690A3265D687F00CE9A90 /* CurrentTabKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTabKey.swift; sourceTree = "<group>"; };
 		D05690A5265D690D00CE9A90 /* Environment-TabKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment-TabKey.swift"; sourceTree = "<group>"; };
@@ -104,6 +114,7 @@
 				D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */,
 				D002AD812629E61000472723 /* SavedPerformancesView.swift */,
 				D04EDC7E267A4ECE00A4CE94 /* RankingPointsView.swift */,
+				D04EDC80267BA24500A4CE94 /* WAPointsCalculator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +128,7 @@
 				D05690A3265D687F00CE9A90 /* CurrentTabKey.swift */,
 				D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */,
 				D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */,
+				D0114A85267BBC3E00095399 /* EventGroup.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -136,6 +148,7 @@
 		D095E1DF26011AEF008E05F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D0114A83267BB5ED00095399 /* event_groups.json */,
 				D06C6CCE25FEA60000A0F292 /* all_events.json */,
 			);
 			path = Resources;
@@ -200,7 +213,9 @@
 				D01970A42657B64400A12412 /* CancelButtonView.swift */,
 				D01970A22657B21100A12412 /* CompareButtonView.swift */,
 				D0963954260522950026DFA7 /* CustomEventPicker.swift */,
+				D0114A87267BC06B00095399 /* CustomEventGroupPicker.swift */,
 				D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */,
+				D0114A89267D1C4400095399 /* DynamicPointsView.swift */,
 				D0D8C6C72652E9F700A62A67 /* FilteredPerformances.swift */,
 				D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */,
 				D0D8C6C52652DC8700A62A67 /* SearchBar.swift */,
@@ -272,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0114A84267BB5ED00095399 /* event_groups.json in Resources */,
 				D06C6CCF25FEA60000A0F292 /* all_events.json in Resources */,
 				D01970A72657CA2A00A12412 /* LaunchScreen.storyboard in Resources */,
 				D0B2F6C525FBD1CF001F1CAD /* Preview Assets.xcassets in Resources */,
@@ -287,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04EDC7F267A4ECE00A4CE94 /* RankingPointsView.swift in Sources */,
+				D04EDC81267BA24500A4CE94 /* WAPointsCalculator.swift in Sources */,
 				D09063E825FFD5E100D666BE /* SingleEventScoreView.swift in Sources */,
 				D05690A4265D687F00CE9A90 /* CurrentTabKey.swift in Sources */,
 				D01970A32657B21100A12412 /* CompareButtonView.swift in Sources */,
@@ -301,8 +318,10 @@
 				D0B2F6C025FBD1CE001F1CAD /* EventSelectorView.swift in Sources */,
 				D0D8C6C82652E9F700A62A67 /* FilteredPerformances.swift in Sources */,
 				D0BB10DE2641EB3B00E9480C /* EditMode-custom.swift in Sources */,
+				D0114A88267BC06B00095399 /* CustomEventGroupPicker.swift in Sources */,
 				D06C6CD525FEB69A00A0F292 /* Bundle-Decodable.swift in Sources */,
 				D0963955260522950026DFA7 /* CustomEventPicker.swift in Sources */,
+				D0114A8A267D1C4400095399 /* DynamicPointsView.swift in Sources */,
 				D002AD8E2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift in Sources */,
 				D002AD822629E61000472723 /* SavedPerformancesView.swift in Sources */,
 				D0D36FFA265C1C0600F52767 /* MainViewModel.swift in Sources */,
@@ -311,6 +330,7 @@
 				D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */,
 				D002AD7F2629E2D700472723 /* ContentView.swift in Sources */,
 				D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */,
+				D0114A86267BBC3E00095399 /* EventGroup.swift in Sources */,
 				D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */,
 				D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */,
 				D0B2F6DD25FD8319001F1CAD /* EventPointsHolder.swift in Sources */,
