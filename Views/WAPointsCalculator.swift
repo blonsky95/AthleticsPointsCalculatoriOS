@@ -12,7 +12,11 @@ struct WAPointsCalculator: View {
     @EnvironmentObject var mainViewModel : MainViewModel
     @State private var titleOfSavedPerformance = "New points performance"
     @State var selectedEventGroupIndex:Int = 0
-    @State var selectedEventGroup: EventGroup = EventGroup()
+    @State var selectedEventGroup: EventGroup
+    
+    init() {
+        _selectedEventGroup = State(initialValue: EventsDataObtainerAndHelper().allEventGroups[0])
+    }
 
     var body: some View {
         VStack {
@@ -23,6 +27,7 @@ struct WAPointsCalculator: View {
                         .padding(.bottom)
                     CustomEventGroupPicker(selectedEventGroupIndex: $selectedEventGroupIndex, arrayOfEventGroups: mainViewModel.eventsDataObtainerAndHelper.allEventGroups)
                         .onChange(of: selectedEventGroupIndex) {newIndex in
+                            print("change in selectedEventGroupIndex to newIndex: \(newIndex)")
                             selectedEventGroup=mainViewModel.getEventGroup(index: newIndex)
                         }
                     Text("Includes: \(selectedEventGroup.getListOfSimilarEvents())")
@@ -33,11 +38,12 @@ struct WAPointsCalculator: View {
                 }
                 Section {
                     DynamicPointsView(eventGroup: $selectedEventGroup)
+                        .onChange(of: selectedEventGroup) {newGroup in
+                            print("Change outside to: \(newGroup.sName)")
+                            
+                        }
                 }
             }            
-        }
-        .onAppear{
-            selectedEventGroup=mainViewModel.getEventGroup(index: 0)
         }
     }
 }

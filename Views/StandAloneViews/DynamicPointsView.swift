@@ -13,63 +13,111 @@ struct DynamicPointsView: View {
     
 //    @State var arrayOfEventGroupEvents:[AthleticsEvent] = []
     @EnvironmentObject var mainViewModel : MainViewModel
+    @State var eventGroupPointsHolder:EventGroupPointsHolder = EventGroupPointsHolder()
     
     @State var selectedEventGroupEventIndexArray:[Int] = [0,0,0,0,0,0]
     @State var selectedEventGroupEventPerformance:[String] = ["0.0","0.0","0.0","0.0","0.0","0.0"]
+    @State var selectedEventGroupEventPerformancePoints:[String] = ["0","0","0","0","0","0"]
+    @State var selectedEventGroupEventPlacementPoints:[String] = ["0","0","0","0","0","0"]
 
     
     var body: some View {
         
-        Text("My event is \(eventGroup.sName) and my array of events has count: \(eventGroup.getArrayOfAthleticEvents().count)")
-        
-        
-        ForEach((1...eventGroup.sMinNumberPerformancesGroup), id: \.self) {i in
+        Section {
+            HStack{
+                VStack(alignment: .leading){
+                    Text("Performance")
+                    Text("Placement")
+                    Text("Total points")
+                }
+                Spacer()
+                Text ("Event selection")
+            }
+        }
+        .font(Font.system(size: 16))
+        .foregroundColor(.gray)
+        .onChange(of: eventGroup) { newVal in
+            resetFormFilling()
+            mainViewModel.resetEventGroupPointsHolder(numberOfPerformances: eventGroup.sMinNumberPerformancesGroup)
+            print("view indexes resetted")
+        }
+
+        ForEach((0...eventGroup.sMinNumberPerformancesGroup-1), id: \.self) {performanceNumber in
             Section {
                 HStack{
-//                    Text("Perf. Nº \(i)")
-                    TextField(selectedEventGroupEventPerformance[i-1], text: $selectedEventGroupEventPerformance[i-1])
-                    Picker("", selection: $selectedEventGroupEventIndexArray[i]) {
-                        ForEach((1...eventGroup.getArrayOfAthleticEvents().count), id: \.self)  { j in
-                            Text(eventGroup.getArrayOfAthleticEvents()[j-1].getIndoorDisplayName())
+                    VStack(alignment: .leading){
+                        
+                        SingleEventScoreWAView(performance: "0.0", eventGroupArrayIndex: performanceNumber)
+                        
+                        TextField(selectedEventGroupEventPlacementPoints[performanceNumber], text: $selectedEventGroupEventPlacementPoints[performanceNumber])
+                            .fixedSize()
+                            .keyboardType(.decimalPad)
+                        .onChange(of: selectedEventGroupEventPlacementPoints) { newPlacPoints in
+                            mainViewModel.updateEventGroupPointsHolder(pointsArray: selectedEventGroupEventPlacementPoints)
                         }
-                    }.onChange(of: selectedEventGroupEventIndexArray[i]) {newValue in
-                        print("New value of segeia: \(newValue)")
+                        
+                        Text("Total: 0")
+                        
+                        
+                    }
+                    
+                    Picker("", selection: $selectedEventGroupEventIndexArray[performanceNumber]) {
+                        ForEach((0...eventGroup.getArrayOfAthleticEvents().count-1), id: \.self)  { athleticEventIndex in
+                            Text(eventGroup.getArrayOfAthleticEvents()[athleticEventIndex].getIndoorDisplayName())
+                        }
+                    }
+                    .onChange(of: selectedEventGroupEventIndexArray) { newPickerIndexArray in
+                        mainViewModel.updateEventGroupPointsHolder(eventArrayPickerIndexes: newPickerIndexArray)
                     }
                 }
             }
             
         }
+   
+    }
+    
+    func resetFormFilling() {
         
+        selectedEventGroupEventIndexArray = [0,0,0,0,0,0]
+        selectedEventGroupEventPerformance = ["0.0","0.0","0.0","0.0","0.0","0.0"]
+        selectedEventGroupEventPerformancePoints = ["0","0","0","0","0","0"]
+        selectedEventGroupEventPlacementPoints = ["0","0","0","0","0","0"]
+    }
+    
+    struct SingleEventScoreWAView:View {
+        
+        //CONTINUE HERE - THE PARAMETERS ARE WRONG
+
+//        let athleticsEvent:AthleticsEvent //the event
+        let performance:String //performance, 0.0 if not a saved performance
+        let eventGroupArrayIndex:Int
+        
+        @State private var eventPerformance:String = ""
+        @State private var eventPoints = 0
+        
+        @EnvironmentObject var mainViewModel : MainViewModel
+
+        var body: some View {
+            HStack{
+                CustomCenterTextField(value: $eventPerformance)
+                    .onChange(of: eventPerformance) { newValue in
+                        if mainViewModel.isEventGroupPointsHolderInit {
+                            eventPoints=mainViewModel.getPointsForEvent(event: mainViewModel.getEventGroupAthleticsEventPerIndex(index: eventGroupArrayIndex), perf: eventPerformance.doubleValue)
+                            mainViewModel.updateEventGroupPointsHolderPerformance(index: eventGroupArrayIndex, performance: newValue)
+                        }
+
+                    }
+                Text("\(eventPoints)")
+            }
+            .onAppear{
+                eventPerformance=performance
+            }
+        }
+
     }
     
 }
-        
-        
-        
-    
 
-
-
-//struct CustomEventGroupEventPicker: View {
-//    @State var selectedEventGroupEventIndex:Int = 0
-//    @Binding var arrayOfEventGroupEvents:[AthleticsEvent]
-//    //    @Binding var eventGroup: EventGroup
-//
-//
-//    var body: some View {
-//        Picker("Event", selection: $selectedEventGroupEventIndex) {
-//            ForEach(0..<arrayOfEventGroupEvents.count) {
-//                Text(arrayOfEventGroupEvents[$0].getIndoorDisplayName())
-//            }
-//            .onAppear{
-//                //                print("on appear cutom picker: \(arrayOfEventGroupEvents.count)")
-//            }
-//        }.pickerStyle(WheelPickerStyle())
-//        .frame(width: 120)
-//        .clipped()
-//
-//    }
-//}
 
 //struct DynamicPointsView_Previews: PreviewProvider {
 //    static var previews: some View {

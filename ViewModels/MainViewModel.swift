@@ -233,7 +233,82 @@ class MainViewModel: ObservableObject {
     //-----//-----////-----//-----////-----//-----////-----//-----//
     //Points Calculator view
     
+    @Published var eventGroupPointsHolder=EventGroupPointsHolder()
+    
+    var isEventGroupPointsHolderInit = false
+
+    func resetEventGroupPointsHolder(numberOfPerformances: Int) {
+        eventGroupPointsHolder = EventGroupPointsHolder()
+        isEventGroupPointsHolderInit = true
+        print("event group points holder reset")
+        let count = 0...numberOfPerformances-1
+        for _ in count {
+            eventGroupPointsHolder.selectedEventGroupEventIndexArray.append(0)
+            eventGroupPointsHolder.selectedEventGroupEventArray.append(AthleticsEvent())
+            eventGroupPointsHolder.selectedEventGroupEventPerformance.append("0.0")
+            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints.append("0")
+        }
+    }
+    
+    func updateEventGroupPointsHolderPerformance(index: Int, performance: String) {
+            eventGroupPointsHolder.selectedEventGroupEventPerformance[index]=performance
+    }
+    
+    func getEventGroupAthleticsEventPerIndex(index : Int) -> AthleticsEvent {
+//        if let athEvent =  String.numberFormatter.number(from: self) {
+//            return result.doubleValue
+//        } else {
+//            String.numberFormatter.decimalSeparator = ","
+//            if let result = String.numberFormatter.number(from: self) {
+//                return result.doubleValue
+//            }
+//        }
+//        if eventGroupPointsHolder.selectedEventGroupEventArray.isEmpty{
+//            return AthleticsEvent()
+//        } else {
+            return eventGroupPointsHolder.selectedEventGroupEventArray[index]
+//        }
+    }
+    
+    func updateEventGroupPointsHolder(index: Int = 0, eventArrayPickerIndexes: [Int]? = nil, performanceArray: [String]? = nil, pointsArray: [String]? = nil) {
+        
+        if !(eventArrayPickerIndexes==nil) {
+//            print("event for perf will be updated to \(eventArrayPickerIndexes!)")
+            eventGroupPointsHolder.selectedEventGroupEventIndexArray = eventArrayPickerIndexes!
+        }
+        if !(performanceArray==nil) {
+//            print("performance for perf will be updated to \(performanceArray!)")
+//            eventGroupPointsHolder.selectedEventGroupEventPerformancepoints[index]="233"
+            eventGroupPointsHolder.selectedEventGroupEventPerformance = performanceArray!
+        }
+        if !(pointsArray==nil) {
+//            print("plac ploints for perf will be updated to \(pointsArray!)")
+            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints = pointsArray!
+        }
+    }
+    
+//    func updateEventGroupPointsHolder(index: Int, event: AthleticsEvent? = nil, performance: String? = nil, placementPoints: String? = nil) {
+//
+//        if !(event==nil) {
+//            print("event for perf \(index) will be updated to \(event!.sName)")
+//            eventGroupPointsHolder.selectedEventGroupEventArray[index] = event!
+//        }
+//        if !(performance==nil) {
+//            print("performance for perf \(index) will be updated to \(performance!)")
+//            eventGroupPointsHolder.selectedEventGroupEventPerformance[index] = performance!
+//        }
+//        if !(placementPoints==nil) {
+//            print("plac ploints for perf \(index) will be updated to \(placementPoints!)")
+//            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints[index] = placementPoints!
+//        }
+//    }
+    
+    func setNumberOfPerformances(number: Int) {
+        
+    }
+    
     func getEventGroup(index: Int) -> EventGroup {
+        print("get event group called: \(eventsDataObtainerAndHelper.allEventGroups[index].sName)")
         return eventsDataObtainerAndHelper.allEventGroups[index]
     }
         

@@ -15,6 +15,8 @@
 		D0114A86267BBC3E00095399 /* EventGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A85267BBC3E00095399 /* EventGroup.swift */; };
 		D0114A88267BC06B00095399 /* CustomEventGroupPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A87267BC06B00095399 /* CustomEventGroupPicker.swift */; };
 		D0114A8A267D1C4400095399 /* DynamicPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A89267D1C4400095399 /* DynamicPointsView.swift */; };
+		D0114A8C267F4E9600095399 /* CustomCenterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A8B267F4E9600095399 /* CustomCenterTextField.swift */; };
+		D0114A8E267F51F700095399 /* EventGroupPointsHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0114A8D267F51F700095399 /* EventGroupPointsHolder.swift */; };
 		D01970A32657B21100A12412 /* CompareButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01970A22657B21100A12412 /* CompareButtonView.swift */; };
 		D01970A52657B64400A12412 /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01970A42657B64400A12412 /* CancelButtonView.swift */; };
 		D01970A72657CA2A00A12412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */; };
@@ -57,6 +59,8 @@
 		D0114A85267BBC3E00095399 /* EventGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventGroup.swift; sourceTree = "<group>"; };
 		D0114A87267BC06B00095399 /* CustomEventGroupPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEventGroupPicker.swift; sourceTree = "<group>"; };
 		D0114A89267D1C4400095399 /* DynamicPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPointsView.swift; sourceTree = "<group>"; };
+		D0114A8B267F4E9600095399 /* CustomCenterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCenterTextField.swift; sourceTree = "<group>"; };
+		D0114A8D267F51F700095399 /* EventGroupPointsHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventGroupPointsHolder.swift; sourceTree = "<group>"; };
 		D01970A22657B21100A12412 /* CompareButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareButtonView.swift; sourceTree = "<group>"; };
 		D01970A42657B64400A12412 /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
 		D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */,
 				D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */,
 				D0114A85267BBC3E00095399 /* EventGroup.swift */,
+				D0114A8D267F51F700095399 /* EventGroupPointsHolder.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				D0D8C6C72652E9F700A62A67 /* FilteredPerformances.swift */,
 				D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */,
 				D0D8C6C52652DC8700A62A67 /* SearchBar.swift */,
+				D0114A8B267F4E9600095399 /* CustomCenterTextField.swift */,
 			);
 			path = StandAloneViews;
 			sourceTree = "<group>";
@@ -317,7 +323,9 @@
 				D0B2F6D725FD1B8B001F1CAD /* AthleticsPointsEvent.swift in Sources */,
 				D0B2F6C025FBD1CE001F1CAD /* EventSelectorView.swift in Sources */,
 				D0D8C6C82652E9F700A62A67 /* FilteredPerformances.swift in Sources */,
+				D0114A8C267F4E9600095399 /* CustomCenterTextField.swift in Sources */,
 				D0BB10DE2641EB3B00E9480C /* EditMode-custom.swift in Sources */,
+				D0114A8E267F51F700095399 /* EventGroupPointsHolder.swift in Sources */,
 				D0114A88267BC06B00095399 /* CustomEventGroupPicker.swift in Sources */,
 				D06C6CD525FEB69A00A0F292 /* Bundle-Decodable.swift in Sources */,
 				D0963955260522950026DFA7 /* CustomEventPicker.swift in Sources */,
