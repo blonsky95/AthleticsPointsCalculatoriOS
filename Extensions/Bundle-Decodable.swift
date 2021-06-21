@@ -17,8 +17,8 @@ extension Bundle {
             fatalError("Failed to load \(file) from bundle.")
         }
         
-        print("data to decode: \(data)")
-        print("class that decodes to: \(T.self)")
+//        print("data to decode: \(data)")
+//        print("class that decodes to: \(T.self)")
 
         let decoder = JSONDecoder()
         

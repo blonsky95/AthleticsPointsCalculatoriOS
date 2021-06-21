@@ -29,6 +29,7 @@ struct WAPointsCalculator: View {
                         .onChange(of: selectedEventGroupIndex) {newIndex in
                             print("change in selectedEventGroupIndex to newIndex: \(newIndex)")
                             selectedEventGroup=mainViewModel.getEventGroup(index: newIndex)
+                            mainViewModel.updateEventGroupPointsHolderEventGroup(eGroup: selectedEventGroup)
                         }
                     Text("Includes: \(selectedEventGroup.getListOfSimilarEvents())")
                 }
@@ -39,13 +40,17 @@ struct WAPointsCalculator: View {
                 Section {
                     DynamicPointsView(eventGroup: $selectedEventGroup)
                         .onChange(of: selectedEventGroup) {newGroup in
-                            print("Change outside to: \(newGroup.sName)")
+//                            print("Change outside to: \(newGroup.sName)")
                             
                         }
                 }
             }            
         }
+        .onAppear{
+            mainViewModel.updateEventGroupPointsHolderEventGroup(eGroup: selectedEventGroup)
+        }
     }
+    
 }
 
 struct WAPointsCalculator_Previews: PreviewProvider {

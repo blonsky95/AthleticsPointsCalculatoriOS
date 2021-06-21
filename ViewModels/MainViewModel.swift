@@ -233,73 +233,68 @@ class MainViewModel: ObservableObject {
     //-----//-----////-----//-----////-----//-----////-----//-----//
     //Points Calculator view
     
-    @Published var eventGroupPointsHolder=EventGroupPointsHolder()
-    
-    var isEventGroupPointsHolderInit = false
+//    @Published
+    var eventGroupPointsHolder=EventGroupPointsHolder()
 
-    func resetEventGroupPointsHolder(numberOfPerformances: Int) {
-        eventGroupPointsHolder = EventGroupPointsHolder()
-        isEventGroupPointsHolderInit = true
-        print("event group points holder reset")
-        let count = 0...numberOfPerformances-1
-        for _ in count {
-            eventGroupPointsHolder.selectedEventGroupEventIndexArray.append(0)
-            eventGroupPointsHolder.selectedEventGroupEventArray.append(AthleticsEvent())
-            eventGroupPointsHolder.selectedEventGroupEventPerformance.append("0.0")
-            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints.append("0")
-        }
-    }
     
     func updateEventGroupPointsHolderPerformance(index: Int, performance: String) {
             eventGroupPointsHolder.selectedEventGroupEventPerformance[index]=performance
     }
     
     func getEventGroupAthleticsEventPerIndex(index : Int) -> AthleticsEvent {
-//        if let athEvent =  String.numberFormatter.number(from: self) {
-//            return result.doubleValue
-//        } else {
-//            String.numberFormatter.decimalSeparator = ","
-//            if let result = String.numberFormatter.number(from: self) {
-//                return result.doubleValue
-//            }
-//        }
-//        if eventGroupPointsHolder.selectedEventGroupEventArray.isEmpty{
-//            return AthleticsEvent()
-//        } else {
-            return eventGroupPointsHolder.selectedEventGroupEventArray[index]
-//        }
+        print("2 getting athletics event - picker index = \(index), will return \(eventGroupPointsHolder.selectedEventGroupEventArray[index].sName)")
+
+            return eventGroupPointsHolder.eventGroup.getArrayOfAthleticEvents()[index]
     }
     
-    func updateEventGroupPointsHolder(index: Int = 0, eventArrayPickerIndexes: [Int]? = nil, performanceArray: [String]? = nil, pointsArray: [String]? = nil) {
+    func updateEventGroupPointsHolderEventGroup(eGroup: EventGroup) {
         
-        if !(eventArrayPickerIndexes==nil) {
-//            print("event for perf will be updated to \(eventArrayPickerIndexes!)")
-            eventGroupPointsHolder.selectedEventGroupEventIndexArray = eventArrayPickerIndexes!
-        }
-        if !(performanceArray==nil) {
-//            print("performance for perf will be updated to \(performanceArray!)")
-//            eventGroupPointsHolder.selectedEventGroupEventPerformancepoints[index]="233"
-            eventGroupPointsHolder.selectedEventGroupEventPerformance = performanceArray!
-        }
-        if !(pointsArray==nil) {
-//            print("plac ploints for perf will be updated to \(pointsArray!)")
-            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints = pointsArray!
+        eventGroupPointsHolder = EventGroupPointsHolder()
+        eventGroupPointsHolder.eventGroup = eGroup
+//        print("updated EGPH to: \(eGroup)")
+        
+        let count = 0...eGroup.sMinNumberPerformancesGroup-1
+        for _ in count {
+            eventGroupPointsHolder.selectedEventGroupEventIndexArray.append(0)
+            eventGroupPointsHolder.selectedEventGroupEventArray.append(eventGroupPointsHolder.eventGroup.sMainEvent)
+            eventGroupPointsHolder.selectedEventGroupEventPerformance.append("0.0")
+            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints.append("0")
         }
     }
     
-//    func updateEventGroupPointsHolder(index: Int, event: AthleticsEvent? = nil, performance: String? = nil, placementPoints: String? = nil) {
+    func updateEventGroupPointsHolderEventArray(index: Int, performanceNumber: Int) {
+//        print("index should not exceed or = \(eventGroupPointsHolder.selectedEventGroupEventArray.count)")
+//        print("element should not exceed or =  \(eventGroupPointsHolder.eventGroup.getArrayOfAthleticEvents().count)")
+//        print("event group is  \(eventGroupPointsHolder.eventGroup.sName)")
+        
+        let arrayOfEvents = eventGroupPointsHolder.eventGroup.getArrayOfAthleticEvents()
+        eventGroupPointsHolder.selectedEventGroupEventArray[performanceNumber] = arrayOfEvents[index]
+//        for (index, element) in eventArrayPickerIndexes.enumerated() {
+
+            
+            //will have to clean this up and remove this condition
+//            if (index+1)>=eventGroupPointsHolder.selectedEventGroupEventArray.count {
+//                break
+//            }
+        
+    }
+    
+    func updateEventGroupPointsHolderPlacemenetPoints(pointsArray: [String]) {
+            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints = pointsArray
+    }
+    
 //
-//        if !(event==nil) {
-//            print("event for perf \(index) will be updated to \(event!.sName)")
-//            eventGroupPointsHolder.selectedEventGroupEventArray[index] = event!
+//    func updateEventGroupPointsHolder(index: Int = 0, eventArrayPickerIndexes: [Int]? = nil, performanceArray: [String]? = nil, pointsArray: [String]? = nil) {
+//
+//        if !(eventArrayPickerIndexes==nil) {
+//            print("event for perf will be updated to \(eventArrayPickerIndexes!)")
+//            eventGroupPointsHolder.selectedEventGroupEventIndexArray = eventArrayPickerIndexes!
 //        }
-//        if !(performance==nil) {
-//            print("performance for perf \(index) will be updated to \(performance!)")
-//            eventGroupPointsHolder.selectedEventGroupEventPerformance[index] = performance!
+//        if !(performanceArray==nil) {
+//            eventGroupPointsHolder.selectedEventGroupEventPerformance = performanceArray!
 //        }
-//        if !(placementPoints==nil) {
-//            print("plac ploints for perf \(index) will be updated to \(placementPoints!)")
-//            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints[index] = placementPoints!
+//        if !(pointsArray==nil) {
+//            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints = pointsArray!
 //        }
 //    }
     

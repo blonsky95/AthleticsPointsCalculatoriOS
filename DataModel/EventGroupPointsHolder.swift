@@ -5,11 +5,13 @@
 //  Created by Mar Garcia on 20/6/21.
 //
 
-import Foundation
+import SwiftUI
 
-struct EventGroupPointsHolder {
+class EventGroupPointsHolder {
     
     var numberOfPerformances = 0
+    
+    var eventGroup:EventGroup = EventGroup()
     
     var selectedEventGroupEventIndexArray=[Int]()
     
@@ -20,24 +22,6 @@ struct EventGroupPointsHolder {
 
     var selectedEventGroupEventPlacementPoints=[String]()
     
-    
-    //The initialization/value filling of the above variables is done in mainviewmodel
-    
-//    var totalSum :Int {
-//        return getDay1Sum()+getDay2Sum()
-//    }
-    
-//    func getDay1Sum() -> Int {
-//        if numberOfPerformances==0 {
-//            return 0
-//        }
-//        var day1Sum=0
-//        let count = 0...Int(floor(Double(numberOfPerformances-1)/2))
-//        for i in count {
-//            day1Sum+=pointsIntArray[i]
-//        }
-//        return day1Sum
-//    }
     
 //    func getDay2Sum() -> Int {
 //        

@@ -11,9 +11,7 @@ struct DynamicPointsView: View {
     
     @Binding var eventGroup: EventGroup
     
-//    @State var arrayOfEventGroupEvents:[AthleticsEvent] = []
     @EnvironmentObject var mainViewModel : MainViewModel
-    @State var eventGroupPointsHolder:EventGroupPointsHolder = EventGroupPointsHolder()
     
     @State var selectedEventGroupEventIndexArray:[Int] = [0,0,0,0,0,0]
     @State var selectedEventGroupEventPerformance:[String] = ["0.0","0.0","0.0","0.0","0.0","0.0"]
@@ -38,8 +36,9 @@ struct DynamicPointsView: View {
         .foregroundColor(.gray)
         .onChange(of: eventGroup) { newVal in
             resetFormFilling()
-            mainViewModel.resetEventGroupPointsHolder(numberOfPerformances: eventGroup.sMinNumberPerformancesGroup)
-            print("view indexes resetted")
+            print("reset form filling from DPV")
+//            mainViewModel.resetEventGroupPointsHolder(numberOfPerformances: eventGroup.sMinNumberPerformancesGroup)
+//            mainViewModel.updateEventGroupPointsHolderEventGroup(eGroup: eventGroup)
         }
 
         ForEach((0...eventGroup.sMinNumberPerformancesGroup-1), id: \.self) {performanceNumber in
@@ -47,18 +46,17 @@ struct DynamicPointsView: View {
                 HStack{
                     VStack(alignment: .leading){
                         
-                        SingleEventScoreWAView(performance: "0.0", eventGroupArrayIndex: performanceNumber)
+                        SingleEventScoreWAView(eventPerformance: $selectedEventGroupEventPerformance[performanceNumber], eventGroupArrayIndex: $selectedEventGroupEventIndexArray[performanceNumber])
                         
                         TextField(selectedEventGroupEventPlacementPoints[performanceNumber], text: $selectedEventGroupEventPlacementPoints[performanceNumber])
                             .fixedSize()
                             .keyboardType(.decimalPad)
                         .onChange(of: selectedEventGroupEventPlacementPoints) { newPlacPoints in
-                            mainViewModel.updateEventGroupPointsHolder(pointsArray: selectedEventGroupEventPlacementPoints)
+                            mainViewModel.updateEventGroupPointsHolderPlacemenetPoints(pointsArray: selectedEventGroupEventPlacementPoints)
                         }
                         
                         Text("Total: 0")
-                        
-                        
+
                     }
                     
                     Picker("", selection: $selectedEventGroupEventIndexArray[performanceNumber]) {
@@ -66,18 +64,18 @@ struct DynamicPointsView: View {
                             Text(eventGroup.getArrayOfAthleticEvents()[athleticEventIndex].getIndoorDisplayName())
                         }
                     }
-                    .onChange(of: selectedEventGroupEventIndexArray) { newPickerIndexArray in
-                        mainViewModel.updateEventGroupPointsHolder(eventArrayPickerIndexes: newPickerIndexArray)
+                    .onChange(of: selectedEventGroupEventIndexArray[performanceNumber]) { newPickerIndexArray in
+                        print("new picker index for \(performanceNumber), new array: \(newPickerIndexArray)")
+                        mainViewModel.updateEventGroupPointsHolderEventArray(index: newPickerIndexArray, performanceNumber: performanceNumber)
                     }
                 }
             }
             
         }
-   
-    }
-    
+}
+
     func resetFormFilling() {
-        
+        print("RESET TIME")
         selectedEventGroupEventIndexArray = [0,0,0,0,0,0]
         selectedEventGroupEventPerformance = ["0.0","0.0","0.0","0.0","0.0","0.0"]
         selectedEventGroupEventPerformancePoints = ["0","0","0","0","0","0"]
@@ -85,37 +83,26 @@ struct DynamicPointsView: View {
     }
     
     struct SingleEventScoreWAView:View {
-        
-        //CONTINUE HERE - THE PARAMETERS ARE WRONG
 
-//        let athleticsEvent:AthleticsEvent //the event
-        let performance:String //performance, 0.0 if not a saved performance
-        let eventGroupArrayIndex:Int
+        @Binding var eventPerformance:String
+        @Binding var eventGroupArrayIndex:Int
         
-        @State private var eventPerformance:String = ""
         @State private var eventPoints = 0
-        
         @EnvironmentObject var mainViewModel : MainViewModel
 
         var body: some View {
             HStack{
                 CustomCenterTextField(value: $eventPerformance)
                     .onChange(of: eventPerformance) { newValue in
-                        if mainViewModel.isEventGroupPointsHolderInit {
+                        print("1 change of event performance - picker index = \(eventGroupArrayIndex)")
                             eventPoints=mainViewModel.getPointsForEvent(event: mainViewModel.getEventGroupAthleticsEventPerIndex(index: eventGroupArrayIndex), perf: eventPerformance.doubleValue)
                             mainViewModel.updateEventGroupPointsHolderPerformance(index: eventGroupArrayIndex, performance: newValue)
-                        }
-
+                            print("3 Change in singleEventScoreView, new performance: \(eventPerformance) and the event i want points for is \(mainViewModel.getEventGroupAthleticsEventPerIndex(index: eventGroupArrayIndex).getIndoorDisplayName())")
                     }
                 Text("\(eventPoints)")
             }
-            .onAppear{
-                eventPerformance=performance
-            }
         }
-
     }
-    
 }
 
 
