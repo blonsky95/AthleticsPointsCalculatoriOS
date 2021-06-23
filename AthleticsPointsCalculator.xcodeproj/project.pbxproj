@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00290902683731D000A72C9 /* SingleEventScoreWAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002908F2683731D000A72C9 /* SingleEventScoreWAView.swift */; };
 		D002AD7F2629E2D700472723 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD7E2629E2D700472723 /* ContentView.swift */; };
 		D002AD822629E61000472723 /* SavedPerformancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD812629E61000472723 /* SavedPerformancesView.swift */; };
 		D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D002908F2683731D000A72C9 /* SingleEventScoreWAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventScoreWAView.swift; sourceTree = "<group>"; };
 		D002AD7E2629E2D700472723 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D002AD812629E61000472723 /* SavedPerformancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPerformancesView.swift; sourceTree = "<group>"; };
 		D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserSavedPerformance+CoreDataClass.swift"; path = "DataModel/UserSavedPerformance+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -217,14 +219,15 @@
 			children = (
 				D01970A42657B64400A12412 /* CancelButtonView.swift */,
 				D01970A22657B21100A12412 /* CompareButtonView.swift */,
+				D0114A8B267F4E9600095399 /* CustomCenterTextField.swift */,
 				D0963954260522950026DFA7 /* CustomEventPicker.swift */,
 				D0114A87267BC06B00095399 /* CustomEventGroupPicker.swift */,
 				D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */,
 				D0114A89267D1C4400095399 /* DynamicPointsView.swift */,
 				D0D8C6C72652E9F700A62A67 /* FilteredPerformances.swift */,
 				D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */,
+				D002908F2683731D000A72C9 /* SingleEventScoreWAView.swift */,
 				D0D8C6C52652DC8700A62A67 /* SearchBar.swift */,
-				D0114A8B267F4E9600095399 /* CustomCenterTextField.swift */,
 			);
 			path = StandAloneViews;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				D0114A86267BBC3E00095399 /* EventGroup.swift in Sources */,
 				D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */,
 				D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */,
+				D00290902683731D000A72C9 /* SingleEventScoreWAView.swift in Sources */,
 				D0B2F6DD25FD8319001F1CAD /* EventPointsHolder.swift in Sources */,
 				D0412DDE26603B190015B7E4 /* EventsDataObtainerAndHelper.swift in Sources */,
 				D05377DF263EF06B00FDEAF3 /* String-NumberFormatter.swift in Sources */,

@@ -14,8 +14,12 @@ struct WAPointsCalculator: View {
     @State var selectedEventGroupIndex:Int = 0
     @State var selectedEventGroup: EventGroup
     
+    var eventGroupPointsHolder = EventGroupPointsHolder()
+    
     init() {
         _selectedEventGroup = State(initialValue: EventsDataObtainerAndHelper().allEventGroups[0])
+        eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: EventsDataObtainerAndHelper().allEventGroups[0])
+        print("wapoints init OOO")
     }
 
     var body: some View {
@@ -29,7 +33,7 @@ struct WAPointsCalculator: View {
                         .onChange(of: selectedEventGroupIndex) {newIndex in
                             print("change in selectedEventGroupIndex to newIndex: \(newIndex)")
                             selectedEventGroup=mainViewModel.getEventGroup(index: newIndex)
-                            mainViewModel.updateEventGroupPointsHolderEventGroup(eGroup: selectedEventGroup)
+                            eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: selectedEventGroup)
                         }
                     Text("Includes: \(selectedEventGroup.getListOfSimilarEvents())")
                 }
@@ -38,16 +42,9 @@ struct WAPointsCalculator: View {
                     Text("Minimum performances for main event: \(selectedEventGroup.sMinNumberPerformancesMainEvent)")
                 }
                 Section {
-                    DynamicPointsView(eventGroup: $selectedEventGroup)
-                        .onChange(of: selectedEventGroup) {newGroup in
-//                            print("Change outside to: \(newGroup.sName)")
-                            
-                        }
+                    DynamicPointsView(eventGroup: $selectedEventGroup, eventGroupPointsHolder: eventGroupPointsHolder)
                 }
             }            
-        }
-        .onAppear{
-            mainViewModel.updateEventGroupPointsHolderEventGroup(eGroup: selectedEventGroup)
         }
     }
     

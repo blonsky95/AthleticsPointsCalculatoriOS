@@ -7,33 +7,52 @@
 
 import SwiftUI
 
-class EventGroupPointsHolder {
+class EventGroupPointsHolder:ObservableObject {
     
-    var numberOfPerformances = 0
+    @Published var numberOfPerformances = 0
     
     var eventGroup:EventGroup = EventGroup()
     
-    var selectedEventGroupEventIndexArray=[Int]()
-    
-    var selectedEventGroupEventArray=[AthleticsEvent]()
+    @Published var selectedEventIndexesArray=[Int]()
+    @Published var selectedAthleticsEvents=[AthleticsEvent]()
 
-    var selectedEventGroupEventPerformance=[String]()
-    var selectedEventGroupEventPerformancePoints=[String]()
+    @Published var eventPerformances=[String]()
+    @Published var eventPerformancesPoints=[String]()
 
-    var selectedEventGroupEventPlacementPoints=[String]()
+    @Published var eventPlacementPoints=[String]()
     
+//    @State var selectedEventIndexArray:[Int] = [0,0,0,0,0,0]
+//    @State var eventPerformances:[String] = ["0.0","0.0","0.0","0.0","0.0","0.0"]
+//    @State var eventPerformancesPoints:[String] = ["0","0","0","0","0","0"]
+//    @State var eventPerformancesPlacementPoints:[String] = ["0","0","0","0","0","0"]
     
-//    func getDay2Sum() -> Int {
-//        
-//        //single events dont have day 2
-//        if numberOfPerformances<2 {
-//            return 0
-//        }
-//        var day2Sum=0
-//        let count = Int(floor(Double(numberOfPerformances-1)/2))+1...numberOfPerformances-1
-//        for i in count {
-//            day2Sum+=pointsIntArray[i]
-//        }
-//        return day2Sum
-//    }
+    func getTotalPoints(performanceIndex: Int) -> String {
+        return String((Int(eventPerformancesPoints[performanceIndex]) ?? 0) + (Int(eventPlacementPoints[performanceIndex]) ?? 0))
+    }
+    
+    func updateSelectedAthleticEvents(changeIndex: Int) {
+        selectedAthleticsEvents[changeIndex] = eventGroup.getArrayOfAthleticEvents()[selectedEventIndexesArray[changeIndex]]
+    }
+    func resetEventGroupPointsHolderEventGroup(newEventGroup: EventGroup = EventGroup()) {
+        
+        selectedEventIndexesArray=[Int]()
+        selectedAthleticsEvents=[AthleticsEvent]()
+        eventPerformances=[String]()
+        eventPerformancesPoints=[String]()
+        eventPlacementPoints=[String]()
+        
+        self.eventGroup = newEventGroup
+        
+        let count = 0...eventGroup.sMinNumberPerformancesGroup-1
+        for _ in count {
+            selectedEventIndexesArray.append(0)
+            selectedAthleticsEvents.append(eventGroup.sMainEvent)
+            eventPerformances.append("0.0")
+            eventPerformancesPoints.append("0")
+            eventPlacementPoints.append("0")
+        }
+//        print("resetted egph, count of perfs: \(eventPlacementPoints[0]), \(eventPlacementPoints[1]), \(eventPlacementPoints[2])")
+
+    }
+
 }

@@ -211,6 +211,10 @@ class MainViewModel: ObservableObject {
         return eventsDataObtainerAndHelper.getPoints(event: event, performance: perf)
     }
     
+    func getStringPointsForEvent(event: AthleticsEvent, perf: Double) -> String {
+        return String(eventsDataObtainerAndHelper.getPoints(event: event, performance: perf))
+    }
+    
     
     //Call this when new event is loaded
     func resetEventPointsHolder(numberOfEventsOfPerformance: Int) {
@@ -238,7 +242,7 @@ class MainViewModel: ObservableObject {
 
     
     func updateEventGroupPointsHolderPerformance(index: Int, performance: String) {
-            eventGroupPointsHolder.selectedEventGroupEventPerformance[index]=performance
+            eventGroupPointsHolder.eventPerformances[index]=performance
     }
     
     func getEventGroupAthleticsEventPerIndex(index : Int) -> AthleticsEvent {
@@ -255,10 +259,10 @@ class MainViewModel: ObservableObject {
         
         let count = 0...eGroup.sMinNumberPerformancesGroup-1
         for _ in count {
-            eventGroupPointsHolder.selectedEventGroupEventIndexArray.append(0)
-            eventGroupPointsHolder.selectedEventGroupEventArray.append(eventGroupPointsHolder.eventGroup.sMainEvent)
-            eventGroupPointsHolder.selectedEventGroupEventPerformance.append("0.0")
-            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints.append("0")
+            eventGroupPointsHolder.selectedEventIndexesArray.append(0)
+            eventGroupPointsHolder.selectedAthleticsEvents.append(eventGroupPointsHolder.eventGroup.sMainEvent)
+            eventGroupPointsHolder.eventPerformances.append("0.0")
+            eventGroupPointsHolder.eventPlacementPoints.append("0")
         }
     }
     
@@ -268,7 +272,7 @@ class MainViewModel: ObservableObject {
 //        print("event group is  \(eventGroupPointsHolder.eventGroup.sName)")
         
         let arrayOfEvents = eventGroupPointsHolder.eventGroup.getArrayOfAthleticEvents()
-        eventGroupPointsHolder.selectedEventGroupEventArray[performanceNumber] = arrayOfEvents[index]
+        eventGroupPointsHolder.selectedAthleticsEvents[performanceNumber] = arrayOfEvents[index]
 //        for (index, element) in eventArrayPickerIndexes.enumerated() {
 
             
@@ -280,7 +284,7 @@ class MainViewModel: ObservableObject {
     }
     
     func updateEventGroupPointsHolderPlacemenetPoints(pointsArray: [String]) {
-            eventGroupPointsHolder.selectedEventGroupEventPlacementPoints = pointsArray
+            eventGroupPointsHolder.eventPlacementPoints = pointsArray
     }
     
 //
