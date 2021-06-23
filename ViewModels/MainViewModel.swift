@@ -242,7 +242,7 @@ class MainViewModel: ObservableObject {
     }
     
     func getEventGroupAthleticsEventPerIndex(index : Int) -> AthleticsEvent {
-        print("2 getting athletics event - picker index = \(index), will return \(eventGroupPointsHolder.selectedEventGroupEventArray[index].sName)")
+//        print("2 getting athletics event - picker index = \(index), will return \(eventGroupPointsHolder.selectedEventGroupEventArray[index].sName)")
 
             return eventGroupPointsHolder.eventGroup.getArrayOfAthleticEvents()[index]
     }

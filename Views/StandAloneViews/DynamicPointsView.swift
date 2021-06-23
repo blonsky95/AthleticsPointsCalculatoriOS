@@ -66,6 +66,8 @@ struct DynamicPointsView: View {
                     }
                     .onChange(of: selectedEventGroupEventIndexArray[performanceNumber]) { newPickerIndexArray in
                         print("new picker index for \(performanceNumber), new array: \(newPickerIndexArray)")
+                        //updates the binding state that is passed to single score view
+                        selectedEventGroupEventIndexArray[performanceNumber]=newPickerIndexArray
                         mainViewModel.updateEventGroupPointsHolderEventArray(index: newPickerIndexArray, performanceNumber: performanceNumber)
                     }
                 }
@@ -89,18 +91,23 @@ struct DynamicPointsView: View {
         
         @State private var eventPoints = 0
         @EnvironmentObject var mainViewModel : MainViewModel
-
+        
         var body: some View {
             HStack{
                 CustomCenterTextField(value: $eventPerformance)
                     .onChange(of: eventPerformance) { newValue in
-                        print("1 change of event performance - picker index = \(eventGroupArrayIndex)")
-                            eventPoints=mainViewModel.getPointsForEvent(event: mainViewModel.getEventGroupAthleticsEventPerIndex(index: eventGroupArrayIndex), perf: eventPerformance.doubleValue)
-                            mainViewModel.updateEventGroupPointsHolderPerformance(index: eventGroupArrayIndex, performance: newValue)
-                            print("3 Change in singleEventScoreView, new performance: \(eventPerformance) and the event i want points for is \(mainViewModel.getEventGroupAthleticsEventPerIndex(index: eventGroupArrayIndex).getIndoorDisplayName())")
+                        updatePoints()
+                        mainViewModel.updateEventGroupPointsHolderPerformance(index: eventGroupArrayIndex, performance: newValue)
                     }
                 Text("\(eventPoints)")
+                    .onChange(of: eventGroupArrayIndex) {newValue in
+                        updatePoints()
+                    }
             }
+        }
+        
+        func updatePoints() {
+            eventPoints=mainViewModel.getPointsForEvent(event: mainViewModel.getEventGroupAthleticsEventPerIndex(index: eventGroupArrayIndex), perf: eventPerformance.doubleValue)
         }
     }
 }
