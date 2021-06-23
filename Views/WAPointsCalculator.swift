@@ -14,10 +14,11 @@ struct WAPointsCalculator: View {
     @State var selectedEventGroupIndex:Int = 0
     @State var selectedEventGroup: EventGroup
     
-    var eventGroupPointsHolder = EventGroupPointsHolder()
+    @ObservedObject var eventGroupPointsHolder:EventGroupPointsHolder
     
-    init() {
+    init(eventGroupPointsHolder:EventGroupPointsHolder) {
         _selectedEventGroup = State(initialValue: EventsDataObtainerAndHelper().allEventGroups[0])
+        self.eventGroupPointsHolder = eventGroupPointsHolder
         eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: EventsDataObtainerAndHelper().allEventGroups[0])
         print("wapoints init OOO")
     }
@@ -44,14 +45,19 @@ struct WAPointsCalculator: View {
                 Section {
                     DynamicPointsView(eventGroup: $selectedEventGroup, eventGroupPointsHolder: eventGroupPointsHolder)
                 }
-            }            
+            }
+            HStack{
+                Text("Average:")
+                Spacer()
+                Text("\(eventGroupPointsHolder.getAverage())")
+            }.padding()
         }
     }
     
 }
 
-struct WAPointsCalculator_Previews: PreviewProvider {
-    static var previews: some View {
-        WAPointsCalculator()
-    }
-}
+//struct WAPointsCalculator_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WAPointsCalculator()
+//    }
+//}

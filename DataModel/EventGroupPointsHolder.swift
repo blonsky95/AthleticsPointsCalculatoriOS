@@ -21,13 +21,20 @@ class EventGroupPointsHolder:ObservableObject {
 
     @Published var eventPlacementPoints=[String]()
     
-//    @State var selectedEventIndexArray:[Int] = [0,0,0,0,0,0]
-//    @State var eventPerformances:[String] = ["0.0","0.0","0.0","0.0","0.0","0.0"]
-//    @State var eventPerformancesPoints:[String] = ["0","0","0","0","0","0"]
-//    @State var eventPerformancesPlacementPoints:[String] = ["0","0","0","0","0","0"]
+//    var totalPerformancePoints=[Int]()
+ 
     
     func getTotalPoints(performanceIndex: Int) -> String {
         return String((Int(eventPerformancesPoints[performanceIndex]) ?? 0) + (Int(eventPlacementPoints[performanceIndex]) ?? 0))
+    }
+    
+    func getAverage() -> Int {
+        let numberPerfs = eventGroup.sMinNumberPerformancesGroup
+        var totalSum = 0
+        for index in 0...eventPerformances.count-1 {
+            totalSum = totalSum + (Int(eventPerformancesPoints[index]) ?? 0) + (Int(eventPlacementPoints[index]) ?? 0)
+        }
+        return totalSum/numberPerfs
     }
     
     func updateSelectedAthleticEvents(changeIndex: Int) {
@@ -51,8 +58,6 @@ class EventGroupPointsHolder:ObservableObject {
             eventPerformancesPoints.append("0")
             eventPlacementPoints.append("0")
         }
-//        print("resetted egph, count of perfs: \(eventPlacementPoints[0]), \(eventPlacementPoints[1]), \(eventPlacementPoints[2])")
-
     }
 
 }

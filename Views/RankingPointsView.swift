@@ -10,7 +10,9 @@ import SwiftUI
 struct RankingPointsView: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
+    var eventGroupPointsHolder = EventGroupPointsHolder()
     @State var searchText = ""
+    
 
     var body: some View {
         
@@ -23,7 +25,7 @@ struct RankingPointsView: View {
                         //                        mainViewModel.updateQuery(searchText: newValue)
                     }
                 Spacer()
-                NavigationLink(destination: WAPointsCalculator()) {
+                NavigationLink(destination: WAPointsCalculator(eventGroupPointsHolder: eventGroupPointsHolder)) {
                     Text("New")
                         .padding()
                         .foregroundColor(.white)

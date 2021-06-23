@@ -132,10 +132,10 @@
 				D0B2F6D625FD1B8B001F1CAD /* AthleticsPointsEvent.swift */,
 				D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */,
 				D05690A3265D687F00CE9A90 /* CurrentTabKey.swift */,
+				D0114A8D267F51F700095399 /* EventGroupPointsHolder.swift */,
 				D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */,
 				D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */,
 				D0114A85267BBC3E00095399 /* EventGroup.swift */,
-				D0114A8D267F51F700095399 /* EventGroupPointsHolder.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
