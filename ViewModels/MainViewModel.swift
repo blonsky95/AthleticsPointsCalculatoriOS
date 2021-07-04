@@ -238,7 +238,7 @@ class MainViewModel: ObservableObject {
     //Points Calculator view
     
     func getEventGroup(index: Int) -> EventGroup {
-        print("get event group called: \(eventsDataObtainerAndHelper.allEventGroups[index].sName)")
+//        print("get event group called: \(eventsDataObtainerAndHelper.allEventGroups[index].sName)")
         return eventsDataObtainerAndHelper.allEventGroups[index]
     }
         

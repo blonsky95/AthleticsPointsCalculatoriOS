@@ -41,7 +41,7 @@ struct DynamicPointsView: View {
         .foregroundColor(.gray)
         .onChange(of: eventGroup) { newVal in
 //            resetFormFilling()
-//            print("reset form filling from DPV")
+//            print("new event group: \(eventGroup.sName) and minPerfs \(eventGroup.sMinNumberPerformancesGroup)")
         }
 
         ForEach((0...eventGroup.sMinNumberPerformancesGroup-1), id: \.self) {performanceNumber in
@@ -68,9 +68,6 @@ struct DynamicPointsView: View {
                         print("new picker index for \(performanceNumber), new array: \(newPickerIndex)")
                         //updates the binding state that is passed to single score view
                         eventGroupPointsHolder.updateSelectedAthleticEvents(changeIndex: newPickerIndex)
-                        
-//                        selectedEventIndexArray[performanceNumber]=newPickerIndex
-//                        mainViewModel.updateEventGroupPointsHolderEventArray(index: newPickerIndexArray, performanceNumber: performanceNumber)
                     }
                 }
             }

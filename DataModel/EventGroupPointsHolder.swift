@@ -50,7 +50,9 @@ class EventGroupPointsHolder:ObservableObject {
         
         self.eventGroup = newEventGroup
         
-        let count = 0...eventGroup.sMinNumberPerformancesGroup-1
+//        let count = 0...eventGroup.sMinNumberPerformancesGroup-1
+        let count = 0...6
+
         for _ in count {
             selectedEventIndexesArray.append(0)
             selectedAthleticsEvents.append(eventGroup.sMainEvent)
@@ -58,6 +60,8 @@ class EventGroupPointsHolder:ObservableObject {
             eventPerformancesPoints.append("0")
             eventPlacementPoints.append("0")
         }
+        
+        print("event group change reset done, new in perfs: \(newEventGroup.sMinNumberPerformancesGroup)")
     }
 
 }

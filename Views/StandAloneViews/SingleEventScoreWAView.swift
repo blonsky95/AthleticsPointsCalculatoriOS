@@ -12,11 +12,6 @@ struct SingleEventScoreWAView:View {
     let performanceIndex:Int
     @ObservedObject var eventGroupPointsHolder:EventGroupPointsHolder
 
-//    @Binding var eventPerformance:String
-//    @Binding var eventGroupArrayIndex:Int
-//    @Binding var eventPoints:String
-    
-//        @State private var eventPoints = 0
     @EnvironmentObject var mainViewModel : MainViewModel
     
     var body: some View {
