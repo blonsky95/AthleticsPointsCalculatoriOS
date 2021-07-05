@@ -23,8 +23,9 @@ class AthleticsEvent : Codable {
         case sCoefficients = "sCoefficients"
     }
     
-    static let typeRun="type_run"
-    static let typeRunLong="type_run_long"
+    static let typeRun="type_run" //Only seconds
+    static let typeRunLong="type_run_long" //minutes and seconds
+    static let typeRunVeryLong="type_run_very_long" //hours, minutes and seconds
     static let typeJump="type_jump"
     static let typeThrow="type_throw"
     

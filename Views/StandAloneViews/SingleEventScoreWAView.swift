@@ -16,10 +16,14 @@ struct SingleEventScoreWAView:View {
     
     var body: some View {
         HStack{
-            CustomCenterTextField(value: $eventGroupPointsHolder.eventPerformances[performanceIndex])
+            SecondsMinutesHoursCollector(athleticsEvent: eventGroupPointsHolder.getEventOfPerformanceNumber(perfNumber: performanceIndex), totalTime: $eventGroupPointsHolder.eventPerformances[performanceIndex])
                 .onChange(of: eventGroupPointsHolder.eventPerformances[performanceIndex]) { newValue in
                     updatePoints()
                 }
+//            CustomCenterTextField(value: $eventGroupPointsHolder.eventPerformances[performanceIndex])
+//                .onChange(of: eventGroupPointsHolder.eventPerformances[performanceIndex]) { newValue in
+//                    updatePoints()
+//                }
             Text("\(eventGroupPointsHolder.eventPerformancesPoints[performanceIndex])")
                 .onChange(of: eventGroupPointsHolder.selectedEventIndexesArray[performanceIndex]) {newValue in
                     updatePoints()

@@ -25,7 +25,7 @@ struct SingleEventScoreView:View {
                 Spacer()
             }
             HStack {
-                DynamicPerformanceCollector(athleticsEvent: athleticsEvent, eventPerformance: $eventPerformance)
+                SecondsMinutesHoursCollector(athleticsEvent: athleticsEvent, totalTime: $eventPerformance)
                     .onChange(of: eventPerformance) { newValue in
                         eventPoints=mainViewModel.getPointsForEvent(event: athleticsEvent, perf: eventPerformance.doubleValue)
                         mainViewModel.updateEventPointsHolder(eventIndex: eventIndex, eventPoints: eventPoints, eventPerf: eventPerformance)

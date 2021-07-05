@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+//This file is a textfield that adjusts its width to its content, you can also set a minimum width if you want. It is surprisingly difficult to make a textview do this with swiftui provided code.
 struct CustomCenterTextField: View {
+    
     @Binding var value:String
+    let keyboardType: UIKeyboardType
+    let defaultValue: String
+    
     @State private var frame = CGRect.zero
 
     var body: some View {
@@ -18,13 +23,13 @@ struct CustomCenterTextField: View {
                     .fixedSize()
                     .background(rectReader($frame))
 
-                TextField("0.0", text: $value)
+                TextField(defaultValue, text: $value)
                     .multilineTextAlignment(.leading)
                     .fixedSize()
-                    .keyboardType(.decimalPad)
+                    .keyboardType(keyboardType)
 //                    .frame(minWidth: 60, idealWidth: frame.width)
                     .fixedSize(horizontal: true, vertical: false)
-//                    .border(Color.black)      // << for demo only
+//                    .border(Color.black)      // << to check its boundaries/size
 
             }.font(Font.system(size: 16).bold())
         }

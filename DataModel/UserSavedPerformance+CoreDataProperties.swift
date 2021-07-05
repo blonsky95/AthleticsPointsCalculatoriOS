@@ -110,6 +110,9 @@ extension UserSavedPerformance {
             if eventsArray[index].sType==AthleticsEvent.typeRunLong {
                 currentPerfString="\(getMinutesFromSecondsTotal(elementDoubleValue))\(getSecondsFromSecondsTotal(elementDoubleValue))\(getDecimalsFromSecondsTotal(elementDoubleValue))"
             }
+            if eventsArray[index].sType==AthleticsEvent.typeRunVeryLong {
+                currentPerfString="\(getHoursFromSecondsTotal(elementDoubleValue))\(getMinutesFromSecondsTotal(elementDoubleValue))\(getSecondsFromSecondsTotal(elementDoubleValue))\(getDecimalsFromSecondsTotal(elementDoubleValue))"
+            }
             perfString.append("\(currentPerfString) ")
         }
         return perfString.trimSpace()
@@ -117,11 +120,19 @@ extension UserSavedPerformance {
         
     }
     
-    func getMinutesFromSecondsTotal(_ seconds: Double) -> String {
-        if floor(seconds/60)>0 {
-            return "\(Int(floor(seconds/60))):"
+    func getHoursFromSecondsTotal(_ seconds: Double) -> String {
+        if floor(seconds/3600)>0 {
+            return "\(Int(floor(seconds/3600))):"
         }
         return ""
+    }
+    
+    func getMinutesFromSecondsTotal(_ seconds: Double) -> String {
+        let totalMinusHours = Double(floor(seconds - ((floor(seconds/3600))*3600)))
+        if floor(totalMinusHours/60)>0 {
+            return "\(Int(floor(totalMinusHours/60))):"
+        }
+        return "0:"
     }
     
     func getSecondsFromSecondsTotal(_ seconds: Double) -> String {

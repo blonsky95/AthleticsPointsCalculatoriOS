@@ -22,7 +22,9 @@ class EventGroupPointsHolder:ObservableObject {
     @Published var eventPlacementPoints=[String]()
     
 //    var totalPerformancePoints=[Int]()
- 
+    func getEventOfPerformanceNumber(perfNumber: Int) -> AthleticsEvent {
+        return selectedAthleticsEvents[selectedEventIndexesArray[perfNumber]]
+    }
     
     func getTotalPoints(performanceIndex: Int) -> String {
         return String((Int(eventPerformancesPoints[performanceIndex]) ?? 0) + (Int(eventPlacementPoints[performanceIndex]) ?? 0))

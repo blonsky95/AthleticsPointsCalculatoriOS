@@ -951,7 +951,7 @@
     },
     {
         "sName": "Road - 10 Miles",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_10miles_m_o",
         "sCoefficients": {
@@ -962,7 +962,7 @@
     },
     {
         "sName": "Road - 10 Miles",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_10miles_f_o",
         "sCoefficients": {
@@ -973,7 +973,7 @@
     },
     {
         "sName": "Road - 10km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_10km_m_o",
         "sCoefficients": {
@@ -984,7 +984,7 @@
     },
     {
         "sName": "Road - 10km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_10km_f_o",
         "sCoefficients": {
@@ -995,7 +995,7 @@
     },
     {
         "sName": "Road - 15km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_15km_m_o",
         "sCoefficients": {
@@ -1006,7 +1006,7 @@
     },
     {
         "sName": "Road - 15km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_15km_f_o",
         "sCoefficients": {
@@ -1017,7 +1017,7 @@
     },
     {
         "sName": "Road - 20km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_20km_m_o",
         "sCoefficients": {
@@ -1028,7 +1028,7 @@
     },
     {
         "sName": "Road - 20km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_20km_f_o",
         "sCoefficients": {
@@ -1039,7 +1039,7 @@
     },
     {
         "sName": "Road - 25km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_25km_m_o",
         "sCoefficients": {
@@ -1050,7 +1050,7 @@
     },
     {
         "sName": "Road - 25km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_25km_f_o",
         "sCoefficients": {
@@ -1061,7 +1061,7 @@
     },
     {
         "sName": "Road - 30km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_30km_m_o",
         "sCoefficients": {
@@ -1072,7 +1072,7 @@
     },
     {
         "sName": "Road - 30km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_30km_f_o",
         "sCoefficients": {
@@ -1083,7 +1083,7 @@
     },
     {
         "sName": "Road - 100km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_100km_m_o",
         "sCoefficients": {
@@ -1094,7 +1094,7 @@
     },
     {
         "sName": "Road - 100km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_100km_f_o",
         "sCoefficients": {
@@ -1105,7 +1105,7 @@
     },
     {
         "sName": "Road - Half Marathon",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_half_marathon_m_o",
         "sCoefficients": {
@@ -1116,7 +1116,7 @@
     },
     {
         "sName": "Road - Half Marathon",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_half_marathon_f_o",
         "sCoefficients": {
@@ -1127,7 +1127,7 @@
     },
     {
         "sName": "Road - Marathon",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "road_marathon_m_o",
         "sCoefficients": {
@@ -1138,7 +1138,7 @@
     },
     {
         "sName": "Road - Marathon",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "road_marathon_f_o",
         "sCoefficients": {
@@ -1193,7 +1193,7 @@
     },
     {
         "sName": "Racewalk - 10km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "race_10km_m_o",
         "sCoefficients": {
@@ -1204,7 +1204,7 @@
     },
     {
         "sName": "Racewalk - 10km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "race_10km_f_o",
         "sCoefficients": {
@@ -1215,7 +1215,7 @@
     },
     {
         "sName": "Racewalk - 20km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "race_20km_m_o",
         "sCoefficients": {
@@ -1226,7 +1226,7 @@
     },
     {
         "sName": "Racewalk - 20km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "race_20km_f_o",
         "sCoefficients": {
@@ -1237,7 +1237,7 @@
     },
     {
         "sName": "Racewalk - 30km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "race_30km_m_o",
         "sCoefficients": {
@@ -1248,7 +1248,7 @@
     },
     {
         "sName": "Racewalk - 30km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "race_30km_f_o",
         "sCoefficients": {
@@ -1259,7 +1259,7 @@
     },
     {
         "sName": "Racewalk - 35km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "race_35km_m_o",
         "sCoefficients": {
@@ -1270,7 +1270,7 @@
     },
     {
         "sName": "Racewalk - 50km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_male",
         "sKey": "race_50km_m_o",
         "sCoefficients": {
@@ -1281,7 +1281,7 @@
     },
     {
         "sName": "Racewalk - 50km",
-        "sType": "type_run_long",
+        "sType": "type_run_very_long",
         "sCategory": "category_outdoor_female",
         "sKey": "race_50km_f_o",
         "sCoefficients": {

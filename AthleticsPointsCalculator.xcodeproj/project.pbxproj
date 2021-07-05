@@ -32,7 +32,7 @@
 		D06C6CCF25FEA60000A0F292 /* all_events.json in Resources */ = {isa = PBXBuildFile; fileRef = D06C6CCE25FEA60000A0F292 /* all_events.json */; };
 		D06C6CD525FEB69A00A0F292 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C6CD425FEB69A00A0F292 /* Bundle-Decodable.swift */; };
 		D09063E825FFD5E100D666BE /* SingleEventScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */; };
-		D095E1DA26011971008E05F4 /* DynamicPerformanceCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */; };
+		D095E1DA26011971008E05F4 /* SecondsMinutesHoursCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095E1D926011971008E05F4 /* SecondsMinutesHoursCollector.swift */; };
 		D0963955260522950026DFA7 /* CustomEventPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0963954260522950026DFA7 /* CustomEventPicker.swift */; };
 		D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */; };
 		D0B2F6C025FBD1CE001F1CAD /* EventSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */; };
@@ -77,7 +77,7 @@
 		D06C6CCE25FEA60000A0F292 /* all_events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_events.json; sourceTree = "<group>"; };
 		D06C6CD425FEB69A00A0F292 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventScoreView.swift; sourceTree = "<group>"; };
-		D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPerformanceCollector.swift; sourceTree = "<group>"; };
+		D095E1D926011971008E05F4 /* SecondsMinutesHoursCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsMinutesHoursCollector.swift; sourceTree = "<group>"; };
 		D0963954260522950026DFA7 /* CustomEventPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEventPicker.swift; sourceTree = "<group>"; };
 		D0B2F6BA25FBD1CE001F1CAD /* AthleticsPointsCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsPointsCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsCalculatorApp.swift; sourceTree = "<group>"; };
@@ -222,9 +222,9 @@
 				D0114A8B267F4E9600095399 /* CustomCenterTextField.swift */,
 				D0963954260522950026DFA7 /* CustomEventPicker.swift */,
 				D0114A87267BC06B00095399 /* CustomEventGroupPicker.swift */,
-				D095E1D926011971008E05F4 /* DynamicPerformanceCollector.swift */,
 				D0114A89267D1C4400095399 /* DynamicPointsView.swift */,
 				D0D8C6C72652E9F700A62A67 /* FilteredPerformances.swift */,
+				D095E1D926011971008E05F4 /* SecondsMinutesHoursCollector.swift */,
 				D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */,
 				D002908F2683731D000A72C9 /* SingleEventScoreWAView.swift */,
 				D0D8C6C52652DC8700A62A67 /* SearchBar.swift */,
@@ -317,7 +317,7 @@
 				D05690A4265D687F00CE9A90 /* CurrentTabKey.swift in Sources */,
 				D01970A32657B21100A12412 /* CompareButtonView.swift in Sources */,
 				D0D017642645A46D0071431D /* ComparePerformancesView.swift in Sources */,
-				D095E1DA26011971008E05F4 /* DynamicPerformanceCollector.swift in Sources */,
+				D095E1DA26011971008E05F4 /* SecondsMinutesHoursCollector.swift in Sources */,
 				D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */,
 				D01970A52657B64400A12412 /* CancelButtonView.swift in Sources */,
 				D0D8C6C62652DC8700A62A67 /* SearchBar.swift in Sources */,
