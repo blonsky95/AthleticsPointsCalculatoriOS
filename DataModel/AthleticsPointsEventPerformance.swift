@@ -64,7 +64,7 @@ class AthleticsPointsEventPerformance:AthleticsPointsEvent  {
         athleticsPointsEventPerformance.performancesArray=performancesArray
         athleticsPointsEventPerformance.totalPoints = Int(userSavedPerf.performanceTotalPoints)
         athleticsPointsEventPerformance.performanceID = userSavedPerf.wrappedPerformanceID
-//        print ("IMPORTANT CHECK POINT APEP: \(athleticsPointsEventPerformance.performancesArray) SIZE:\(athleticsPointsEventPerformance.performancesArray.count) ")
+
         return athleticsPointsEventPerformance
     }
     

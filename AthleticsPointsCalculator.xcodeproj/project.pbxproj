@@ -34,6 +34,8 @@
 		D09063E825FFD5E100D666BE /* SingleEventScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */; };
 		D095E1DA26011971008E05F4 /* SecondsMinutesHoursCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095E1D926011971008E05F4 /* SecondsMinutesHoursCollector.swift */; };
 		D0963955260522950026DFA7 /* CustomEventPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0963954260522950026DFA7 /* CustomEventPicker.swift */; };
+		D0A7B359269336ED0031C1EB /* WAPointsPerformance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A7B357269336ED0031C1EB /* WAPointsPerformance+CoreDataClass.swift */; };
+		D0A7B35A269336ED0031C1EB /* WAPointsPerformance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A7B358269336ED0031C1EB /* WAPointsPerformance+CoreDataProperties.swift */; };
 		D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */; };
 		D0B2F6C025FBD1CE001F1CAD /* EventSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */; };
 		D0B2F6C225FBD1CF001F1CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B2F6C125FBD1CF001F1CAD /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 		D09063E725FFD5E100D666BE /* SingleEventScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventScoreView.swift; sourceTree = "<group>"; };
 		D095E1D926011971008E05F4 /* SecondsMinutesHoursCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsMinutesHoursCollector.swift; sourceTree = "<group>"; };
 		D0963954260522950026DFA7 /* CustomEventPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEventPicker.swift; sourceTree = "<group>"; };
+		D0A7B357269336ED0031C1EB /* WAPointsPerformance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WAPointsPerformance+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D0A7B358269336ED0031C1EB /* WAPointsPerformance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WAPointsPerformance+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0B2F6BA25FBD1CE001F1CAD /* AthleticsPointsCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsPointsCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B2F6BD25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsCalculatorApp.swift; sourceTree = "<group>"; };
 		D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSelectorView.swift; sourceTree = "<group>"; };
@@ -118,8 +122,8 @@
 				D0D017632645A46D0071431D /* ComparePerformancesView.swift */,
 				D0B2F6BF25FBD1CE001F1CAD /* EventSelectorView.swift */,
 				D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */,
-				D002AD812629E61000472723 /* SavedPerformancesView.swift */,
 				D04EDC7E267A4ECE00A4CE94 /* RankingPointsView.swift */,
+				D002AD812629E61000472723 /* SavedPerformancesView.swift */,
 				D04EDC80267BA24500A4CE94 /* WAPointsCalculator.swift */,
 			);
 			path = Views;
@@ -164,6 +168,8 @@
 		D0B2F6B125FBD1CE001F1CAD = {
 			isa = PBXGroup;
 			children = (
+				D0A7B357269336ED0031C1EB /* WAPointsPerformance+CoreDataClass.swift */,
+				D0A7B358269336ED0031C1EB /* WAPointsPerformance+CoreDataProperties.swift */,
 				D002AD8B2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift */,
 				D002AD8C2629F29A00472723 /* UserSavedPerformance+CoreDataProperties.swift */,
 				D0EB4B8626128AF700285E2F /* CoreDataEntities */,
@@ -318,6 +324,7 @@
 				D01970A32657B21100A12412 /* CompareButtonView.swift in Sources */,
 				D0D017642645A46D0071431D /* ComparePerformancesView.swift in Sources */,
 				D095E1DA26011971008E05F4 /* SecondsMinutesHoursCollector.swift in Sources */,
+				D0A7B35A269336ED0031C1EB /* WAPointsPerformance+CoreDataProperties.swift in Sources */,
 				D0B2F6C725FBD1CF001F1CAD /* Persistence.swift in Sources */,
 				D01970A52657B64400A12412 /* CancelButtonView.swift in Sources */,
 				D0D8C6C62652DC8700A62A67 /* SearchBar.swift in Sources */,
@@ -340,6 +347,7 @@
 				D0D01762264442110071431D /* View-Hidden.swift in Sources */,
 				D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */,
 				D002AD7F2629E2D700472723 /* ContentView.swift in Sources */,
+				D0A7B359269336ED0031C1EB /* WAPointsPerformance+CoreDataClass.swift in Sources */,
 				D002AD8D2629F29A00472723 /* UserSavedPerformance+CoreDataClass.swift in Sources */,
 				D0114A86267BBC3E00095399 /* EventGroup.swift in Sources */,
 				D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */,

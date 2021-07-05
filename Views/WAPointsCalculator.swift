@@ -51,6 +51,10 @@ struct WAPointsCalculator: View {
                 Spacer()
                 Text("\(eventGroupPointsHolder.getAverage())")
             }.padding()
+            Button("Save") {
+                mainViewModel.createWAPointsPerformance(cHolder: eventGroupPointsHolder, titleOfNewPerformance: titleOfSavedPerformance)
+            }.padding()
+            
         }
     }
     

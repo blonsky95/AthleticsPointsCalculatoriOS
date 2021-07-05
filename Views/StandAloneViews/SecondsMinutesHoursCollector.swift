@@ -80,7 +80,7 @@ struct SecondsMinutesHoursCollector:View {
         }
         
         return AnyView(HStack {
-            CustomCenterTextField(value: $totalTime, keyboardType: .numberPad, defaultValue: "0.0")
+            CustomCenterTextField(value: $totalTime, keyboardType: .decimalPad, defaultValue: "0.0")
         })
         
     }

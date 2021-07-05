@@ -26,7 +26,6 @@ extension UserSavedPerformance {
     @NSManaged public var performanceTotalPoints: Int16
     
     
-    
     public var wrappedPerformanceID: String {
         id.uuidString
 //        id?.uuidString ?? "Unknown id"

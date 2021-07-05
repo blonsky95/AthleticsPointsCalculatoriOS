@@ -9,7 +9,7 @@ import SwiftUI
 
 class EventGroupPointsHolder:ObservableObject {
     
-    @Published var numberOfPerformances = 0
+//    @Published var numberOfPerformances = 0
     
     var eventGroup:EventGroup = EventGroup()
     

@@ -10,7 +10,19 @@
         <attribute name="performanceTitle" optional="YES" attributeType="String"/>
         <attribute name="performanceTotalPoints" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="WAPointsPerformance" representedClassName="WAPointsPerformance" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eventGroup" optional="YES" attributeType="String"/>
+        <attribute name="eventPerformancePoints" optional="YES" attributeType="String"/>
+        <attribute name="eventPerformances" optional="YES" attributeType="String"/>
+        <attribute name="eventPlacementPoints" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="performanceTitle" optional="YES" attributeType="String"/>
+        <attribute name="rankingScore" optional="YES" attributeType="String"/>
+        <attribute name="selectedAthleticsEvents" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
-        <element name="UserSavedPerformance" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="UserSavedPerformance" positionX="-366.1953735351562" positionY="30.084228515625" width="128" height="149"/>
+        <element name="WAPointsPerformance" positionX="-63" positionY="45" width="128" height="178"/>
     </elements>
 </model>

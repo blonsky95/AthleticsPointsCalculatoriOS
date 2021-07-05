@@ -24,6 +24,11 @@ struct RankingPointsView: View {
                     .onChange(of: searchText) { newValue in
                         //                        mainViewModel.updateQuery(searchText: newValue)
                     }
+                List(mainViewModel.wAPointsPerformancesArray) { performance in
+                    NavigationLink(destination: WAPointsCalculator(eventGroupPointsHolder: eventGroupPointsHolder)) {
+                            Text("\(performance.wrappedPerformanceTitle) yeahh")
+                        }
+                    }
                 Spacer()
                 NavigationLink(destination: WAPointsCalculator(eventGroupPointsHolder: eventGroupPointsHolder)) {
                     Text("New")
