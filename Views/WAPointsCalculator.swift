@@ -14,9 +14,13 @@ struct WAPointsCalculator: View {
     @State var selectedEventGroupIndex:Int = 0
     @State var selectedEventGroup: EventGroup
     
-    @ObservedObject var eventGroupPointsHolder:EventGroupPointsHolder
+    @Environment(\.presentationMode) var presentationMode
     
-    init(eventGroupPointsHolder:EventGroupPointsHolder) {
+    @ObservedObject var eventGroupPointsHolder:EventGroupPointsHolder
+    let sIsLoadingPerformance: Bool
+    
+    init(eventGroupPointsHolder:EventGroupPointsHolder, isLoadingPerformance: Bool) {
+        sIsLoadingPerformance = isLoadingPerformance
         _selectedEventGroup = State(initialValue: EventsDataObtainerAndHelper().allEventGroups[0])
         self.eventGroupPointsHolder = eventGroupPointsHolder
         eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: EventsDataObtainerAndHelper().allEventGroups[0])
@@ -53,6 +57,8 @@ struct WAPointsCalculator: View {
             }.padding()
             Button("Save") {
                 mainViewModel.createWAPointsPerformance(cHolder: eventGroupPointsHolder, titleOfNewPerformance: titleOfSavedPerformance)
+                presentationMode.wrappedValue.dismiss()
+
             }.padding()
             
         }

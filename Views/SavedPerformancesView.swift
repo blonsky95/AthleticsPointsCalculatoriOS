@@ -46,7 +46,7 @@ struct SavedPerformancesView: View {
                 SearchBar(text: $searchText)
                     .padding(.top)
                     .onChange(of: searchText) { newValue in
-                        mainViewModel.updateQuery(searchText: newValue)
+                        mainViewModel.updatePerformancesQuery(searchText: newValue)
                 }
 
                 FilteredPerformances(performancesToDisplay: mainViewModel.userSavedPerfsArray, selectedItemsArray: $selectedItemsArray, selection: $editModeSelectionSetForList)

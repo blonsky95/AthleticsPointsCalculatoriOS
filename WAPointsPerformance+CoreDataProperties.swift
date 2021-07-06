@@ -46,24 +46,77 @@ extension WAPointsPerformance {
         performanceTitle ?? "Unknown Title"
     }
     
-    public var wrappedEventGroup: String {
-        eventGroup ?? "Unknown Event Group"
+    public var wrappedEventGroup: EventGroup {
+        
+        var rEventGroup = EventGroup()
+        if let jsonData1 = eventGroup?.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                rEventGroup = try decoder.decode(EventGroup.self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return rEventGroup
     }
     
-    public var wrappedSelectedAthleticsEvents: String {
-        selectedAthleticsEvents ?? "Unknown selected ath events"
+    public var wrappedSelectedAthleticsEvents: [AthleticsEvent] {
+        var array = [AthleticsEvent]()
+        if let jsonData1 = selectedAthleticsEvents?.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                array = try decoder.decode([AthleticsEvent].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return array
     }
     
-    public var wrappedEventPerformances: String {
-        eventPerformances ?? "Unknown Event perfs"
+    public var wrappedEventPerformances: [String] {
+        var array = [String]()
+        if let jsonData1 = eventPerformances?.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                array = try decoder.decode([String].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return array
+        
     }
     
-    public var wrappedEventPerformancePoints: String {
-        eventPerformancePoints ?? "Unknown Event perfs points"
+    public var wrappedEventPerformancePoints: [String] {
+        var array = [String]()
+        if let jsonData1 = eventPerformancePoints?.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                array = try decoder.decode([String].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return array
     }
     
-    public var wrappedEventPlacementPoints: String {
-        eventPlacementPoints ?? "Unknown Event placement points"
+    public var wrappedEventPlacementPoints: [String] {
+        var array = [String]()
+        if let jsonData1 = eventPlacementPoints?.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                array = try decoder.decode([String].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return array
+        
     }
     
     public var wrappedRankingScore: String {

@@ -31,11 +31,11 @@ class MainViewModel: ObservableObject {
     //-----//-----////-----//-----////-----//-----////-----//-----//
     //Saved Performances View
     
-    var currentSearchText:String = ""
+    var performancesSearchText:String = ""
     
-    func updateQuery(searchText: String) {
-            currentSearchText=searchText
-            fetchPerformances(searchText: currentSearchText)
+    func updatePerformancesQuery(searchText: String) {
+            performancesSearchText=searchText
+            fetchPointsPerformances(searchText: performancesSearchText)
     }
     
     func getAthleticsPerformanceFromSelection(selectedUUID: UUID) -> AthleticsPointsEventPerformance? {
@@ -46,8 +46,7 @@ class MainViewModel: ObservableObject {
         }
     }
 
-   
-    
+
     
     //-----//-----////-----//-----////-----//-----////-----//-----//
     //Core Data stuff
@@ -58,7 +57,7 @@ class MainViewModel: ObservableObject {
         do {
             try
             container.viewContext.save()
-            fetchPerformances(searchText: currentSearchText)
+            fetchPerformances(searchText: performancesSearchText)
         } catch let error{
             print ("error saving data: \(error)")
         }
@@ -121,7 +120,7 @@ class MainViewModel: ObservableObject {
         ]
         
         if searchText != nil && !(searchText?.isEmpty ?? true) {
-            print("predicate added to the fetch request: \(searchText!)")
+//            print("predicate added to the fetch request: \(searchText!)")
             
             let titleFilter = NSPredicate(format: "performanceTitle CONTAINS[c] %@", searchText!)
             let eventFilter = NSPredicate(format: "performanceEventName CONTAINS[c] %@", searchText!)
@@ -243,6 +242,16 @@ class MainViewModel: ObservableObject {
         return eventsDataObtainerAndHelper.allEventGroups[index]
     }
     
+    //-----//-----////-----//-----////-----//-----////-----//-----//
+    //Event Rankings view
+    
+    var pointsPerformancesSearchText:String = ""
+    
+    func updatePointsPerformancesQuery(searchText: String) {
+            pointsPerformancesSearchText=searchText
+            fetchPointsPerformances(searchText: pointsPerformancesSearchText)
+    }
+    
     //Core data stuff
     
     @Published var wAPointsPerformancesArray:[WAPointsPerformance] = []
@@ -261,20 +270,19 @@ class MainViewModel: ObservableObject {
     func fetchPointsPerformances(searchText:String? = nil) {
         let fetchRequest = NSFetchRequest<WAPointsPerformance>(entityName: "WAPointsPerformance")
 
-//        fetchRequest.sortDescriptors = [
-//            NSSortDescriptor(keyPath: \WAPointsPerformance.date, ascending: false),
-//            NSSortDescriptor(keyPath: \WAPointsPerformance.performanceTitle, ascending: true)
-//        ]
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \WAPointsPerformance.date, ascending: false),
+            NSSortDescriptor(keyPath: \WAPointsPerformance.performanceTitle, ascending: true)
+        ]
         
-//        if searchText != nil && !(searchText?.isEmpty ?? true) {
-//            print("predicate added to the fetch request: \(searchText!)")
-//            
-//            let titleFilter = NSPredicate(format: "performanceTitle CONTAINS[c] %@", searchText!)
-//            let eventFilter = NSPredicate(format: "performanceEventName CONTAINS[c] %@", searchText!)
-//            let pointsFilter = NSPredicate(format: "performanceTotalPoints BEGINSWITH %@", searchText!)
-//            
-//            fetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titleFilter, eventFilter, pointsFilter])
-//        }
+        if searchText != nil && !(searchText?.isEmpty ?? true) {
+            
+            let titleFilter = NSPredicate(format: "performanceTitle CONTAINS[c] %@", searchText!)
+            let eventGroupFilter = NSPredicate(format: "eventGroup CONTAINS[c] %@", searchText!)
+            let rankingScoreFilter = NSPredicate(format: "rankingScore BEGINSWITH %@", searchText!)
+            
+            fetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titleFilter, eventGroupFilter, rankingScoreFilter])
+        }
        
         do {
             wAPointsPerformancesArray = try container.viewContext.fetch(fetchRequest)

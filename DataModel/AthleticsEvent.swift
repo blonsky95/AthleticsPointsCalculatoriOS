@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class AthleticsEvent : Codable {
+public class AthleticsEvent : Codable {
     let sName:String
     let sType:String //run jump or throw
     let sCategory:String //is it combined events, indoor/outdoor, and male/female

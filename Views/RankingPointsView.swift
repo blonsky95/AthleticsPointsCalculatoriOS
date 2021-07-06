@@ -12,7 +12,6 @@ struct RankingPointsView: View {
     @EnvironmentObject var mainViewModel : MainViewModel
     var eventGroupPointsHolder = EventGroupPointsHolder()
     @State var searchText = ""
-    
 
     var body: some View {
         
@@ -22,11 +21,11 @@ struct RankingPointsView: View {
                 SearchBar(text: $searchText)
                     .padding(.top)
                     .onChange(of: searchText) { newValue in
-                        //                        mainViewModel.updateQuery(searchText: newValue)
+                        mainViewModel.updatePerformancesQuery(searchText: newValue)
                     }
                 List(mainViewModel.wAPointsPerformancesArray) { performance in
                     NavigationLink(destination: WAPointsCalculator(eventGroupPointsHolder: eventGroupPointsHolder)) {
-                            Text("\(performance.wrappedPerformanceTitle) yeahh")
+                        PointsPerformanceListItemView(waPointsPerformance: performance)
                         }
                     }
                 Spacer()
@@ -51,5 +50,22 @@ struct RankingPointsView: View {
 struct RankingPointsView_Previews: PreviewProvider {
     static var previews: some View {
         RankingPointsView()
+    }
+}
+
+
+struct PointsPerformanceListItemView:View {
+    
+    let waPointsPerformance:WAPointsPerformance
+    
+    var body: some View {
+        HStack{
+            VStack(alignment: .leading){
+                Text(waPointsPerformance.wrappedPerformanceTitle)
+                Text(waPointsPerformance.wrappedEventGroup.sName)
+            }
+            Spacer()
+            Text(waPointsPerformance.wrappedRankingScore)
+        }
     }
 }

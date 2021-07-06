@@ -7,10 +7,10 @@
 
 import Foundation
 
-class EventGroup : Codable, Equatable {
+public class EventGroup : Codable, Equatable {
     
     //Here is the EventGroup class conforming to equatable, for this to work I need to provide a function so they can be equated ==
-    static func == (lhs: EventGroup, rhs: EventGroup) -> Bool {
+    public static func == (lhs: EventGroup, rhs: EventGroup) -> Bool {
         return lhs.sName == rhs.sName
     }
     
