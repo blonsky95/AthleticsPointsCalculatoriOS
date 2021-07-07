@@ -10,26 +10,37 @@ import SwiftUI
 struct RankingPointsView: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
-    var eventGroupPointsHolder = EventGroupPointsHolder()
     @State var searchText = ""
 
     var body: some View {
         
         NavigationView{
-            
             VStack{
                 SearchBar(text: $searchText)
                     .padding(.top)
                     .onChange(of: searchText) { newValue in
                         mainViewModel.updatePerformancesQuery(searchText: newValue)
                     }
-                List(mainViewModel.wAPointsPerformancesArray) { performance in
-                    NavigationLink(destination: WAPointsCalculator(eventGroupPointsHolder: eventGroupPointsHolder)) {
-                        PointsPerformanceListItemView(waPointsPerformance: performance)
+
+                List {
+                    ForEach (mainViewModel.wAPointsPerformancesArray) { performance in
+                        NavigationLink(destination: WAPointsCalculator(isLoadingPerformance: true, pWAPointsPerformance: performance)) {
+//                            PointsPerformanceListItemView(waPointsPerformance: performance)
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text(performance.wrappedPerformanceTitle)
+                                    Text(performance.wrappedEventGroup.sName)
+                                }
+                                Spacer()
+                                Text(performance.wrappedRankingScore)
+                            }
                         }
                     }
+                    .onDelete(perform: mainViewModel.deletePointsPerformance)
+                }
+
                 Spacer()
-                NavigationLink(destination: WAPointsCalculator(eventGroupPointsHolder: eventGroupPointsHolder)) {
+                NavigationLink(destination: WAPointsCalculator(isLoadingPerformance: false)) {
                     Text("New")
                         .padding()
                         .foregroundColor(.white)
@@ -41,7 +52,6 @@ struct RankingPointsView: View {
                 
             }
             .navigationTitle("WA Ranking Points")
-            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -54,18 +64,18 @@ struct RankingPointsView_Previews: PreviewProvider {
 }
 
 
-struct PointsPerformanceListItemView:View {
-    
-    let waPointsPerformance:WAPointsPerformance
-    
-    var body: some View {
-        HStack{
-            VStack(alignment: .leading){
-                Text(waPointsPerformance.wrappedPerformanceTitle)
-                Text(waPointsPerformance.wrappedEventGroup.sName)
-            }
-            Spacer()
-            Text(waPointsPerformance.wrappedRankingScore)
-        }
-    }
-}
+//struct PointsPerformanceListItemView:View {
+//    
+//    var waPointsPerformance:WAPointsPerformance
+//    
+//    var body: some View {
+//        HStack{
+//            VStack(alignment: .leading){
+//                Text(waPointsPerformance.wrappedPerformanceTitle)
+//                Text(waPointsPerformance.wrappedEventGroup.sName)
+//            }
+//            Spacer()
+//            Text(waPointsPerformance.wrappedRankingScore)
+//        }
+//    }
+//}

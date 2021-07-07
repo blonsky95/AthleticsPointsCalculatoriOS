@@ -23,6 +23,7 @@
 		D01970A72657CA2A00A12412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */; };
 		D024003E260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */; };
 		D0412DDE26603B190015B7E4 /* EventsDataObtainerAndHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */; };
+		D04D78CF2695AB3C00DC759E /* EventGroupsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D78CE2695AB3C00DC759E /* EventGroupsHelper.swift */; };
 		D04EDC7F267A4ECE00A4CE94 /* RankingPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04EDC7E267A4ECE00A4CE94 /* RankingPointsView.swift */; };
 		D04EDC81267BA24500A4CE94 /* WAPointsCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04EDC80267BA24500A4CE94 /* WAPointsCalculator.swift */; };
 		D05377DF263EF06B00FDEAF3 /* String-NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */; };
@@ -70,6 +71,7 @@
 		D01970A62657CA2A00A12412 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D024003D260A6F46002DDE06 /* AthleticsPointsEventPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsPointsEventPerformance.swift; sourceTree = "<group>"; };
 		D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataObtainerAndHelper.swift; sourceTree = "<group>"; };
+		D04D78CE2695AB3C00DC759E /* EventGroupsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventGroupsHelper.swift; sourceTree = "<group>"; };
 		D04EDC7E267A4ECE00A4CE94 /* RankingPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingPointsView.swift; sourceTree = "<group>"; };
 		D04EDC80267BA24500A4CE94 /* WAPointsCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAPointsCalculator.swift; sourceTree = "<group>"; };
 		D05377DE263EF06B00FDEAF3 /* String-NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-NumberFormatter.swift"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				D0B2F6DC25FD8319001F1CAD /* EventPointsHolder.swift */,
 				D0412DDD26603B190015B7E4 /* EventsDataObtainerAndHelper.swift */,
 				D0114A85267BBC3E00095399 /* EventGroup.swift */,
+				D04D78CE2695AB3C00DC759E /* EventGroupsHelper.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				D0B2F6CA25FBD1CF001F1CAD /* AthleticsPointsCalculator.xcdatamodeld in Sources */,
 				D0B2F6BE25FBD1CE001F1CAD /* AthleticsPointsCalculatorApp.swift in Sources */,
 				D00290902683731D000A72C9 /* SingleEventScoreWAView.swift in Sources */,
+				D04D78CF2695AB3C00DC759E /* EventGroupsHelper.swift in Sources */,
 				D0B2F6DD25FD8319001F1CAD /* EventPointsHolder.swift in Sources */,
 				D0412DDE26603B190015B7E4 /* EventsDataObtainerAndHelper.swift in Sources */,
 				D05377DF263EF06B00FDEAF3 /* String-NumberFormatter.swift in Sources */,

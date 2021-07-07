@@ -12,6 +12,7 @@ class EventGroupPointsHolder:ObservableObject {
 //    @Published var numberOfPerformances = 0
     
     var eventGroup:EventGroup = EventGroup()
+    var performanceTitle: String = ""
     
     @Published var selectedEventIndexesArray=[Int]()
     @Published var selectedAthleticsEvents=[AthleticsEvent]()
@@ -52,7 +53,6 @@ class EventGroupPointsHolder:ObservableObject {
         
         self.eventGroup = newEventGroup
         
-//        let count = 0...eventGroup.sMinNumberPerformancesGroup-1
         let count = 0...6
 
         for _ in count {
@@ -62,8 +62,22 @@ class EventGroupPointsHolder:ObservableObject {
             eventPerformancesPoints.append("0")
             eventPlacementPoints.append("0")
         }
+    }
+    
+    func loadDataFromPerformance(pointsPerf: WAPointsPerformance){
+        self.eventGroup = pointsPerf.wrappedEventGroup
+        self.performanceTitle = pointsPerf.wrappedPerformanceTitle
+        self.selectedAthleticsEvents = pointsPerf.wrappedSelectedAthleticsEvents
+        self.eventPerformances = pointsPerf.wrappedEventPerformances
+        self.eventPerformancesPoints = pointsPerf.wrappedEventPerformancePoints
+        self.eventPlacementPoints = pointsPerf.wrappedEventPlacementPoints
         
-        print("event group change reset done, new in perfs: \(newEventGroup.sMinNumberPerformancesGroup)")
+        let arrayOfEvents = eventGroup.getArrayOfAthleticEvents()
+        for event in selectedAthleticsEvents {
+            self.selectedEventIndexesArray.append(arrayOfEvents.firstIndex{$0.sKey == event.sKey}!)
+        }
+        
+//        return self
     }
 
 }

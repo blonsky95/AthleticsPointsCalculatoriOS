@@ -169,7 +169,7 @@ struct CalculatorView: View {
 struct CalculatorView_Previews: PreviewProvider {
 
     static var previews: some View {
-        let eventsDataObtainerAndHelper = EventsDataObtainerAndHelper()
+        let eventsDataObtainerAndHelper = EventsDataObtainerAndHelper.shared
 
         let decathlon = AthleticsPointsEvent(name: "Decathlon", events:
                                         [eventsDataObtainerAndHelper.athleticsEventsSearcher["100m_m"]!,

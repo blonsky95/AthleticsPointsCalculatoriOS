@@ -14,7 +14,7 @@ class MainViewModel: ObservableObject {
     let container: NSPersistentContainer
     
     init() {
-        eventsDataObtainerAndHelper = EventsDataObtainerAndHelper()
+        eventsDataObtainerAndHelper = EventsDataObtainerAndHelper.shared
         container = NSPersistentContainer(name: "AthleticsPointsCalculator")
         container.loadPersistentStores{( description, error) in
             if let pError = error {
@@ -242,6 +242,7 @@ class MainViewModel: ObservableObject {
         return eventsDataObtainerAndHelper.allEventGroups[index]
     }
     
+    
     //-----//-----////-----//-----////-----//-----////-----//-----//
     //Event Rankings view
     
@@ -252,6 +253,8 @@ class MainViewModel: ObservableObject {
             fetchPointsPerformances(searchText: pointsPerformancesSearchText)
     }
     
+
+    
     //Core data stuff
     
     @Published var wAPointsPerformancesArray:[WAPointsPerformance] = []
@@ -260,11 +263,19 @@ class MainViewModel: ObservableObject {
         do {
             try
             container.viewContext.save()
-            fetchPointsPerformances(searchText: "")
+            fetchPointsPerformances(searchText: pointsPerformancesSearchText)
         } catch let error{
             print ("error saving 222 data: \(error)")
         }
         
+    }
+    
+    func deletePointsPerformance(indexSet: IndexSet) {
+        guard let sIndexSet = indexSet.first else {return}
+        let perf = wAPointsPerformancesArray[sIndexSet]
+        print("will delete \(perf.wrappedPerformanceTitle)")
+        container.viewContext.delete(perf)
+        saveWAPointsPerformancesData()
     }
     
     func fetchPointsPerformances(searchText:String? = nil) {
@@ -291,36 +302,48 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    func createWAPointsPerformance(cHolder: EventGroupPointsHolder, titleOfNewPerformance:String) {
+    func createWAPointsPerformance(cHolder: EventGroupPointsHolder, pTitleOfNewPerformance:String) {
         
         let newInstance = WAPointsPerformance(context: container.viewContext)
         newInstance.id = UUID()
-        newInstance.performanceTitle = titleOfNewPerformance
         
-        let jsonEventGroup = try! JSONEncoder().encode(cHolder.eventGroup)
-        newInstance.eventGroup = String(data: jsonEventGroup, encoding: .utf8)!
+        loadDataToWAPointsPerf(wAPointsPerformance: newInstance, infoHolder: cHolder, titleOfNewPerformance: pTitleOfNewPerformance)
         
-        let jsonSelAthEvents = try! JSONEncoder().encode(cHolder.selectedAthleticsEvents)
-        newInstance.selectedAthleticsEvents=String(data: jsonSelAthEvents, encoding: .utf8)!
-        
-        let jsonEvePerfs = try! JSONEncoder().encode(cHolder.eventPerformances)
-        newInstance.eventPerformances=String(data: jsonEvePerfs, encoding: .utf8)!
-        
-        let jsonEvePerfsPts = try! JSONEncoder().encode(cHolder.eventPerformancesPoints)
-        newInstance.eventPerformancePoints=String(data: jsonEvePerfsPts, encoding: .utf8)!
-        
-        let jsonEvePlcPts = try! JSONEncoder().encode(cHolder.eventPlacementPoints)
-        newInstance.eventPlacementPoints=String(data: jsonEvePlcPts, encoding: .utf8)!
-        
-        newInstance.rankingScore = String(cHolder.getAverage())
-
-        print("points perf saved, title: \(newInstance.wrappedPerformanceTitle), ranking score: \(newInstance.wrappedRankingScore)")
-        
-        print("points perf saved 2, title: \(String(describing: newInstance.eventPerformances))")
-        newInstance.date=Date()
         container.viewContext.insert(newInstance)
 
         saveWAPointsPerformancesData()
+    }
+    
+    func updateWAPointsPerformance(pWAPointsPerformance: WAPointsPerformance, cHolder: EventGroupPointsHolder, pTitleOfNewPerformance:String) {
+        
+        loadDataToWAPointsPerf(wAPointsPerformance: pWAPointsPerformance, infoHolder: cHolder, titleOfNewPerformance: pTitleOfNewPerformance)
+
+        saveWAPointsPerformancesData()
+    }
+    
+    func loadDataToWAPointsPerf(wAPointsPerformance: WAPointsPerformance, infoHolder: EventGroupPointsHolder, titleOfNewPerformance:String) {
+        
+        wAPointsPerformance.performanceTitle = titleOfNewPerformance
+        
+        let jsonEventGroup = try! JSONEncoder().encode(infoHolder.eventGroup)
+        wAPointsPerformance.eventGroup = String(data: jsonEventGroup, encoding: .utf8)!
+        
+        let jsonSelAthEvents = try! JSONEncoder().encode(infoHolder.selectedAthleticsEvents)
+        wAPointsPerformance.selectedAthleticsEvents=String(data: jsonSelAthEvents, encoding: .utf8)!
+        
+        let jsonEvePerfs = try! JSONEncoder().encode(infoHolder.eventPerformances)
+        wAPointsPerformance.eventPerformances=String(data: jsonEvePerfs, encoding: .utf8)!
+        
+        let jsonEvePerfsPts = try! JSONEncoder().encode(infoHolder.eventPerformancesPoints)
+        wAPointsPerformance.eventPerformancePoints=String(data: jsonEvePerfsPts, encoding: .utf8)!
+        
+        let jsonEvePlcPts = try! JSONEncoder().encode(infoHolder.eventPlacementPoints)
+        wAPointsPerformance.eventPlacementPoints=String(data: jsonEvePlcPts, encoding: .utf8)!
+        
+        wAPointsPerformance.rankingScore = String(infoHolder.getAverage())
+        
+        wAPointsPerformance.date=Date()
+                
     }
         
 }

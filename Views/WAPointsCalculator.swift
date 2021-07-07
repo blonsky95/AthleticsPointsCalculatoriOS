@@ -12,19 +12,20 @@ struct WAPointsCalculator: View {
     @EnvironmentObject var mainViewModel : MainViewModel
     @State private var titleOfSavedPerformance = "New points performance"
     @State var selectedEventGroupIndex:Int = 0
-    @State var selectedEventGroup: EventGroup
-    
-    @Environment(\.presentationMode) var presentationMode
-    
+    @State var selectedEventGroup: EventGroup = EventsDataObtainerAndHelper.shared.allEventGroups[0]
     @ObservedObject var eventGroupPointsHolder:EventGroupPointsHolder
+
+    @Environment(\.presentationMode) var presentationMode
+    @State private var showingAlert = false
+
     let sIsLoadingPerformance: Bool
+    let wAPointsPerformance: WAPointsPerformance?
     
-    init(eventGroupPointsHolder:EventGroupPointsHolder, isLoadingPerformance: Bool) {
+    init(isLoadingPerformance: Bool, pWAPointsPerformance:WAPointsPerformance? = nil ) {
         sIsLoadingPerformance = isLoadingPerformance
-        _selectedEventGroup = State(initialValue: EventsDataObtainerAndHelper().allEventGroups[0])
-        self.eventGroupPointsHolder = eventGroupPointsHolder
-        eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: EventsDataObtainerAndHelper().allEventGroups[0])
-        print("wapoints init OOO")
+        wAPointsPerformance = pWAPointsPerformance
+        eventGroupPointsHolder = EventGroupPointsHolder()
+        eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup()
     }
 
     var body: some View {
@@ -56,15 +57,80 @@ struct WAPointsCalculator: View {
                 Text("\(eventGroupPointsHolder.getAverage())")
             }.padding()
             Button("Save") {
-                mainViewModel.createWAPointsPerformance(cHolder: eventGroupPointsHolder, titleOfNewPerformance: titleOfSavedPerformance)
-                presentationMode.wrappedValue.dismiss()
-
+                saveButtonPressed()
             }.padding()
             
         }
+        .alert(isPresented: $showingAlert, content: getAlert)
+        .onAppear{
+            if sIsLoadingPerformance {
+                eventGroupPointsHolder.loadDataFromPerformance(pointsPerf: wAPointsPerformance!)
+                selectedEventGroup = eventGroupPointsHolder.eventGroup
+                selectedEventGroupIndex =  EventsDataObtainerAndHelper.shared.getIndexOfEventGroup(pEventGroup: eventGroupPointsHolder.eventGroup)
+                titleOfSavedPerformance = eventGroupPointsHolder.performanceTitle
+            } else {
+                eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: EventsDataObtainerAndHelper.shared.allEventGroups[0])
+            }
+        }
     }
     
+    func getAlert() -> Alert {
+        return Alert(
+            title: Text("Overwrite performance?"),
+            message: Text("Overwrite existing performance, or create a new performance?"),
+            primaryButton: .default(Text("Overwrite")) {
+                print("Overwrite...")
+                updateUserSavedPerformance()
+            },
+            secondaryButton: .default(Text("New")) {
+                print("New...")
+                saveNewUserSavedPerformance()
+            }
+        )
+    }
+    
+    func saveButtonPressed() {
+        if sIsLoadingPerformance {
+            if wAPointsPerformance!.wrappedPerformanceTitle != titleOfSavedPerformance {
+                //dialog
+                showingAlert = true
+            } else {
+                updateUserSavedPerformance()
+            }
+        }
+        else {
+            saveNewUserSavedPerformance()
+        }
+    }
+
+    func saveNewUserSavedPerformance() {
+        mainViewModel.createWAPointsPerformance(cHolder: eventGroupPointsHolder, pTitleOfNewPerformance: titleOfSavedPerformance)
+        presentationMode.wrappedValue.dismiss()
+    }
+
+    func updateUserSavedPerformance() {
+        mainViewModel.updateWAPointsPerformance(pWAPointsPerformance: wAPointsPerformance!, cHolder: eventGroupPointsHolder, pTitleOfNewPerformance: titleOfSavedPerformance)
+        presentationMode.wrappedValue.dismiss()
+    }
+
+//    func handleViewDismissal() {
+//        //If comes from calculator view - take to saved
+//        //If comes from saved - dismiss the navigation screen
+//
+//
+//        //TODO i want a swift transition
+//        if sIsLoadingPerformance {
+//            presentationMode.wrappedValue.dismiss()
+//        } else {
+//            presentationMode.wrappedValue.dismiss()
+//            self.tab.wrappedValue = .savedPerformances
+//            //The create tab is still on the calculatorview! Unless I dismiss
+//        }
+//    }
+
 }
+
+
 
 //struct WAPointsCalculator_Previews: PreviewProvider {
 //    static var previews: some View {
