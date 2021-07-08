@@ -20,10 +20,7 @@ struct SingleEventScoreWAView:View {
                 .onChange(of: eventGroupPointsHolder.eventPerformances[performanceIndex]) { newValue in
                     updatePoints()
                 }
-//            CustomCenterTextField(value: $eventGroupPointsHolder.eventPerformances[performanceIndex])
-//                .onChange(of: eventGroupPointsHolder.eventPerformances[performanceIndex]) { newValue in
-//                    updatePoints()
-//                }
+
             Text("\(eventGroupPointsHolder.eventPerformancesPoints[performanceIndex])")
                 .onChange(of: eventGroupPointsHolder.selectedEventIndexesArray[performanceIndex]) {newValue in
                     updatePoints()
@@ -33,8 +30,6 @@ struct SingleEventScoreWAView:View {
     
     func updatePoints() {
         eventGroupPointsHolder.eventPerformancesPoints[performanceIndex]=mainViewModel.getStringPointsForEvent(event: eventGroupPointsHolder.eventGroup.getArrayOfAthleticEvents()[eventGroupPointsHolder.selectedEventIndexesArray[performanceIndex]], perf: eventGroupPointsHolder.eventPerformances[performanceIndex].doubleValue)
-//        print("the event was: \(eventGroupPointsHolder.eventGroup.getArrayOfAthleticEvents()[performanceIndex])")
-
     }
 }
 

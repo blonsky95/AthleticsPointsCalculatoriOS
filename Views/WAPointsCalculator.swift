@@ -112,22 +112,6 @@ struct WAPointsCalculator: View {
         mainViewModel.updateWAPointsPerformance(pWAPointsPerformance: wAPointsPerformance!, cHolder: eventGroupPointsHolder, pTitleOfNewPerformance: titleOfSavedPerformance)
         presentationMode.wrappedValue.dismiss()
     }
-
-//    func handleViewDismissal() {
-//        //If comes from calculator view - take to saved
-//        //If comes from saved - dismiss the navigation screen
-//
-//
-//        //TODO i want a swift transition
-//        if sIsLoadingPerformance {
-//            presentationMode.wrappedValue.dismiss()
-//        } else {
-//            presentationMode.wrappedValue.dismiss()
-//            self.tab.wrappedValue = .savedPerformances
-//            //The create tab is still on the calculatorview! Unless I dismiss
-//        }
-//    }
-
 }
 
 

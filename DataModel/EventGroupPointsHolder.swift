@@ -8,9 +8,7 @@
 import SwiftUI
 
 class EventGroupPointsHolder:ObservableObject {
-    
-//    @Published var numberOfPerformances = 0
-    
+        
     var eventGroup:EventGroup = EventGroup()
     var performanceTitle: String = ""
     
@@ -22,7 +20,10 @@ class EventGroupPointsHolder:ObservableObject {
 
     @Published var eventPlacementPoints=[String]()
     
-//    var totalPerformancePoints=[Int]()
+    @Published var windReadings=[String]()
+    @Published var windPointsModifications=[String]()
+
+    
     func getEventOfPerformanceNumber(perfNumber: Int) -> AthleticsEvent {
         return selectedAthleticsEvents[selectedEventIndexesArray[perfNumber]]
     }
@@ -50,6 +51,8 @@ class EventGroupPointsHolder:ObservableObject {
         eventPerformances=[String]()
         eventPerformancesPoints=[String]()
         eventPlacementPoints=[String]()
+        windReadings=[String]()
+        windPointsModifications=[String]()
         
         self.eventGroup = newEventGroup
         
@@ -61,6 +64,8 @@ class EventGroupPointsHolder:ObservableObject {
             eventPerformances.append("0.0")
             eventPerformancesPoints.append("0")
             eventPlacementPoints.append("0")
+            windReadings.append("0.0")
+            windPointsModifications.append("0")
         }
     }
     
