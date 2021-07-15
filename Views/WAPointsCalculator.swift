@@ -10,9 +10,9 @@ import SwiftUI
 struct WAPointsCalculator: View {
     
     @EnvironmentObject var mainViewModel : MainViewModel
-    @State private var titleOfSavedPerformance = "New points performance"
+    @State var titleOfSavedPerformance = "New points perfo"
     @State var selectedEventGroupIndex:Int = 0
-    @State var selectedEventGroup: EventGroup = EventsDataObtainerAndHelper.shared.allEventGroups[0]
+    @State var selectedEventGroup: EventGroup
     @ObservedObject var eventGroupPointsHolder:EventGroupPointsHolder
 
     @Environment(\.presentationMode) var presentationMode
@@ -21,11 +21,26 @@ struct WAPointsCalculator: View {
     let sIsLoadingPerformance: Bool
     let wAPointsPerformance: WAPointsPerformance?
     
-    init(isLoadingPerformance: Bool, pWAPointsPerformance:WAPointsPerformance? = nil ) {
+    init(isLoadingPerformance: Bool, initialEventGroup: EventGroup, pWAPointsPerformance:WAPointsPerformance? = nil ) {
         sIsLoadingPerformance = isLoadingPerformance
         wAPointsPerformance = pWAPointsPerformance
+        
+        //sets 100m or the saved event group
+        _selectedEventGroup = State(initialValue: initialEventGroup)
+
         eventGroupPointsHolder = EventGroupPointsHolder()
-        eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup()
+        
+        if sIsLoadingPerformance {
+            //loads the eventgroup to the eventGroupPointsHolder
+            eventGroupPointsHolder.loadDataFromPerformance(pointsPerf: wAPointsPerformance!)
+            //loads index of event group
+            selectedEventGroupIndex =  EventsDataObtainerAndHelper.shared.getIndexOfEventGroup(pEventGroup: eventGroupPointsHolder.eventGroup)
+            //loads title as initial state value
+            _titleOfSavedPerformance = State(initialValue: eventGroupPointsHolder.performanceTitle)
+        } else {
+            //is a new, so reset with 100m as event group
+            eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: selectedEventGroup)
+        }   
     }
 
     var body: some View {
@@ -37,7 +52,7 @@ struct WAPointsCalculator: View {
                         .padding(.bottom)
                     CustomEventGroupPicker(selectedEventGroupIndex: $selectedEventGroupIndex, arrayOfEventGroups: mainViewModel.eventsDataObtainerAndHelper.allEventGroups)
                         .onChange(of: selectedEventGroupIndex) {newIndex in
-                            print("change in selectedEventGroupIndex to newIndex: \(newIndex)")
+//                            print("change in selectedEventGroupIndex to newIndex: \(newIndex)")
                             selectedEventGroup=mainViewModel.getEventGroup(index: newIndex)
                             eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: selectedEventGroup)
                         }
@@ -48,7 +63,7 @@ struct WAPointsCalculator: View {
                     Text("Minimum performances for main event: \(selectedEventGroup.sMinNumberPerformancesMainEvent)")
                 }
                 Section {
-                    DynamicPointsView(eventGroup: $selectedEventGroup, eventGroupPointsHolder: eventGroupPointsHolder)
+                    DynamicPointsView(eventGroup: selectedEventGroup, eventGroupPointsHolder: eventGroupPointsHolder)
                 }
             }
             HStack{
@@ -63,14 +78,17 @@ struct WAPointsCalculator: View {
         }
         .alert(isPresented: $showingAlert, content: getAlert)
         .onAppear{
-            if sIsLoadingPerformance {
-                eventGroupPointsHolder.loadDataFromPerformance(pointsPerf: wAPointsPerformance!)
-                selectedEventGroup = eventGroupPointsHolder.eventGroup
-                selectedEventGroupIndex =  EventsDataObtainerAndHelper.shared.getIndexOfEventGroup(pEventGroup: eventGroupPointsHolder.eventGroup)
-                titleOfSavedPerformance = eventGroupPointsHolder.performanceTitle
-            } else {
-                eventGroupPointsHolder.resetEventGroupPointsHolderEventGroup(newEventGroup: EventsDataObtainerAndHelper.shared.allEventGroups[0])
-            }
+//            if sIsLoadingPerformance {
+//                eventGroupPointsHolder.loadDataFromPerformance(pointsPerf: wAPointsPerformance!)
+////                selectedEventGroup = eventGroupPointsHolder.eventGroup
+//                selectedEventGroupIndex =  EventsDataObtainerAndHelper.shared.getIndexOfEventGroup(pEventGroup: eventGroupPointsHolder.eventGroup)
+//                titleOfSavedPerformance = eventGroupPointsHolder.performanceTitle
+//            } else {
+////                print("not loading from wap7oints")
+////                selectedEventGroup = EventsDataObtainerAndHelper.shared.allEventGroups[0]
+//            }
+            
+                              
         }
     }
     

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DynamicPointsView: View {
     
-    @Binding var eventGroup: EventGroup
+    var eventGroup: EventGroup
     
     @EnvironmentObject var mainViewModel : MainViewModel
     
@@ -22,6 +22,9 @@ struct DynamicPointsView: View {
             HStack{
                 VStack(alignment: .leading){
                     Text("Performance")
+                    if EventGroup.needsWindParameter(eventGroupName: eventGroup.sName) {
+                        Text("Wind (if applicable)")
+                    }
                     Text("Placement")
                     Text("Total points")
                 }
@@ -39,16 +42,12 @@ struct DynamicPointsView: View {
                                            
                         SingleEventScoreWAView(performanceIndex: performanceNumber, eventGroupPointsHolder: self.eventGroupPointsHolder)
                         
-                        ZStack {
-                            WindReadingView(windReading: $eventGroupPointsHolder.windReadings[performanceNumber], pointsModification: $eventGroupPointsHolder.windPointsModifications[performanceNumber])
+                        if AthleticsEvent.needsWindParameter(eventKey: eventGroupPointsHolder.selectedAthleticsEvents[performanceNumber].sKey) {
+                            ZStack {
+                                WindReadingView2(windReading: $eventGroupPointsHolder.windReadings[performanceNumber], pointsModification: $eventGroupPointsHolder.windPointsModifications[performanceNumber])
+                            }
                         }
-//                        .highPriorityGesture(
-//                                    TapGesture()
-//                                        .onEnded { _ in
-//                                            print("VStack tapped")
-//                                        }
-//                                )
-                                               
+                                             
                         TextField(eventGroupPointsHolder.eventPlacementPoints[performanceNumber], text: $eventGroupPointsHolder.eventPlacementPoints[performanceNumber])
                             .fixedSize()
                             .keyboardType(.decimalPad)
@@ -64,45 +63,33 @@ struct DynamicPointsView: View {
                     }
                     .onChange(of: eventGroupPointsHolder.selectedEventIndexesArray[performanceNumber]) { newPickerIndex in
                         //updates the binding state that is passed to single score view
-                        eventGroupPointsHolder.updateSelectedAthleticEvents(changeIndex: newPickerIndex)
+                        updateSomething(perfNumber: performanceNumber)
+                        
                     }
                 }
             }
         }
 
     }
+    
+    func updateSomething(perfNumber: Int) {
+        eventGroupPointsHolder.updateSelectedAthleticEvents(perfNumber: perfNumber)
+    }
 }
 
-struct WindReadingView:View {
-    
-    private let headwind = "Headwind"
-    private let tailwind = "Tailwind"
+
+
+struct WindReadingView2:View {
     
     @Binding var windReading:String
     @Binding var pointsModification:String
-    @State var windDirection:String = "Headwind"
     
     let pointsPerUnitOfWind = 6.0
     var body: some View {
         HStack{
-            Button(action: {
-                //All i want is this button gesture to be run, not the picker in the form
-            }) {
-                Text(windDirection)
-            }
-            .highPriorityGesture(
-                TapGesture()
-                    .onEnded { _ in
-                        if windDirection==tailwind {
-                            windDirection=headwind
-                        } else {
-                            windDirection=tailwind
-                        }
-                        updatePointsModification()
-                    }
-            )
+                Text("Wind:")
             
-            CustomCenterTextField(value: $windReading, keyboardType: .decimalPad, defaultValue: "0.0")
+            CustomCenterTextField(value: $windReading, keyboardType: .numbersAndPunctuation, defaultValue: "0.0")
                 .onChange(of: windReading) { newWindReading in
                     if newWindReading.isEmpty {
                         pointsModification="0"
@@ -115,10 +102,7 @@ struct WindReadingView:View {
     }
     
     func updatePointsModification() {
-        if var windReadingDouble = Double(windReading) {
-            if windDirection==headwind{
-                windReadingDouble=windReadingDouble * -1.0
-            }
+        if let windReadingDouble = Double(windReading) {
             if windReadingDouble<0.0 || windReadingDouble>2.0 {
                 pointsModification=String(Int(floor(-windReadingDouble*pointsPerUnitOfWind)))
                 print("points mod:\(String(Int(floor(-windReadingDouble*pointsPerUnitOfWind)))) ")
@@ -128,6 +112,8 @@ struct WindReadingView:View {
         }
     }
 }
+
+
 
 
 //struct DynamicPointsView_Previews: PreviewProvider {

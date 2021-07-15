@@ -24,6 +24,8 @@ extension WAPointsPerformance {
     @NSManaged public var eventPerformances: String?
     @NSManaged public var eventPerformancePoints: String?
     @NSManaged public var eventPlacementPoints: String?
+    @NSManaged public var windReadings: String?
+    @NSManaged public var windPoints: String?
     @NSManaged public var rankingScore: String?
     
     public var wrappedPerformanceID: String {
@@ -107,6 +109,36 @@ extension WAPointsPerformance {
     public var wrappedEventPlacementPoints: [String] {
         var array = [String]()
         if let jsonData1 = eventPlacementPoints?.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                array = try decoder.decode([String].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return array
+        
+    }
+    
+    public var wrappedWindPoints: [String] {
+        var array = [String]()
+        if let jsonData1 = windPoints?.data(using: .utf8)
+        {
+            let decoder = JSONDecoder()
+            do {
+                array = try decoder.decode([String].self, from: jsonData1)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return array
+        
+    }
+    
+    public var wrappedWindReadings: [String] {
+        var array = [String]()
+        if let jsonData1 = windReadings?.data(using: .utf8)
         {
             let decoder = JSONDecoder()
             do {

@@ -14,6 +14,10 @@ public class EventGroup : Codable, Equatable {
         return lhs.sName == rhs.sName
     }
     
+    static func needsWindParameter(eventGroupName: String) -> Bool {
+        return (eventGroupName == "Men´s 100m" || eventGroupName == "Men´s 200m" || eventGroupName == "Men´s 110mH"  || eventGroupName == "Men´s Long Jump" || eventGroupName == "Men´s Triple Jump" || eventGroupName == "Women´s 100m" || eventGroupName == "Women´s 200m" || eventGroupName == "Women´s 100mH"  || eventGroupName == "Women´s Long Jump" || eventGroupName == "Women´s Triple Jump")
+    }
+    
     let sName:String
     let sMainEvent:AthleticsEvent
     let sSimilarEvents:[AthleticsEvent]

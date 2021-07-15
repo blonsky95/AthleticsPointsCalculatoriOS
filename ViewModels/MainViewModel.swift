@@ -330,7 +330,7 @@ class MainViewModel: ObservableObject {
         
         let jsonSelAthEvents = try! JSONEncoder().encode(infoHolder.selectedAthleticsEvents)
         wAPointsPerformance.selectedAthleticsEvents=String(data: jsonSelAthEvents, encoding: .utf8)!
-        
+                
         let jsonEvePerfs = try! JSONEncoder().encode(infoHolder.eventPerformances)
         wAPointsPerformance.eventPerformances=String(data: jsonEvePerfs, encoding: .utf8)!
         
@@ -339,6 +339,12 @@ class MainViewModel: ObservableObject {
         
         let jsonEvePlcPts = try! JSONEncoder().encode(infoHolder.eventPlacementPoints)
         wAPointsPerformance.eventPlacementPoints=String(data: jsonEvePlcPts, encoding: .utf8)!
+        
+        let jsonWindPts = try! JSONEncoder().encode(infoHolder.windPointsModifications)
+        wAPointsPerformance.windPoints=String(data: jsonWindPts, encoding: .utf8)!
+        
+        let jsonWindReads = try! JSONEncoder().encode(infoHolder.windReadings)
+        wAPointsPerformance.windReadings=String(data: jsonWindReads, encoding: .utf8)!
         
         wAPointsPerformance.rankingScore = String(infoHolder.getAverage())
         

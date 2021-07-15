@@ -35,10 +35,9 @@ public class AthleticsEvent : Codable {
     static let categoryOutdoorFemale="category_outdoor_female"
     static let categoryOutdoorMale="category_outdoor_male"
     
-//    init (name: String, type: String) {
-//        self.sName=name
-//        self.sType=type
-//    }
+    static func needsWindParameter(eventKey:String) -> Bool {
+        return (eventKey == "100m_m_o" || eventKey == "200m_m_o" || eventKey == "110mh_m_o"  || eventKey == "long_jump_m_o" || eventKey == "triple_jump_m_o" || eventKey == "100m_f_o" || eventKey == "200m_f_o" || eventKey == "100mh_f_o"  || eventKey == "long_jump_f_o" || eventKey == "triple_jump_f_o")
+    }
     
     init () {
         self.sName="unknown"

@@ -22,6 +22,8 @@ class EventGroupPointsHolder:ObservableObject {
     
     @Published var windReadings=[String]()
     @Published var windPointsModifications=[String]()
+    
+    var isNavigatingBackFromPicker = false
 
     
     func getEventOfPerformanceNumber(perfNumber: Int) -> AthleticsEvent {
@@ -29,7 +31,11 @@ class EventGroupPointsHolder:ObservableObject {
     }
     
     func getTotalPoints(performanceIndex: Int) -> String {
-        return String((Int(eventPerformancesPoints[performanceIndex]) ?? 0) + (Int(eventPlacementPoints[performanceIndex]) ?? 0))
+        let perfPoints = Int(eventPerformancesPoints[performanceIndex]) ?? 0
+        let placPoints = Int(eventPlacementPoints[performanceIndex]) ?? 0
+        let windPoints = Int(windPointsModifications[performanceIndex]) ?? 0
+
+        return String(perfPoints + placPoints + windPoints)
     }
     
     func getAverage() -> Int {
@@ -41,11 +47,12 @@ class EventGroupPointsHolder:ObservableObject {
         return totalSum/numberPerfs
     }
     
-    func updateSelectedAthleticEvents(changeIndex: Int) {
-        selectedAthleticsEvents[changeIndex] = eventGroup.getArrayOfAthleticEvents()[selectedEventIndexesArray[changeIndex]]
+    func updateSelectedAthleticEvents(perfNumber: Int) {
+        selectedAthleticsEvents[perfNumber] = eventGroup.getArrayOfAthleticEvents()[selectedEventIndexesArray[perfNumber]]
     }
     func resetEventGroupPointsHolderEventGroup(newEventGroup: EventGroup = EventGroup()) {
-        
+//        print("resetting from points holder")
+
         selectedEventIndexesArray=[Int]()
         selectedAthleticsEvents=[AthleticsEvent]()
         eventPerformances=[String]()
@@ -76,10 +83,14 @@ class EventGroupPointsHolder:ObservableObject {
         self.eventPerformances = pointsPerf.wrappedEventPerformances
         self.eventPerformancesPoints = pointsPerf.wrappedEventPerformancePoints
         self.eventPlacementPoints = pointsPerf.wrappedEventPlacementPoints
+        self.windPointsModifications = pointsPerf.wrappedWindPoints
+        self.windReadings = pointsPerf.wrappedWindReadings
+        
         
         let arrayOfEvents = eventGroup.getArrayOfAthleticEvents()
         for event in selectedAthleticsEvents {
             self.selectedEventIndexesArray.append(arrayOfEvents.firstIndex{$0.sKey == event.sKey}!)
+//            print("for event \(event.sName) append to selectedEventIndexesArray: \(arrayOfEvents.firstIndex{$0.sKey == event.sKey}!)")
         }
         
 //        return self

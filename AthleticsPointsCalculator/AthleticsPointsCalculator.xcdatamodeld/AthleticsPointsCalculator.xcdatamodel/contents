@@ -20,9 +20,11 @@
         <attribute name="performanceTitle" optional="YES" attributeType="String"/>
         <attribute name="rankingScore" optional="YES" attributeType="String"/>
         <attribute name="selectedAthleticsEvents" optional="YES" attributeType="String"/>
+        <attribute name="windPoints" optional="YES" attributeType="String"/>
+        <attribute name="windReadings" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="UserSavedPerformance" positionX="-366.1953735351562" positionY="30.084228515625" width="128" height="149"/>
-        <element name="WAPointsPerformance" positionX="-63" positionY="45" width="128" height="178"/>
+        <element name="WAPointsPerformance" positionX="-63" positionY="45" width="128" height="194"/>
     </elements>
 </model>

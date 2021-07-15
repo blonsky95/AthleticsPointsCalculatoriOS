@@ -24,8 +24,7 @@ struct RankingPointsView: View {
 
                 List {
                     ForEach (mainViewModel.wAPointsPerformancesArray) { performance in
-                        NavigationLink(destination: WAPointsCalculator(isLoadingPerformance: true, pWAPointsPerformance: performance)) {
-//                            PointsPerformanceListItemView(waPointsPerformance: performance)
+                        NavigationLink(destination: WAPointsCalculator(isLoadingPerformance: true, initialEventGroup: performance.wrappedEventGroup, pWAPointsPerformance: performance)) {
                             HStack{
                                 VStack(alignment: .leading){
                                     Text(performance.wrappedPerformanceTitle)
@@ -40,7 +39,7 @@ struct RankingPointsView: View {
                 }
 
                 Spacer()
-                NavigationLink(destination: WAPointsCalculator(isLoadingPerformance: false)) {
+                NavigationLink(destination: WAPointsCalculator(isLoadingPerformance: false, initialEventGroup: EventsDataObtainerAndHelper.shared.allEventGroups[0])) {
                     Text("New")
                         .padding()
                         .foregroundColor(.white)
