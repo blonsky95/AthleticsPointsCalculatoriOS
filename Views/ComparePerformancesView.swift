@@ -40,11 +40,11 @@ struct ComparePerformancesView: View {
                     ForEach (0..<athleticPointsEventPerformance1.performancesArray.count) { i in
                         let sEvent1 = athleticPointsEventPerformance1.sEventsArray[i].sName
                         let sPerformance1 = "\(athleticPointsEventPerformance1.performancesArray[i])"
-                        let sPoints1 = mainViewModel.eventsDataObtainerAndHelper.getPoints(event: athleticPointsEventPerformance1.sEventsArray[i], performance: athleticPointsEventPerformance1.performancesArray[i].doubleValue)
+                        let sPoints1 = mainViewModel.getPointsForEvent(event: athleticPointsEventPerformance1.sEventsArray[i], perf: athleticPointsEventPerformance1.performancesArray[i].doubleValue)
                    
                         let sEvent2 = athleticPointsEventPerformance2.sEventsArray[i].sName
                         let sPerformance2 = "\(athleticPointsEventPerformance2.performancesArray[i])"
-                        let sPoints2 = mainViewModel.eventsDataObtainerAndHelper.getPoints(event: athleticPointsEventPerformance2.sEventsArray[i], performance: athleticPointsEventPerformance2.performancesArray[i].doubleValue)
+                        let sPoints2 = mainViewModel.getPointsForEvent(event: athleticPointsEventPerformance2.sEventsArray[i], perf: athleticPointsEventPerformance2.performancesArray[i].doubleValue)
                         
                         SingleEventComparer(event1: sEvent1,
                                             event2: sEvent2,

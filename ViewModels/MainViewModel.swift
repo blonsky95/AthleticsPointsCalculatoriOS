@@ -208,11 +208,11 @@ class MainViewModel: ObservableObject {
     @Published var eventPointsHolder=EventPointsHolder()
     
     func getPointsForEvent(event: AthleticsEvent, perf: Double) -> Int {
-        return eventsDataObtainerAndHelper.getPoints(event: event, performance: perf)
+        return eventsDataObtainerAndHelper.getPoints(event: event, sPerformance: perf)
     }
     
     func getStringPointsForEvent(event: AthleticsEvent, perf: Double) -> String {
-        return String(eventsDataObtainerAndHelper.getPoints(event: event, performance: perf))
+        return String(eventsDataObtainerAndHelper.getPoints(event: event, sPerformance: perf))
     }
     
     

@@ -131,11 +131,19 @@ class EventsDataObtainerAndHelper{
     
     
     
-    func getPoints(event:AthleticsEvent, performance:Double) -> Int {
+    func getPoints(event:AthleticsEvent, sPerformance:Double) -> Int {
         
+        var performance = sPerformance
         if performance<=0 {
             return 0
         }
+        
+        //round to 2dp if decimals
+        if performance.truncatingRemainder(dividingBy: 1) != 0 {
+            let doubleStr = String(format: "%.2f", performance) // "3.14"
+            performance=doubleStr.doubleValue
+        }
+       
         
         var points=0
         
@@ -179,6 +187,18 @@ class EventsDataObtainerAndHelper{
             //They all have the following second order polynomial formula:
             // a * (x + b)^2 + c
             
+            
+            //so in runs, b is always the negative of the performance for point 0. So if you exceed it you can still get wrong points so thats the rule for run events.
+            if event.sType==AthleticsEvent.typeRun || event.sType==AthleticsEvent.typeRunLong || event.sType==AthleticsEvent.typeRunVeryLong {
+                if event.sCoefficients["b"]!+performance>0 {
+                    return 0
+                }
+            } else {
+                //no field event should exceed 1000 right?
+                if performance>1000 {
+                    return 0
+                }
+            }
             points = Int(floor(event.sCoefficients["a"]! * pow(performance+event.sCoefficients["b"]!, 2) + event.sCoefficients["c"]!))
         }
         
