@@ -16,7 +16,8 @@ struct WAPointsCalculator: View {
     @ObservedObject var eventGroupPointsHolder:EventGroupPointsHolder
 
     @Environment(\.presentationMode) var presentationMode
-    @State private var showingAlert = false
+    @State private var showingAlert1 = false
+    @State private var showingAlert2 = false
 
     let sIsLoadingPerformance: Bool
     let wAPointsPerformance: WAPointsPerformance?
@@ -71,28 +72,23 @@ struct WAPointsCalculator: View {
                 Spacer()
                 Text("\(eventGroupPointsHolder.getAverage())")
             }.padding()
-            Button("Save") {
-                saveButtonPressed()
-            }.padding()
-            
-        }
-        .alert(isPresented: $showingAlert, content: getAlert)
-        .onAppear{
-//            if sIsLoadingPerformance {
-//                eventGroupPointsHolder.loadDataFromPerformance(pointsPerf: wAPointsPerformance!)
-////                selectedEventGroup = eventGroupPointsHolder.eventGroup
-//                selectedEventGroupIndex =  EventsDataObtainerAndHelper.shared.getIndexOfEventGroup(pEventGroup: eventGroupPointsHolder.eventGroup)
-//                titleOfSavedPerformance = eventGroupPointsHolder.performanceTitle
-//            } else {
-////                print("not loading from wap7oints")
-////                selectedEventGroup = EventsDataObtainerAndHelper.shared.allEventGroups[0]
-//            }
-            
-                              
+            HStack {
+                Button("Save") {
+                    saveButtonPressed()
+                }
+                .padding()
+                .alert(isPresented: $showingAlert1, content: getAlert1)
+                
+                Button("Validate") {
+                    showingAlert2 = true
+                }
+                .padding()
+                .alert(isPresented: $showingAlert2, content: getAlert2)
+            }
         }
     }
     
-    func getAlert() -> Alert {
+    func getAlert1() -> Alert {
         return Alert(
             title: Text("Overwrite performance?"),
             message: Text("Overwrite existing performance, or create a new performance?"),
@@ -107,11 +103,18 @@ struct WAPointsCalculator: View {
         )
     }
     
+    func getAlert2() -> Alert {
+        return Alert(
+            title: Text("Validation"),
+            message: Text(eventGroupPointsHolder.validateScore())
+        )
+    }
+
     func saveButtonPressed() {
         if sIsLoadingPerformance {
             if wAPointsPerformance!.wrappedPerformanceTitle != titleOfSavedPerformance {
                 //dialog
-                showingAlert = true
+                showingAlert1 = true
             } else {
                 updateUserSavedPerformance()
             }

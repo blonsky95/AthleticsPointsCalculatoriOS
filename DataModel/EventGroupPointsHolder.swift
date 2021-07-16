@@ -24,7 +24,35 @@ class EventGroupPointsHolder:ObservableObject {
     @Published var windPointsModifications=[String]()
     
     var isNavigatingBackFromPicker = false
-
+    
+    func validateScore() -> String {
+        
+        var string = "Nothing"
+        let minPerfOfMainEvent = eventGroup.sMinNumberPerformancesMainEvent
+        let nameOfMainEvent = eventGroup.sMainEvent.sName
+        
+        var count = 0
+        for i in 0...eventGroup.sMinNumberPerformancesGroup-1 {
+            if selectedAthleticsEvents[i]==eventGroup.sMainEvent {
+                count+=1
+            }
+        }
+        
+        if minPerfOfMainEvent-count <= 0 {
+            string = "Valid!"
+        } else {
+            string = "Not valid!"
+        }
+        var isAre = "are"
+        var performanceS = "performances"
+        if minPerfOfMainEvent==1{
+            isAre = "is"
+            performanceS = "performance"
+        }
+        string = string + " A minimum of \(minPerfOfMainEvent) \(performanceS) for \(nameOfMainEvent) \(isAre) required and you have \(count)"
+        
+        return string
+    }
     
     func getEventOfPerformanceNumber(perfNumber: Int) -> AthleticsEvent {
         return selectedAthleticsEvents[selectedEventIndexesArray[perfNumber]]

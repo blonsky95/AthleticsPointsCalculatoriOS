@@ -7,7 +7,12 @@
 
 import SwiftUI
 
-public class AthleticsEvent : Codable {
+public class AthleticsEvent : Codable, Equatable {
+    
+    public static func == (lhs: AthleticsEvent, rhs: AthleticsEvent) -> Bool {
+        return lhs.sKey==rhs.sKey
+    }
+    
     let sName:String
     let sType:String //run jump or throw
     let sCategory:String //is it combined events, indoor/outdoor, and male/female
